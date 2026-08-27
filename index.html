@@ -1,311 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>48-Hour Loan Proposal™ — Better, Faster & More Affordable</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f2f2f2;
-    color: #333;
-  }
-
-  /* Navigation */
-  nav {
-    background-color: #0A1A3A;
-    padding: 14px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    font-weight: 600;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-  }
-
-  /* Hero Section */
-  .hero {
-    background: linear-gradient(to bottom, #0A1A3A, #123A7A);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .hero-logo {
-    margin-bottom: 20px;
-  }
-
-  .hero-logo svg {
-    background-color: white;
-    border-radius: 50%;
-    padding: 20px;
-  }
-
-  .hero h1 {
-    margin: 0;
-    font-size: 2.6em;
-    margin-top: 20px;
-  }
-
-  .hero-columns {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 30px;
-    text-align: left;
-  }
-
-  .hero-columns ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1.1em;
-    line-height: 1.6;
-  }
-
-  .cta-button {
-    background-color: #007BFF;
-    padding: 14px 24px;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 30px;
-  }
-
-  /* Section Cards */
-  section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
-
-  .card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
-    margin-top: 40px;
-  }
-
-  h2 {
-    color: #0A1A3A;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  h3 {
-    color: #0A1A3A;
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  ul {
-    margin-top: 16px;
-    line-height: 1.7;
-  }
-
-  /* Form */
-  form input, form textarea, form button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-  }
-
-  form button {
-    background-color: #0A1A3A;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  /* Footer */
-  footer {
-    background-color: #0A1A3A;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-  }
-</style>
-
-</head>
-
-<body>
-
-<!-- Navigation -->
-<nav>
-  <a href="/">Home</a>
-  <a href="#how-it-works">How It Works</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#about">About</a>
-  <a href="#consultation-form">Contact</a>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero">
-
-  <!-- Logo Badge -->
-  <div class="hero-logo">
-    <svg width="160" height="160" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="90" cy="90" r="80" fill="#0A1A3A"/>
-      <rect x="55" y="40" width="70" height="100" rx="6" fill="#FFFFFF"/>
-      <rect x="55" y="40" width="70" height="100" rx="6" fill="none" stroke="#0EA5E9" stroke-width="3"/>
-      <polygon points="110,40 125,55 110,55" fill="#E2E8F0"/>
-      <polygon points="85,60 105,60 95,85 115,85 75,140 90,100 70,100"
-        fill="#FACC15" stroke="#F59E0B" stroke-width="2"/>
-      <text x="90" y="165" font-family="Arial, sans-serif" font-size="32"
-        fill="#FACC15" text-anchor="middle" font-weight="bold">48</text>
-    </svg>
-  </div>
-
-  <h1>48-Hour Loan Proposal™</h1>
-
-  <!-- Two-Column Hero Text -->
-  <div class="hero-columns">
-    <ul>
-      <li>Underwriter-ready</li>
-      <li>1-page Executive Summary</li>
-      <li>3-year Pro Forma Financials</li>
-    </ul>
-    <ul>
-      <li>80% financials</li>
-      <li>20% narrative</li>
-      <li>Fundability Ratio™ score</li>
-      <li>Slide deck + 60-second video</li>
-    </ul>
-  </div>
-
-  <a href="#consultation-form" class="cta-button">Request a Free Consultation</a>
-</section>
-
-<!-- What You Get -->
-<section>
+<!-- Why This Beats a Business Plan -->
+<section id="beats-business-plan">
   <div class="card">
-    <h2>What You Get in 48 Hours</h2>
+    <h2>Why This Beats a Business Plan</h2>
     <ul>
-      <li>Upload your information during the week</li>
-      <li>Two 20-minute weekend Zoom/Google Meet sessions</li>
-      <li>Final deliverables Monday afternoon</li>
-      <li>1-page “At-A-Glance” Executive Summary</li>
-      <li>3-year Pro Forma Financials</li>
-      <li>Proprietary Fundability Ratio™ score</li>
-      <li>Matching slide deck</li>
-      <li>Matching 60-second video</li>
-      <li>Free revisions for you and your bank for 90 days</li>
+      <li><b>Business plans are too long:</b> Banks don’t read 20–40 page documents. They skim for numbers.</li>
+      <li><b>Business plans bury the financials:</b> Underwriters want financials first, not hidden behind narrative.</li>
+      <li><b>Business plans are slow:</b> They take weeks or months. Your loan proposal is delivered in 48 hours.</li>
+      <li><b>Business plans are generic:</b> Your proposal is engineered specifically for underwriting review.</li>
+      <li><b>Business plans lack a scoring metric:</b> The Fundability Ratio™ gives banks a fast risk signal.</li>
     </ul>
-
-    <h3>Client Satisfaction Guarantee</h3>
-    <p style="text-align:center; max-width:700px; margin:0 auto;">
-      Every 48‑Hour Loan Proposal™ includes <b>free revisions for you and your bank for 90 days</b>.
-      Your Executive Summary, financials, slide deck, and video will be updated until they fully match your business and your lender’s requests.
-    </p>
-  </div>
-</section>
-
-<!-- How It Works -->
-<section id="how-it-works">
-  <div class="card">
-    <h2>How It Works</h2>
-    <ul>
-      <li><b>Step 1 — Free Consultation:</b> We discuss your business and loan goals.</li>
-      <li><b>Step 2 — Build:</b> Your Executive Summary, financials, and Fundability Ratio™ are created.</li>
-      <li><b>Step 3 — Deliver:</b> Slide deck + 60-second video delivered in 48 hours.</li>
-      <li><b>Step 4 — Support:</b> Free revisions for 90 days for you and your bank.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="why-banks-love-this">
-  <div class="card">
-    <h2>Why Banks Love This Format</h2>
-
-    <ul>
-      <li><b>Clear, concise, underwriter-ready structure:</b> Banks don’t want 30-page business plans. They want fast clarity, precise numbers, and a clean risk profile.</li>
-
-      <li><b>80% financials, 20% narrative:</b> This ratio mirrors how loan officers actually evaluate applications — financials first, narrative second.</li>
-
-      <li><b>Forward-looking 3-year Pro Forma Financials:</b> Underwriters rely on projections, not storytelling. Your proposal gives them exactly what they need.</li>
-
-      <li><b>Fundability Ratio™ score:</b> A proprietary metric that instantly communicates risk, viability, and financial strength in one number.</li>
-
-      <li><b>Slide deck + 60-second video:</b> Banks love clarity. These two deliverables make your business easy to understand and easy to approve.</li>
-
-      <li><b>Fast revisions:</b> Banks often request small changes. Your 90-day free revision window makes the process smooth and stress-free.</li>
-    </ul>
-
     <p style="text-align:center; max-width:700px; margin:0 auto; margin-top:20px;">
-      This format gives loan officers exactly what they want — clarity, precision, and confidence — without the clutter of a traditional business plan.
+      The 48‑Hour Loan Proposal™ is built for how banks actually make decisions — fast, financial, and focused.
     </p>
   </div>
 </section>
 
-  
-<!-- Pricing -->
-<section id="pricing">
+<!-- Fundability Ratio™ Explained -->
+<section id="fundability-ratio">
   <div class="card">
-    <h2>Pricing</h2>
-    <p style="text-align:center; font-size:1.2em;">
-      <b>$750 total — split into two payments</b><br>
-      $375 to start · $375 to finish
-    </p>
-    <p style="text-align:center;">
-      <a href="#consultation-form" class="cta-button">Start for $375</a>
-    </p>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about">
-  <div class="card">
-    <h2>About the Founder</h2>
+    <h2>Fundability Ratio™ Explained</h2>
     <p style="text-align:center; max-width:700px; margin:0 auto;">
-      <b>Alexander Durig, PhD — Loan Proposal Specialist</b><br><br>
-      30+ years of professional writing, systems design, and financial modeling.<br>
-      Creator of the Proprietary Fundability Ratio™.<br>
-      Author of <i>Autism and the Crisis of Meaning</i> and coauthor of the
-      <i>Encyclopedia of Sociology</i> entry on Qualitative Models.<br>
-      2,000+ business plans since 2006.
+      The Fundability Ratio™ is a proprietary weighted metric that evaluates financial strength, risk profile, and forward viability. 
+      It gives underwriters a single, clear number that summarizes your business’s lending potential.
+    </p>
+    <ul style="margin-top:20px;">
+      <li><b>Proprietary weighted formula:</b> The exact computation is confidential and not publicly disclosed.</li>
+      <li><b>Forward-looking:</b> Based on 3-year projections, not past performance alone.</li>
+      <li><b>Risk-focused:</b> Designed to help banks quickly assess clarity and confidence.</li>
+      <li><b>Easy to interpret:</b> Delivered with a color-coded risk band and summary.</li>
+    </ul>
+    <p style="text-align:center; max-width:700px; margin:0 auto; margin-top:20px;">
+      You see the score. Banks see the confidence.
     </p>
   </div>
 </section>
 
-<!-- Consultation Form -->
-<section id="consultation-form">
+<!-- Sample Deliverables Preview -->
+<section id="sample-deliverables">
   <div class="card">
-    <h2>Request a Free Consultation</h2>
-    <form action="https://formspree.io/f/xwvgjbvy" method="POST">
-      <input type="hidden" name="_redirect" value="https://48hourloanproposal.site/thank-you.html">
-      <input type="hidden" name="_subject" value="48-Hour Loan Proposal™ Consultation Request">
+    <h2>Sample Deliverables Preview</h2>
+    <p style="text-align:center; max-width:700px; margin:0 auto;">
+      A preview of the four deliverables included in every 48‑Hour Loan Proposal™.
+      Full downloadable prototypes will be available on the next page.
+    </p>
 
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="state" placeholder="State" required>
-      <input type="text" name="service" placeholder="Business Type" required>
-      <textarea name="message" placeholder="Message"></textarea>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px;">
 
-      <button type="submit">Send Request</button>
-    </form>
-  </div>
-</section>
+      <!-- Executive Summary Mockup -->
+      <div style="width:260px; text-align:center;">
+        <svg width="260" height="180" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="180" rx="12" fill="#0A1A3A"/>
+          <rect x="30" y="30" width="200" height="120" rx="8" fill="#ffffff"/>
+          <text x="130" y="100" font-size="18" fill="#0A1A3A" text-anchor="middle" font-weight="bold">
+            Executive Summary
+          </text>
+        </svg>
+      </div>
 
-<!-- Footer -->
-<footer>
-  <p>© 2026 48-Hour Loan Proposal™ — Better, Faster & More Affordable.</p>
-  <p>alex@48hourloanproposal.site · (502) 654-9500</p>
-</footer>
-
-</body>
-</html>
+      <!-- Pro Forma Financials Mockup -->
 
