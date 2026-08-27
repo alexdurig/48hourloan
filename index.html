@@ -1,43 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background Circle -->
-  <circle cx="90" cy="90" r="80" fill="#1E3A8A"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Document Shape -->
-  <rect x="55" y="40" width="70" height="100" rx="6" fill="#FFFFFF"/>
-  <rect x="55" y="40" width="70" height="100" rx="6" fill="none" stroke="#0EA5E9" stroke-width="3"/>
+<title>48-Hour Loan Proposal™ — Better, Faster & More Affordable</title>
 
-  <!-- Document Fold -->
-  <polygon points="110,40 125,55 110,55" fill="#E2E8F0"/>
+<link rel="stylesheet" href="styles.css">
 
-  <!-- Lightning Bolt -->
-  <polygon points="85,60 105,60 95,85 115,85 75,140 90,100 70,100" 
-           fill="#FACC15" stroke="#F59E0B" stroke-width="2"/>
-
-  <!-- "48" Number -->
-  <text x="90" y="165" font-family="Arial, sans-serif" font-size="32" 
-        fill="#FACC15" text-anchor="middle" font-weight="bold">48</text>
-</svg>
-
-
-    <title>48-Hour Loan Proposal™</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">
+<!-- Clean JSON-LD Schema -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "48 Hour Loan Proposal™",
+  "name": "48-Hour Loan Proposal™",
   "url": "https://48hourloanproposal.site",
-  "description": "The new alternative to traditional business plans delivering a complete, underwriter-ready loan proposal in 48 hours.",
+  "description": "A complete, underwriter-ready loan proposal delivered in 48 hours, including Executive Summary, Pro Forma Financials, Fundability Ratio™, slide deck, and 60-second video.",
   "telephone": "+15026549500",
   "email": "alex@48hourloanproposal.site",
-  "address": 
+  "address": {
     "@type": "PostalAddress",
+    "streetAddress": "1708 S 2nd St #5",
     "addressLocality": "Louisville",
     "addressRegion": "KY",
     "addressCountry": "US"
@@ -46,458 +29,194 @@
   "serviceType": [
     "48-Hour Loan Proposal™",
     "Executive Summary",
-    "Matching Slide Pitch Deck",
-          "Matching 60-Second Video",
-        "Proprietary Fundability Ratio™"
-    "3-Year Pro Forma Financials",
+    "Pro Forma Financials",
+    "Fundability Ratio™",
+    "Slide Deck",
+    "60-Second Video"
   ],
-  "priceRange": "$$",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "48-Hour Loan Proposal™",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "priceCurrency": "USD",
-        "minPrice": 750,
-        "maxPrice": 750
-      }
-   
-    }
-  ]
-}
-</script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "48-Hour Loan Proposal™",
-  "url": "https://48hourloanproposal.site",
-  "description": "A new kind of loan proposal that is an alternative to traditional business plans.",
-  "telephone": "+15026549500",
-  "email": "alex@48hourloanproposal.site",
-  "address": {1708 S 2nd St #5
-    "@type": "PostalAddress",
-    "addressLocality": "Louisville",
-    "addressRegion": "KY 40208",
-    "addressCountry": "US"
-  },
-  "areaServed": "US",
-  "serviceType": [
-    "Loan Proposal Studio",
-
-  ],
-  "priceRange": "$$",
-  "offers": [
-  
-    },
- 
-    },
-    
-      }
-    }
-  ]
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "750",
+    "description": "Split into two payments: $375 to start, $375 to finish."
+  }
 }
 </script>
 
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  nav {
+    background-color: #4B0082;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: 600;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  .hero {
+    background-color: #4B0082;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: 2.4em;
+  }
+  .hero p {
+    margin-top: 14px;
+    font-size: 1.2em;
+  }
+  .cta-button {
+    background-color: #007BFF;
+    padding: 14px 24px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  h2 {
+    color: #4B0082;
+    text-align: center;
+  }
+  ul {
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+  form input, form textarea, form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+  form button {
+    background-color: #4B0082;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  footer {
+    background-color: #4B0082;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+  }
+</style>
 
 </head>
- 
+
 <body>
-<!-- Navigation Bar -->
-<nav style="background-color:#4B0082; padding: 14px 20px; display:flex; justify-content:center; gap:30px; font-weight:600;">
-    <a href="/" style="color:white; text-decoration:none;">Home</a>
-    <a href="/services" style="color:white; text-decoration:none;">Services</a>
-    <a href="/services/service-agreement.html" style="color:white; text-decoration:none;">Service Agreement</a>
-    <a href="/guarantee-policy.html" style="color:white; text-decoration:none;">Guarantee Policy</a>
-    <a href="/checkout.html" style="color:white; text-decoration:none;">Checkout</a>
-    <a href="#consultation-form" style="color:white; text-decoration:none;">Contact</a>
+
+<!-- Navigation -->
+<nav>
+  <a href="/">Home</a>
+  <a href="#how-it-works">How It Works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#about">About</a>
+  <a href="#consultation-form">Contact</a>
 </nav>
-<div style="height:20px;"></div>
 
-<section style="background-color: #4B0082; color: white; padding: 40px 20px; text-align: center;">
-    <h1 style="margin: 0; font-size: 2.2em;">48-Hour Loan Proposal</h1>
-    <p style="margin-top: 12px; font-size: 1.2em;">
-    Underwriter‑ready, 1p., "At-A-Glance" Executive Summary.
-    <p style="margin-top: 12px; font-size: 1.2em;">
-    <b>80% financial information | 20% narrative content</b>         
-    <p style="margin-top: 12px; font-size: 1.2em;">  
-    3-year Pro Forma Financials, Proprietary Fundability Ratio™ score. 
-    <p style="margin-top: 12px; font-size: 1.2em;">  
-    Matching Slide Deck, and 60-Second Video all in 48 hours.
-    <p style="margin-top: 12px; font-size: 1.2em;">   
-    <b>The new alternative to traditional business plans.</b>
-    <p style="margin-top: 12px; font-size: 1.2em;">  
-        Free revisions for you and your bank for 90 days. <b>Guaranteed.</b>
-    <p style="margin-top: 12px; font-size: 1.2em;">  
-        $750 split into 2 payments. $375 to start. $375 to finish.
-    <p style="margin-top: 12px; font-size: 1.2em;">
-       <b><i>Better, Faster & More Affordable than any business plan.</i></b>
-    <p style="margin-top: 12px; font-size: 1.2em;">
-       Alexander Durig, Founder 
-        48-Hour Loan Proposal™ 
-        Creator of the Fundability Ratio™
-    </p></center>
-
-    <p style="margin-top: 20px;">
-       <center> <a href="#consultation-form" class="cta-button" style="background-color: #007BFF; padding: 12px 20px; color: white; border-radius: 6px; text-decoration: none; font-weight: 600;">
-            Request a Free 48-Hour Loan Proposal™ Consultation
-        </a></center>
-    </p>
-</section>
-<section class="section" style="margin-top: 60px;">
-    <h2 style="color:#4B0082; text-align:center;">48-Hour Loan Proposal™ vs. Traditional Business Plans</h2>
-
-    <div style="overflow-x:auto; margin-top: 20px;">
-        <table style="width:100%; border-collapse: collapse; font-size: 1em;">
-            <thead>
-                <tr style="background-color:#4B0082; color:white;">
-                    <th style="padding:12px; border:1px solid #ddd;">Feature / Benefit</th>
-                    <th style="padding:12px; border:1px solid #ddd;">HCBSGuide</th>
-                    <th style="padding:12px; border:1px solid #ddd;">Consulting Firms</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">CMS Final Rule Alignment</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Fully integrated throughout the manual</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Often partial or outdated</td>
-                </tr>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">State‑Specific Compliance</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Included and updated</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Usually generic templates</td>
-                </tr>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">Audit‑Ready Formatting</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Organized for surveyor clarity</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Varies widely</td>
-                </tr>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">Manual Updates</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Free with subscription; versioned updates delivered automatically</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Often requires new purchase</td>
-                </tr>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">Turnaround Time</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Fast delivery</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Weeks or months</td>
-                </tr>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">Cost</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Affordable, transparent pricing</td>
-                    <td style="padding:12px; border:1px solid #ddd;">$3,500–$15,000+</td>
-                </tr>
-                
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">Founder Expertise</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Written by Alexander Durig, Founder, 48-Hour Loan Proposal™ 
-        Creator of the Fundability Ratio™</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Often written by general consultants</td>
-                </tr>
-                <tr>
-                    <td style="padding:12px; border:1px solid #ddd;">Affiliate Partnerships</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Available for consultants</td>
-                    <td style="padding:12px; border:1px solid #ddd;">Rare or nonexistent</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-<section class="section" style="margin-top: 60px; text-align:center;">
-    <h2 style="color:#4B0082;">48-Hour Loan Proposal™</h2>
-    <p style="max-width:700px; margin:20px auto; line-height:1.6;">
-        Lender‑ready, 1-page "At-A-Glance" Executive Summary" with 3-year pro forma financials, matching slide deck & 60-second video. 
-        Structured for clarity with precise financials and our Proprietary Fundability Ratio™ score that bank loan officers and underwriters want to see.
-    </p>
-
-    <a href="https://48hourloanproposal.site" class="btn" 
-       style="display:inline-block; background-color:#4B0082; color:white; padding:14px 28px; border-radius:6px; text-decoration:none; font-weight:bold; margin-top:20px;">
-       48-Hour Loan Proposal™ — Start for $375
-    </a>
+<!-- Hero Section -->
+<section class="hero">
+  <h1>48-Hour Loan Proposal™</h1>
+  <p>Underwriter-ready, 1-page Executive Summary with 3-year Pro Forma Financials.</p>
+  <p><b>80% financials | 20% narrative | Fundability Ratio™ score</b></p>
+  <p>Matching slide deck & 60-second video — all delivered in 48 hours.</p>
+  <p><b>The new alternative to traditional business plans.</b></p>
+  <a href="#consultation-form" class="cta-button">Request a Free Consultation</a>
 </section>
 
- <section class="section" id="services-overview" style="margin-top: 40px;">
-    <h2>Business Plans are Dead and Everybody Knows It</p> 
-        They're outmoded, bloated with filler, and everyone from entrepreneurs to banks wants a succinct loan proposal with pinpoint financial accuracy.</h2></p>
-
-    <p style="margin-top: 12px; font-size: 1.1em; color: #444;">
-        <b>Why the business plan industry is not just in a slump, it’s in structural collapse.</b></p>
-<p>•	The Death of the Static Document: Founders are no longer willing to spend weeks drafting 30-page text documents.</p>
-     <p>Investors are actively penalizing bloated plans, preferring agile, data-backed models. And no bank loan officer or underwriter out there is looking forward to reading their 2000th business plan.</p>
-<p>•	The "Solo-Operator" Boom: New business applications surged past 5.7 million. However, because generative AI now allows a single person to handle design, copywriting, and marketing, these founders are skipping formal agency planning entirely.</p> 
-<p>•	Stricter Lending Guardrails: Higher interest rates and strict bank protocols mean that standard, boilerplate business plans no longer guarantee funding approvals, driving down trust in basic templates. </p>
-     <p>It takes more than fluff and storytelling to get a loan nowadays. It takes pinpoint financial accuracy.</p>
-</section> 
-    
- <section class="section" id="services-overview" style="margin-top: 40px;">
-    <h2>What 48-Hour Loan Proposal™ Provides</h2>
-
-    <p style="margin-top: 12px; font-size: 1.1em; color: #444;">
-        Underwriter-ready loan proposals in 48 hours. Free revisions for you and your bank for 90 days. GUaranteed.
-    </p>
-
-    <ul style="margin-top: 16px;">
-        <li>Executive Summary "At-A-Glance" 1-page Overview</li>
-        <li>3-year Pro Forma Financials</li>
-        <li>Matching slide presentation</li>
-        <li>Matching 60-second video</li>
-        <li>Revisons for you and your bank for 90 days free of charge</li>
-        <li>Financials focusing on precise business statistics</li>
-        <li>Exclusive rating with our Proprietary Fundability Ratio™</li>
-        <li>20% Content(A–G)</li>
-        <li>80% Financials</li>
-        <li>Free revisions for you and your bank for 90 days</li>
-        <li>One 20-min Zoom/Google Meet on Saturday afternoon</li>
-        <li>One 20-min Zoom/Google Meet on Sunday afternoon</li>
-        <li>Your 48-Hour Loan Proposal™, matching slide deck & 60-second video delivered Monday afternoon</li>
-    </ul>
-       <p class="note">Every 48-Hour Loan Proposal™ is customized to your business and your background.</p>
+<!-- What You Get -->
+<section>
+  <h2>What You Get in 48 Hours</h2>
+  <ul>
+    <li>1-page “At-A-Glance” Executive Summary</li>
+    <li>3-year Pro Forma Financials</li>
+    <li>Proprietary Fundability Ratio™ score</li>
+    <li>Matching slide deck</li>
+    <li>Matching 60-second video</li>
+    <li>Free revisions for you and your bank for 90 days</li>
+    <li>Two 20-minute weekend Zoom/Google Meet sessions</li>
+    <li>Final deliverables Monday afternoon</li>
+  </ul>
 </section>
 
-
-  
-
-    <section class="section">
-        <h2>Why Providers Choose HCBSGuide.site</h2>
-        <p>HCBS compliance is complex. But your documentation doesn’t have to be. We build complete, structured, CMS‑aligned manuals that help providers:</p>
-        <ul>
-            <li>Pass certification and recertification</li>
-            <li>Meet HCBS Settings Rule requirements</li>
-            <li>Demonstrate compliance during audits</li>
-            <li>Reduce administrative burden</li>
-            <li>Launch confidently and professionally</li>
-        </ul>
-    </section>
-
-<section class="section">
-    <h2>What’s Included in Your HCBS Policies & Procedures Manual</h2>
-    <p>This professionally developed manual includes all required HCBS compliance domains, operational standards, and audit-ready documentation.</p>
-
-    <ul class="toc-preview">
-        <li>Organizational Standards</li>
-        <li>Fiscal Accountability</li>
-        <li>Governing Body Requirements</li>
-        <li>Quality Improvement Processes</li>
-        <li>Personnel & Training Requirements</li>
-        <li>Intake & Admission Procedures</li>
-        <li>Confidentiality & Records Protection</li>
-        <li>Incident Reporting Standards</li>
-        <li>Medication Management</li>
-        <li>Appeals & Grievances</li>
-        <li>Abuse Recognition & Reporting</li>
-        <li>Person-Centered Planning</li>
-        <li>Restrictive Interventions</li>
-        <li>Documentation of Services</li>
-        <li>HCBS Settings Rule Compliance</li>
-        <li>Member Handbook</li>
-        <li>Employee Handbook</li>
-        <li>Financial Models & Revenue Projections</li>
-        <li>Startup Analysis & Implementation Timeline</li>
-        <li>Annual Policy Review & Audit Checklist</li>
-    </ul>
-
-    <a href="/downloads/Loan Readiness Checklist.pdf" class="cta-button">
-        Download Loan Readiness Checklist (PDF)
-    </a>
-</section>
-       <section class="section">
-    <h2>About the Author</h2>
-    <p><strong>Alexander Durig, PhD — Loan Proposal Specialist</strong></p>
-    <ul>
-        <li>30+ years of professional writing and systems design</li>
-        <li>Author of <em>Autism and the Crisis of Meaning</em></li>
-        <li>NIMH fellowship recipient</li>
-        <li>Co‑author of the <em>Encyclopedia of Sociology</em> entry on Qualitative Models</li>
-        <li>2,000+ business plans since 2006</li>
-    </ul>
-</section>
-<section class="section" id="services">
-    <h2>HCBS Services</h2>
-    <p class="tagline"><it></it>Policies, Manuals, and Compliance You Can Trust.</it></p>
-    <ul style="margin-top: 16px;">
-        <li>HCBS Policies & Procedures Manuals</li>
-        <li>Employee Handbooks</li>
-        <li>Member Handbooks</li>
-        <li>PCSP Templates</li>
-        <li>Appendix Sets (A–G)</li>
-        <li>New Agency Startup Packages</li>
-        <li>Regulatory Updates & Living Documents</li>
-        <li>HCBS Compliance Consulting (All 50 States)</li>
-    </ul>
-
-    <p style>
-        <a href="/services">View Full Services</a>
-    </p>
-    <p>
-        <a href="/services/service-agreement.html">View Your Custom Service Agreement</a>
-    </p>
-    <p> We'll work together to create your customized Service Agreement. This allows you to create exactly the Service Model you want to present. It lays the foundation for our work together and it ensures <i>no surprises</i> along the way.</p>
-    <p>
-    </p>
-     <p style="margin-top: 20px; text-align: center;">
-       <a href="/downloads/HCBSGuide-Service-Agreement.docx" class="cta-button">
-        Download Full HCBSGuide Custom Service Agreement (doc.x) 
-       </a>
-</section>
-<section class="section">
-    <h2>How It Works</h2>
-        <ol>
-    <ul class="toc-preview">
-            <li><strong>Free Consultation</strong> — We discuss your service type, state, and requirements.</li>
-            <li><strong>Manual Development</strong> — I build your complete HCBS Policies & Procedures Manual.</li>
-            <li><strong>State Customization</strong> — Your manual is aligned with your state’s Administrative Code.</li>
-            <li><strong>Delivery & Support</strong> — Editable documents + optional ongoing updates.</li>
-        </ol></ul>
-        <p><a href="/services">View Full Services</a></p>
-       <p style="margin-top: 20px; text-align: center;">
-    <a href="#consultation-form" class="cta-button">Request a Free Consultation</a>
-</p>
-  <div class="cta-boxes" style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
-    </section>
-
-<section class="section" id="pricing" style="margin-top: 40px;">
-    <h2>Pricing</h2>
-    <p class="tagline">Clear, transparent pricing for HCBS providers in all 50 states.</p>
-
-    <ul style="margin-top: 16px;">
-        <li><strong>HCBS Policies & Procedures Manual:</strong> $2,500 – $4,000</li>
-        <li><strong>Employee Handbook:</strong> $750 – $1,200</li>
-        <li><strong>Member Handbook:</strong> $500 – $900</li>
-        <li><strong>PCSP Template:</strong> $300 – $500</li>
-        <li><strong>Appendix Set A–G:</strong> $1,200 – $1,800</li>
-        <li><strong>New Agency Startup Package:</strong> $5,000 – $8,500</li>
-        <li><strong>Regulatory Updates Subscription:</strong> $30/month</li>
-        <li><strong>HCBS Compliance Consulting:</strong> $125 – $175/hour</li>
-    </ul>
-
-  <p style="margin-top: 20px; text-align: center;">
-    <a href="#consultation-form" class="cta-button">Get Started Here</a>
-</p>
+<!-- How It Works -->
+<section id="how-it-works">
+  <h2>How It Works</h2>
+  <ul>
+    <li><b>Step 1 — Free Consultation:</b> We discuss your business and loan goals.</li>
+    <li><b>Step 2 — Build:</b> Your Executive Summary, financials, and Fundability Ratio™ are created.</li>
+    <li><b>Step 3 — Deliver:</b> Slide deck + 60-second video delivered in 48 hours.</li>
+    <li><b>Step 4 — Support:</b> Free revisions for 90 days for you and your bank.</li>
+  </ul>
 </section>
 
-
-<section class="section" id="about" style="margin-top: 40px;">
-    <h2>About Dr. Alexander Durig, Founder and Owner of HCBSGuide</h2>
-    <p class="tagline">Professional business writer for 20 years; HCBS Document Consultant specializing in waiver documentation, policies, manuals, and regulatory guidance for providers across all 50 states.</p>
-
-    <p style="margin-top: 16px;">
-        I help Home and Community-Based Services (HCBS) providers stay compliant by creating clear, accurate, and state‑aligned documentation. My work includes Policies & Procedures Manuals, Employee Handbooks, Member Handbooks, PCSP templates, Pro Forma Revenue Models and Financilal Projections, Appendix Sets, and ongoing regulatory updates.
-    </p>
-
-    <p style="margin-top: 16px;">
-        With decades of experience writing complex organizational documents, I focus on making HCBS compliance simple, understandable, and fully aligned with each state’s Administrative Code. Every manual and template is built to be practical, professional, and ready for audits, enrollment, and day‑to‑day operations.
-    </p>
-
-    <p style="margin-top: 16px;">
-        Whether you are launching a new agency or updating existing documentation, I provide reliable HCBS document support for providers in all 50 states.
-    </p>
+<!-- Pricing -->
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p style="text-align:center; font-size:1.2em;">
+    <b>$750 total — split into two payments</b><br>
+    $375 to start · $375 to finish
+  </p>
+  <p style="text-align:center;">
+    <a href="#consultation-form" class="cta-button">Start for $375</a>
+  </p>
 </section>
 
-<section class="section" id="faq" style="margin-top: 40px;">
-    <h2>FAQ</h2>
-    <p class="tagline">Clear answers for HCBS providers in all 50 states.</p>
-
-    <h3> Is your work guaranteed? Do you have a returns policy?</h3>
-    <p></p>Absolutely. In fact, you have two strong assurances of client satisfaction being guaranteed when you work with HCBSGuide where you are always surrounded with trust, respect, safety, and comfort every step of the way.</p>
-        <p>[1] HCBSGuide Founder and Owner, Dr. Alexander Durig has been writing complex documents online for clients since 2006 and there is not one complaint anywhere online with his name on it.</p>
-    <p>[2] HCBSGuide gives every client a 100% client-satisfaction-or-your-money-back guarantee. Click on the button below and <b>"View the HCBSGuide Guarantee and Return Policy."</b> </p>
-        <p>[2] Plus when you transact using our merchant account, Stripe, your are also fully backed up by Stripe with a client-satisfaction-or-your-money-back guarantee.</p>
-    
-
-<center><p style="margin-top: 20px; text-align: center;">
-     <p><b>View the HCBSGuide Guarantee and Return Policy</b></p>
-    <a href="src/pages/return-policy.html" class="cta-button">HCBSGuide Guarantee and Return Policy</a></p></center>
-           <p><center>*****</center>
-           </p>
-    <h3>What HCBS services do you provide?</h3>
-    <p>
-    </p>
-     <center><p><i>Policies, Manuals and Compliance You Can Trust.</i></p></center>
-<p class="tagline">We provide professional HCBS documentation and compliance support for providers in all 50 states.</p>
-           
-        <p><strong>HCBS Policies & Procedures Manuals:</strong> State-Specific Policies & Procedures Manuals that are fully aligned with your State's licensing rules.</p>
-        <p><strong>Employee and Member Handbooks:</strong> Complete HR and participant onboarding frameworks plus your Home's policies with signature pages.</p>
-        <p><strong>PCSP Template & special Appendices Set A–G:</strong> Detailed policy addenda plus ready-to-use operational forms.</p>
-        <p><strong>New Agency Startup Package:</strong> P&P Manual, Handbooks, Forms and Templates - everything you need to document your Agency's case from application to ongoing daily operations.</p>
-        <p><strong>Regulatory Updates Subscription:</strong> Regulatory Peace of Mind with access to our $30/month Policy Alert Updates Subscription to keep you compliant long after approval.</p>
-        <p><strong>HCBS Compliance Consulting:</strong> $125 – $175/hour</p>
-
-  <p style="margin-top: 20px; text-align: center;">
-
-    <h3>Do you work with all HCBS waiver types?</h3>
-    <p>Yes. HCBSGuide was launched to support HCBS providers across all waiver types and service categories in all 50 states.</p>
-
-    <h3>How long does it take to complete a manual?</h3>
-    <p>Most HCBS Policies & Procedures Manuals are completed within 7–14 days depending on state requirements.</p>
-
-    <h3>Do you customize documents for my state?</h3>
-    <p>Yes. All manuals and templates are aligned with your state’s Administrative Code and HCBS requirements.</p>
-
-    <h3>What if I don’t like the first draft, or the state, an auditor, or a lender asks for changes? Will I be charged extra?</h3>
-    <p>No problem at all. All HCBS documents include unlimited free revisions to update your Policies & Procedures Manual, Handbooks, PCSP templates, and Appendices as many times as needed 
-    until they fully match your agency’s operations, your state’s requirements, and any requests from auditors, reviewers, or lenders at no additional cost to you.</p>
-
-    <h3>Do you offer ongoing policy updates?</h3>
-    <p>Yes. The HCBS $30/month Policy Alert Updates Subscription will provide you with ongoing regulatory updates and living document support to keep your materials current.</p>
-<p>Your documents are living documents. They will need to be updated whenever federal or state-level policy changes or rules are enacted. This can happen at any time and historically federal and state-level policies can and do change from time to time.</p>
- <p>With HCBS $30/month Policy Alert Updates you will always be appraised of policy changes and your Agency and your living documents will always be up-to-date and ready for every inspection or audit. This includes the revenue models in your pro forma financials being redone in the event of any changes in Medicaid reimbursements.</p>
-    <h3>How do I get started?</h3>
-    <p>Use the consultation form below or contact me directly by phone or email.</p>
+<!-- About -->
+<section id="about">
+  <h2>About the Founder</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto;">
+    <b>Alexander Durig, PhD — Loan Proposal Specialist</b><br><br>
+    30+ years of professional writing, systems design, and financial modeling.<br>
+    Creator of the Proprietary Fundability Ratio™.<br>
+    Author of <i>Autism and the Crisis of Meaning</i> and coauthor of the
+    <i>Encyclopedia of Sociology</i> entry on Qualitative Models.<br>
+    2,000+ business plans since 2006.
+  </p>
 </section>
 
-    </div>
-</section>
+<!-- Consultation Form -->
+<section id="consultation-form">
+  <h2>Request a Free Consultation</h2>
+  <form action="https://formspree.io/f/xwvgjbvy" method="POST">
+    <input type="hidden" name="_redirect" value="https://48hourloanproposal.site/thank-you.html">
+    <input type="hidden" name="_subject" value="48-Hour Loan Proposal™ Consultation Request">
 
-   <div style="margin-top: 20px; text-align: center;">
-    <div style="display: inline-block; padding: 12px 18px; background-color: #4B0082; color: white; border-radius: 6px; font-weight: 600; margin: 6px;">
-        📞 Call (502) 654-9500
-    </div>
-
-    <div style="display: inline-block; padding: 12px 18px; background-color: #4B0082; color: white; border-radius: 6px; font-weight: 600; margin: 6px;">
-        ✉️ Email alex@hcbsguide.site
-    </div>
-
-    </section>
-    <section class="section" id="consultation-form">
-        <h2>Request a Free Consultation</h2>
-       <form action="https://formspree.io/f/xwvgjbvy" method="POST">
-    <input type="hidden" name="_redirect" value="https://hcbsguide.site/thank-you.html">
-    <input type="hidden" name="_subject" value="Your HCBSGuide Consultation Request">
     <input type="text" name="name" placeholder="Name" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="text" name="state" placeholder="State" required>
-    <input type="text" name="service" placeholder="HCBS Service Type" required>
+    <input type="text" name="service" placeholder="Business Type" required>
     <textarea name="message" placeholder="Message"></textarea>
+
     <button type="submit">Send Request</button>
-</form>
-    </section>
-<section class="section" style="margin-top: 80px; text-align:center;">
-    <h2 style="color:#4B0082;">HCBSGuide Compliance Subscription — $30/month</h2>
-    <p style="max-width:700px; margin:20px auto; line-height:1.6;">
-        Stay compliant year‑round with automatic policy alerts, manual updates, CMS guidance summaries, 
-        and state‑specific regulatory changes delivered directly to your inbox.
-    </p>
-
-    <ul style="max-width:700px; margin:0 auto; text-align:left; line-height:1.7;">
-        <li>Policy change alerts</li>
-        <li>Updated HCBS manual versions</li>
-        <li>New CMS Final Rule interpretations</li>
-        <li>State‑specific updates</li>
-        <li>Updated templates and forms</li>
-        <li>Compliance notifications</li>
-        <li>Priority support</li>
-    </ul>
-
-    <a href="https://hcbsguide.site/src/pages/checkout" class="btn" 
-       style="display:inline-block; margin-top:30px; background-color:#4B0082; color:white; padding:14px 28px; border-radius:6px; text-decoration:none; font-weight:bold;">
-       Are you ready for the Fast Track? — Start Here
-    </a>
+  </form>
 </section>
 
-<footer class="footer">
-    <p>© 2026 HCBSGuide — Policies, Manuals, and Compliance You Can Trust.</p>
-    <p>alex@hcbsguide.site</a></p>
+<!-- Footer -->
+<footer>
+  <p>© 2026 48-Hour Loan Proposal™ — Better, Faster & More Affordable.</p>
+  <p>alex@48hourloanproposal.site · (502) 654-9500</p>
 </footer>
 
 </body>
