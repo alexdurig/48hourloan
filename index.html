@@ -9,41 +9,6 @@
 
 <link rel="stylesheet" href="styles.css">
 
-<!-- Clean JSON-LD Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "48-Hour Loan Proposal™",
-  "url": "https://48hourloanproposal.site",
-  "description": "A complete, underwriter-ready loan proposal delivered in 48 hours, including Executive Summary, Pro Forma Financials, Fundability Ratio™, slide deck, and 60-second video.",
-  "telephone": "+15026549500",
-  "email": "alex@48hourloanproposal.site",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "1708 S 2nd St #5",
-    "addressLocality": "Louisville",
-    "addressRegion": "KY",
-    "addressCountry": "US"
-  },
-  "areaServed": "US",
-  "serviceType": [
-    "48-Hour Loan Proposal™",
-    "Executive Summary",
-    "Pro Forma Financials",
-    "Fundability Ratio™",
-    "Slide Deck",
-    "60-Second Video"
-  ],
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "price": "750",
-    "description": "Split into two payments: $375 to start, $375 to finish."
-  }
-}
-</script>
-
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -52,7 +17,7 @@
     color: #333;
   }
   nav {
-    background-color: #4B0082;
+    background-color: #0A1A3A; /* Midnight Blue */
     padding: 14px 20px;
     display: flex;
     justify-content: center;
@@ -63,15 +28,14 @@
     color: white;
     text-decoration: none;
   }
-  .logo-container {
-    text-align: center;
-    margin-top: 40px;
-  }
   .hero {
-    background-color: #4B0082;
+    background-color: #0A1A3A; /* Midnight Blue */
     color: white;
     padding: 60px 20px;
     text-align: center;
+  }
+  .hero-logo {
+    margin-bottom: 20px;
   }
   .hero h1 {
     margin: 0;
@@ -97,7 +61,7 @@
     padding: 0 20px;
   }
   h2 {
-    color: #4B0082;
+    color: #0A1A3A; /* Midnight Blue */
     text-align: center;
   }
   ul {
@@ -113,13 +77,13 @@
     font-size: 1em;
   }
   form button {
-    background-color: #4B0082;
+    background-color: #0A1A3A;
     color: white;
     font-weight: 600;
     cursor: pointer;
   }
   footer {
-    background-color: #4B0082;
+    background-color: #0A1A3A;
     color: white;
     text-align: center;
     padding: 20px;
@@ -140,27 +104,28 @@
   <a href="#consultation-form">Contact</a>
 </nav>
 
-<!-- Logo Placement -->
-<div class="logo-container">
-  <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="90" cy="90" r="80" fill="#1E3A8A"/>
-    <rect x="55" y="40" width="70" height="100" rx="6" fill="#FFFFFF"/>
-    <rect x="55" y="40" width="70" height="100" rx="6" fill="none" stroke="#0EA5E9" stroke-width="3"/>
-    <polygon points="110,40 125,55 110,55" fill="#E2E8F0"/>
-    <polygon points="85,60 105,60 95,85 115,85 75,140 90,100 70,100"
-      fill="#FACC15" stroke="#F59E0B" stroke-width="2"/>
-    <text x="90" y="165" font-family="Arial, sans-serif" font-size="32"
-      fill="#FACC15" text-anchor="middle" font-weight="bold">48</text>
-  </svg>
-</div>
-
-<!-- Hero Section -->
+<!-- Hero Section with Integrated Logo -->
 <section class="hero">
+
+  <div class="hero-logo">
+    <svg width="160" height="160" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="90" cy="90" r="80" fill="#0A1A3A"/> <!-- Midnight Blue -->
+      <rect x="55" y="40" width="70" height="100" rx="6" fill="#FFFFFF"/>
+      <rect x="55" y="40" width="70" height="100" rx="6" fill="none" stroke="#0EA5E9" stroke-width="3"/>
+      <polygon points="110,40 125,55 110,55" fill="#E2E8F0"/>
+      <polygon points="85,60 105,60 95,85 115,85 75,140 90,100 70,100"
+        fill="#FACC15" stroke="#F59E0B" stroke-width="2"/>
+      <text x="90" y="165" font-family="Arial, sans-serif" font-size="32"
+        fill="#FACC15" text-anchor="middle" font-weight="bold">48</text>
+    </svg>
+  </div>
+
   <h1>48-Hour Loan Proposal™</h1>
   <p>Underwriter-ready, 1-page Executive Summary with 3-year Pro Forma Financials.</p>
   <p><b>80% financials | 20% narrative | Fundability Ratio™ score</b></p>
   <p>Matching slide deck & 60-second video — all delivered in 48 hours.</p>
   <p><b>The new alternative to traditional business plans.</b></p>
+
   <a href="#consultation-form" class="cta-button">Request a Free Consultation</a>
 </section>
 
@@ -181,7 +146,7 @@
   </ul>
 
   <!-- Client Satisfaction Guarantee -->
-  <h3 style="color:#4B0082; text-align:center; margin-top:40px;">
+  <h3 style="color:#0A1A3A; text-align:center; margin-top:40px;">
     Client Satisfaction Guarantee
   </h3>
 
@@ -252,4 +217,3 @@
 
 </body>
 </html>
-
