@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>48-Hour Loan Proposal</title>
 
     <style>
@@ -48,18 +48,19 @@
         }
 
         .hero-logo {
-            width: 140px;
-            height: 140px;
+            width: 160px;
+            height: 160px;
             background-color: white;
             border-radius: 50%;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 25px auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .hero-logo img {
-            width: 80px;
+        .hero-logo svg {
+            width: 90px;
         }
 
         .hero h1 {
@@ -122,7 +123,7 @@
             line-height: 1.5;
         }
 
-        /* GUARANTEE BANNER */
+        /* GUARANTEE */
         .guarantee {
             background-color: #003366;
             color: white;
@@ -142,7 +143,7 @@
             margin: 0 auto;
         }
 
-        /* TESTIMONIAL STRIP */
+        /* TESTIMONIALS */
         .testimonials {
             background-color: #e8e8e8;
             padding: 50px 20px;
@@ -171,6 +172,8 @@
             text-align: center;
             padding: 20px;
             margin-top: 60px;
+            font-size: 16px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -190,7 +193,12 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-logo">
-            <img src="/images/logo.png" alt="Logo">
+            <!-- SVG LOGO -->
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="48" fill="#001f3f" stroke="#003366" stroke-width="4"/>
+                <text x="50" y="58" font-size="36" font-weight="700" fill="white" text-anchor="middle" font-family="Arial">48</text>
+                <text x="50" y="85" font-size="20" font-weight="600" fill="#ffcc00" text-anchor="middle" font-family="Arial">HR</text>
+            </svg>
         </div>
 
         <h1>48-Hour Loan Proposal</h1>
@@ -245,8 +253,13 @@
 
     <!-- FOOTER -->
     <footer>
-        © 2026 48-Hour Loan Proposal — All Rights Reserved
+        Our Promise to You: If we miss the deadline — Monday 5pm ET — you receive a 25% refund automatically.  
+        Proviso: If you upload all required information by Friday 5pm ET and attend your scheduled weekend calls,  
+        and we still miss delivery of your full 48-Hour Loan Proposal package by Monday 5pm ET,  
+        you receive a 25% refund — automatically. No questions, no excuses.  
+        Plus: We provide unlimited revisions for 90 days for any changes you request or your lender requires.
     </footer>
 
 </body>
 </html>
+
