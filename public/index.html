@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>48-Hour Loan Proposal</title>
 
     <style>
@@ -10,6 +10,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            color: #333;
         }
 
         /* NAV BAR */
@@ -22,8 +23,8 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex;              /* Horizontal layout */
-            gap: 30px;                  /* Space between items */
+            display: flex;
+            gap: 30px;
             align-items: center;
         }
 
@@ -47,8 +48,8 @@
         }
 
         .hero-logo {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             background-color: white;
             border-radius: 50%;
             margin: 0 auto 20px auto;
@@ -58,18 +59,118 @@
         }
 
         .hero-logo img {
-            width: 70px;
+            width: 80px;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 48px;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 20px;
-            max-width: 600px;
+            font-size: 22px;
+            max-width: 700px;
             margin: 0 auto;
+        }
+
+        /* VALUE SECTION */
+        .value-section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .value-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #001f3f;
+        }
+
+        .value-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* THREE-COLUMN FEATURES */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 280px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .feature-box h3 {
+            color: #003366;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /* GUARANTEE BANNER */
+        .guarantee {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .guarantee h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .guarantee p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* TESTIMONIAL STRIP */
+        .testimonials {
+            background-color: #e8e8e8;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 30px;
+            color: #001f3f;
+            margin-bottom: 30px;
+        }
+
+        .testimonial {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #001f3f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
         }
     </style>
 </head>
@@ -96,6 +197,56 @@
         <p>Your fast, lender-ready business plan and financial model — delivered in 48 hours.</p>
     </section>
 
+    <!-- VALUE SECTION -->
+    <section class="value-section">
+        <h2>We Turn Your Vision Into a Lender-Ready Proposal</h2>
+        <p>Whether you're launching a new business, expanding operations, or seeking working capital, we deliver a complete, professional loan proposal that meets lender expectations and accelerates approvals.</p>
+
+        <div class="features">
+            <div class="feature-box">
+                <h3>✔ Professional Business Plan</h3>
+                <p>Clear, compelling, and structured to match lender requirements — including market analysis, competitive positioning, and operational strategy.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>✔ Financial Model & Pro Forma</h3>
+                <p>Accurate projections, startup costs, revenue forecasts, and break-even analysis built with lender logic and underwriting standards.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>✔ Delivered in 48 Hours</h3>
+                <p>Fast turnaround without sacrificing quality. Your proposal arrives polished, complete, and ready to submit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="guarantee">
+        <h2>Our 48-Hour Guarantee</h2>
+        <p>If we miss the deadline, you receive a 25% refund — automatically. No questions, no excuses.</p>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2>What Clients Say</h2>
+
+        <div class="testimonial">
+            “The proposal was so polished the lender approved us in three days. I couldn’t believe the turnaround.”
+        </div>
+
+        <div class="testimonial">
+            “Alexander’s financial model was the first one our loan officer said required no revisions.”
+        </div>
+
+        <div class="testimonial">
+            “Worth every penny. Fast, professional, and exactly what lenders want to see.”
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 48-Hour Loan Proposal — All Rights Reserved
+    </footer>
+
 </body>
 </html>
-
