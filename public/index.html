@@ -50,17 +50,17 @@
         .hero-logo {
             width: 160px;
             height: 160px;
-            background-color: white;
+            background-color: transparent;
             border-radius: 50%;
             margin: 0 auto 25px auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .hero-logo svg {
-            width: 90px;
+            width: 160px;
+            height: 160px;
         }
 
         .hero h1 {
@@ -193,12 +193,32 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-logo">
-            <!-- SVG LOGO -->
+
+            <!-- ⭐ REFINED SVG LOGO ⭐ -->
             <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="48" fill="#001f3f" stroke="#003366" stroke-width="4"/>
-                <text x="50" y="58" font-size="36" font-weight="700" fill="white" text-anchor="middle" font-family="Arial">48</text>
-                <text x="50" y="85" font-size="20" font-weight="600" fill="#ffcc00" text-anchor="middle" font-family="Arial">HR</text>
+                <!-- Thin white ring -->
+                <circle cx="50" cy="50" r="48" fill="white"/>
+
+                <!-- Midnight blue inner circle -->
+                <circle cx="50" cy="50" r="42" fill="#001f3f"/>
+
+                <!-- Gold lightning bolt with gradient -->
+                <defs>
+                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffd700"/>
+                        <stop offset="50%" stop-color="#ffcc00"/>
+                        <stop offset="100%" stop-color="#d4a017"/>
+                    </linearGradient>
+                </defs>
+
+                <polygon points="55,20 45,50 60,50 40,80 50,55 35,55"
+                         fill="url(#goldGradient)" />
+
+                <!-- 48HR text -->
+                <text x="50" y="90" font-size="22" font-weight="700" fill="white"
+                      text-anchor="middle" font-family="Arial">48HR</text>
             </svg>
+
         </div>
 
         <h1>48-Hour Loan Proposal</h1>
@@ -262,4 +282,5 @@
 
 </body>
 </html>
+
 
