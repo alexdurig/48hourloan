@@ -108,6 +108,7 @@
             flex: 1;
             min-width: 280px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-align: left;
         }
 
         .feature-box h3 {
@@ -173,6 +174,19 @@
             font-size: 16px;
             line-height: 1.5;
         }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer .footer-main {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-meta {
+            font-size: 14px;
+            opacity: 0.9;
+        }
     </style>
 </head>
 
@@ -191,28 +205,32 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-logo">
-            <!-- Original-style logo with metallic gold bolt -->
+            <!-- Replicated logo: blue circle, white document/battery, metallic gold bolt, 48HR text -->
             <svg viewBox="0 0 100 100">
                 <!-- Outer circle (midnight blue) -->
-                <circle cx="50" cy="50" r="45" fill="#001f3f"/>
+                <circle cx="50" cy="50" r="45" fill="#001f3f" />
 
-                <!-- Metallic gold gradient -->
+                <!-- Inner document/battery shape -->
+                <rect x="28" y="22" width="44" height="40" rx="6" ry="6" fill="white" />
+
+                <!-- Metallic gold gradient for bolt -->
                 <defs>
                     <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#ffd700"/>
-                        <stop offset="50%" stop-color="#ffcc00"/>
-                        <stop offset="100%" stop-color="#d4a017"/>
+                        <stop offset="0%" stop-color="#ffe680" />
+                        <stop offset="40%" stop-color="#ffd700" />
+                        <stop offset="70%" stop-color="#ffcc00" />
+                        <stop offset="100%" stop-color="#d4a017" />
                     </linearGradient>
                 </defs>
 
-                <!-- Lightning bolt (same basic shape, metallic fill) -->
+                <!-- Lightning bolt (dynamic gold lighting) -->
                 <polygon
-                    points="55,22 45,48 60,48 42,78 52,52 37,52"
+                    points="55,20 45,42 58,42 40,72 50,48 37,48"
                     fill="url(#goldGradient)" />
 
-                <!-- 48HR text below bolt -->
+                <!-- 48HR text below inside circle -->
                 <text x="50" y="86"
-                      font-size="22"
+                      font-size="20"
                       font-weight="700"
                       fill="white"
                       text-anchor="middle"
@@ -223,107 +241,62 @@
         </div>
 
         <h1>48-Hour Loan Proposal<sup>TM</sup></h1>
-        <p>A better, faster more affordable lender-ready loan proposal and financial model with Fundability Ratio<sup>TM</sup> — delivered in 48 hours.</p>
+        <p>A better, faster, more affordable lender-ready loan proposal and financial model with Fundability Ratio<sup>TM</sup> — delivered in 48 hours.</p>
     </section>
 
     <!-- VALUE SECTION -->
     <section class="value-section">
         <div class="features">
             <div class="feature-box">
-         <h3>Is it true you have an alternative to a traditional business plan?</h3>
-        <h3>✔ Yes~ We Can Turn Your Vision Into a 48-Hour Loan Proposal<sup>TM</sup></h3>
-        <b><p>It's better, faster, and more affordable than any traditional business plan.</p></b>
-        <p>Whether you're launching a new business, expanding operations, acquiring an existing business, or seeking working capital, a 48-Hour Loan Proposal<sup>TM</sup> meets lender expectations and accelerates approvals.</p>
+                <h3>Is it true you have an alternative to a traditional business plan?</h3>
+                <h3>✔ Yes~ We Can Turn Your Vision Into a 48-Hour Loan Proposal<sup>TM</sup></h3>
+                <p><b>It's better, faster, and more affordable than any traditional business plan.</b></p>
+                <p>Whether you're launching a new business, expanding operations, acquiring an existing business, or seeking working capital, a 48-Hour Loan Proposal<sup>TM</sup> meets lender expectations and accelerates approvals.</p>
 
-         <h3>If people have been sick of business plans forever, then how did you come up with the alternative?</h3>
-        <h3>✔ Probably because I've written 2000+ plans since 2006. I'm no business genius, I just had the hard-won experience to do it.</h3>
-        <b><p>It's a lot better, and a lot faster, and a lot more affordable than any business plan you'll buy online.</p></b>
-        <p>I'll tell you the real secret of it. Business plans are 30-40 pages long, 70% fluffy, narrative content, and 30% financials.</p>
-        <p>The trick is to go the other way with it. A 48-Hour Loan Proposal<sup>TM</sup> is 20 pages long, 70% financials and 30% narrative, which meets lender expectations and accelerates approvals. Make sense?</p>
+                <h3>If people have been sick of business plans forever, then how did you come up with the alternative?</h3>
+                <h3>✔ Probably because I've written 2000+ plans since 2006. I'm no business genius, I just had the hard-won experience to do it.</h3>
+                <p><b>It's a lot better, and a lot faster, and a lot more affordable than any business plan you'll buy online.</b></p>
+                <p>I'll tell you the real secret of it. Business plans are 30-40 pages long, 70% fluffy, narrative content, and 30% financials.</p>
+                <p>The trick is to go the other way with it. A 48-Hour Loan Proposal<sup>TM</sup> is 20 pages long, 70% financials and 30% narrative, which meets lender expectations and accelerates approvals. Make sense?</p>
 
-        <h3>But aren't business plans so long because they have to cover a lot of important information?</h3>
-        <h3>✔ No, not at all. The bank needs to know that you know what you're doing, and you have strong enough cash flow to make it.</h3>
-        <p>First of all, the kind of narrative spin that used to take up most of the content in a traditional business plan was the waxing poetic about how great they were going to be, and how passionate they were about their business. But the bank isn't playing Shark Tank. The bank doesn't want to read a book full of narrative, salesy fluff. The bank wants to know that YOU know what YOU'RE doing and YOU have strong cash flow. It's not a big mystery. So, we focus on what they want to see most.</p>
-        <b><p>It's way better, way faster, and way cheaper than any business plan you buy online.</p></b></p>
-                
-        <div class="features">
+                <h3>But aren't business plans so long because they have to cover a lot of important information?</h3>
+                <h3>✔ No, not at all. The bank needs to know that you know what you're doing, and you have strong enough cash flow to make it.</h3>
+                <p>First of all, the kind of narrative spin that used to take up most of the content in a traditional business plan was the waxing poetic about how great they were going to be, and how passionate they were about their business. But the bank isn't playing Shark Tank. The bank doesn't want to read a book full of narrative, salesy fluff. The bank wants to know that YOU know what YOU'RE doing and YOU have strong cash flow. It's not a big mystery. So, we focus on what they want to see most.</p>
+                <p><b>It's way better, way faster, and way cheaper than any business plan you buy online.</b></p>
+            </div>
+
             <div class="feature-box">
                 <h3>✔ Professional 48-Hour Loan Proposal<sup>TM</sup></h3>
                 <p>Clear, compelling, and structured to match lender requirements including market analysis, competitive positioning, and operational strategy.</p>
-            
-        <div class="features">
-            <div class="feature-box">
+
                 <h3>✔ Financial Model, Pro Formas, DSCR Analysis & Fundability Ratio<sup>TM</sup> score</h3>
                 <p>Accurate projections, startup costs, revenue forecasts, and break-even analysis built with impeccable lender logic and underwriting standards.</p>
 
-                     <div class="features">
-            <div class="feature-box">
                 <h3>✔ Exactly What Happens</h3>
-                <p>[1] During the week, ask us any questions you want. Conference for free at your convenience: alex@48hourloanproposal.site | (502) 654-9500</p> 
+                <p>[1] During the week, ask us any questions you want. Conference for free at your convenience: <b>alex@48hrloanproposal.site</b> | (502) 654-9500</p>
                 <p>[2] When you decide to start, you make your first 50% payment of $375 at our website and you are instantly directed to [a] schedule your Saturday and Sunday afternoon Zoom/Google Meet calls, and [b] you access our Web Portal where you will upload info in your 48-Hour Intake Form and you can upload any documents you want to present to the bank in support of your loan proposal.</p>
                 <p>[3] We meet for our Saturday and Sunday afternoon Zoom/Google Meet calls that you scheduled during the week.</p>
                 <p>[4] By Monday 5pm/ET you'll receive an email notifying you that your deliverables are complete and ready to be downloaded, with a payment link for your second payment of $375.</p>
                 <p>[5] The moment you make that second payment you'll be directed instantly to a folder that will open for you allowing you to download your deliverables.</p>
-                <p>From here, for the next 90 days we'll make an revisions requested by you or your bank.</p>
+                <p>From here, for the next 90 days we'll make any revisions requested by you or your bank.</p>
                 <p>And that's it.</p>
                 <p>It couldn't be any simpler.</p>
                 <p>And it couldn't be any better, any faster, or any more affordable.</p>
+            </div>
 
-                
-        <div class="features">
             <div class="feature-box">
                 <h3>✔ Delivered in 48 Hours</h3>
-                <p>Fast turnaround without sacrificing quality.</p> 
+                <p>Fast turnaround without sacrificing quality.</p>
                 <p>Polished, complete, and ready to submit.</p>
                 <p>The clock starts ticking on Saturday afternoon. We'll meet for a 20-min Zoom or Google Meet call.</p>
-                 <p>Upload your information during the week in our Web Portal</p>
+                <p>Upload your information during the week in our Web Portal.</p>
                 <p>We only require that you use our 48-Hour Intake Form.</p>
-                 <p>But, you are free to kitchen-sink it with us and upload any supporting documents you want to provide. You can take the whole week before we meet to upload supporting documents.
-                For example, it could be your logo, bank statements, invoices, or tax filings that are evidence of income earned. It could be the Operating Agreement for your LLC or detailed descriptions of your equipment, machinery, or assets.</p>
-                <p>You can upload whatever files you want knowing your documents are safe on secure CloudFlare servers.</p>
+                <p>But you are free to kitchen-sink it with us and upload any supporting documents you want to provide. You can take the whole week before we meet to upload supporting documents. For example, it could be your logo, bank statements, invoices, or tax filings that are evidence of income earned. It could be the Operating Agreement for your LLC or detailed descriptions of your equipment, machinery, or assets.</p>
+                <p>You can upload whatever files you want knowing your documents are safe on secure Cloudflare servers.</p>
                 <p>Next, you schedule one 20-minute call for Saturday afternoon and one more for Sunday.</p>
-            <p>...and the clock starts ticking Saturday afternoon~~~</p>
+                <p>...and the clock starts ticking Saturday afternoon~~~</p>
                 <p>We start working together on our Saturday afternoon Zoom/Google Meet call, we have one more Zoom/Google Meet call on Sunday afternoon.</p>
-                <p>Then, by Monday 5pm/ET, you'll receive email notification that your deliverables are complete and ready to be downloaded, with a payment link that unlocks your deliverables.</p>
-            <p>The moment you make your second payment of $375 you'll be directed instantly to a folder dedicated exclusively to holding your information, which will open for you allowing you to download your deliverables.</p>
-
-        </div>
-    </section>
-
-    <!-- GUARANTEE -->
-    <section class="guarantee">
-        <h2>Our 48-Hour Loan Proposal<sup>TM</sup> Guarantee</h2>
-        <p>If we miss the deadline, you receive a 25% refund — automatically. No questions, no excuses.</p>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <h2>What Clients Say</h2>
-
-        <div class="testimonial">
-            “The proposal was so polished the lender approved us in three days. I couldn’t believe the turnaround.”
-        </div>
-
-        <div class="testimonial">
-            “Alexander’s financial model was the first one our loan officer said required no revisions.”
-        </div>
-
-        <div class="testimonial">
-            “Worth every penny. Fast, professional, and exactly what lenders want to see.”
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        Our Promise to You: If we miss the deadline — Monday 5pm ET — you receive a 25% refund automatically.  
-       <p> Proviso: If you upload all required information by Friday 5pm ET and attend your scheduled weekend calls,  
-        and we still miss delivery of your full 48-Hour Loan Proposal package by Monday 5pm ET,  
-        you receive a 25% refund — automatically. No questions, no excuses.</p>  
-        <p>Plus: We provide unlimited revisions for 90 days for any changes you request or your lender requires.</p>
-    </footer>
-
-</body>
-</html>
+                <p>Then, by Monday
 
 
 
