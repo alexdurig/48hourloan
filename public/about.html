@@ -3,127 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>48-Hour Loan Proposal<sup>TM</sup></title>
+    <title>About 48-Hour Loan Proposal™</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            color: #222;
+            color: #333;
             line-height: 1.6;
         }
 
-        header {
-            background-color: #4a2e8a; /* Plum */
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
+        /* NAV BAR */
+        nav {
+            background-color: #001f3f; /* Midnight Blue */
+            padding: 15px 30px;
         }
 
-        h1 {
+        nav ul {
+            list-style: none;
             margin: 0;
-            font-size: 2.2rem;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
         }
 
-        h2 {
-            margin-top: 10px;
-            font-weight: 300;
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
         }
 
-        main {
-            max-width: 900px;
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(to bottom, #001f3f, #003366);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-logo img {
+            width: 140px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            max-width: 1100px;
             margin: 40px auto;
-          background-color: #f4f4f4; /* Smoke */
-            padding: 40px;
+            background: white;
+            padding: 50px;
             border-radius: 10px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.08);
-        }
-
-        hr {
-            margin: 40px 0;
-            border: none;
-            border-top: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         h3 {
-            margin-top: 0;
-            color: #4A2E8A;
+            color: #003366;
+            margin-top: 40px;
         }
 
-        .center-button {
-            text-align: center;
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 25px 0;
+            background: #fafafa;
         }
 
-        .download-btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background-color: #4A2E8A; /* Plum */
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 14px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #003366;
             color: white;
-            text-decoration: none;
-            border-radius: 6px;
             font-weight: 600;
-            font-size: 1rem;
         }
 
-        .download-btn:hover {
-         background-color: #4A2E8A;
+        /* FOOTER */
+        footer {
+            background-color: #001f3f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer .footer-main {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-meta {
+            font-size: 14px;
+            opacity: 0.9;
         }
     </style>
 </head>
 
 <body>
-<header>
-    <h1>About 48-Hour Loan Proposal<sup>TM</sup>  Portal</h1>
-    <h2>Better Proposals. Faster Funding. Less Cost.</h2>
-</header>
 
-<main>
+    <!-- NAV BAR -->
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About 48HR</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/prototype.html">Web Portal</a></li>
+        </ul>
+    </nav>
 
-    <b><p>About 48-Hour Loan Proposal™  </p>
-    <p>Alexander Durig, Founder 48-Hour Loan Proposal™  Creator of the Fundability Ratio™</p>
-    <p>2,000+ business plans since 2006 </p>
-    <p>alex@48hourloanproposal.site</p></main></b>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-logo">
+            <img src="/downloads/LOGO3.png" alt="48HR Logo">
+        </div>
+        <h1>About 48-Hour Loan Proposal™</h1>
+        <p>Better proposals. Faster funding. Less cost.</p>
+    </section>
 
-<h3>1. Introduction: The Philosophy of Clarity and Momentum</h3>
-<p>The 48-Hour Loan Proposal™ is engineered to solve the primary friction point in commercial lending: the "Information Gap" between a founder’s vision and an underwriter’s requirements. Traditional business planning assumes that volume equals value, but in a high-stakes credit environment, volume often hides risk. This system operates on the clinical principle that Clarity beats Length and Financials drive decisions. This is not a traditional business plan. It is a dedicated decision-support document designed specifically for bank loan officers and underwriters. It moves past the generic narrative to provide the exact financial signals required for rapid approval.</p> 
-    <p><b>The Core Purpose</b> To provide an underwriter-aligned, professional funding toolkit that demonstrates a business is ready to launch, ready to operate, and, most importantly, ready to repay. Because timing is a strategic advantage in the funding market, this transition from concept to credit-ready occurs through a high-intensity "Weekend Sprint."</p>
-<h3>2. The 5-Step Weekend Timeline: From Consultation to Monday Delivery</h3>
-<p>This process eliminates "analysis paralysis" by compressing the development cycle into a structured 48-hour window.</p> 
-<p>This speed ensures that the founder-level energy is preserved while the financial data remains sharp and actionable.</p>
-<p>Phase	Timing	Action/Value
-Step 1: Consultation	During the Week	High-level goal alignment and data intake to establish the project's "Ground Truth."
-Step 2: Strategy Sessions	Saturday/Sunday	Intensive Zoom sessions to refine the business concept, brand identity, and operational logic.
-Step 3: Financial Engineering	The Weekend	Construction of the 3-Year Pro Forma and stress-testing the Debt Service Coverage Ratio (DSCR) and Fundability Ratio™.
-Step 4: Delivery	Monday Afternoon	The final 20-page professional proposal and toolkit are delivered for immediate bank submission.
-Step 5: Ongoing Support	Following 90 Days	Critical revision window to address lender "what-if" scenarios or minor projection adjustments.</p>
-<h3>The "So What?" of Momentum</h3> 
-<p>Lenders view a protracted planning process as a signal of management indecision. By delivering a comprehensive, 20-page proposal in a 48-hour sprint, you demonstrate operational discipline. This condensed timeline forces the immediate reconciliation of operating costs and overhead. It signals to the bank that the management team can execute under pressure and with clinical precision. 
-Because timing is useless without a professional payload, the sprint produces four distinct high-signal tools.</p>
-<h3>3. The Four Core Deliverables: Your Professional Funding Toolkit<h3></h3>
-<p>A successful loan request requires a suite of tools that bridge the gap between a founder's biography and their venture's bankability.</p>
-<p><b>•	1-Page At-A-Glance Executive Summary:</b> This is a high-impact overview designed for the initial intake officer. It synthesizes the market opportunity and strategy while highlighting the $300,000+ funding requirement and the "lived experience" of the management team to ensure an immediate, positive "first pass" by the bank.</p>
-<p><b>•	3-Year Pro Forma Financials:</b> The "underwriting backbone" of the package. This section adheres to a strict 1:2 narrative-to-data ratio (6 pages of text followed by 13 pages of exclusively financial data). It includes a detailed Use of Funds and Startup Analysis, 12-month revenue forecasts, and a granular breakdown between Operating Expenses (e.g., fuel and driver payroll) and Overhead (e.g., management and rent).</p>
-<p><b>•	Strategic Slide Deck:</b> A visual storytelling tool that translates complex logistics—such as cross-border travel patterns or competitive advantages—into a professional format suitable for presentation to a formal loan committee.</p>
-<p><b>•	60-Second Pitch Video:</b> This tool mitigates perceived management risk. By demonstrating operational discipline and professional presence, the founders can bridge the gap between the document and the decision-maker, establishing trust that text alone cannot achieve.</p>
-<p>These deliverables work in tandem to create a specific signal for the lender: that the business has been "pre-underwritten" for stability and repayment.</p>
-<h3>4. The Fundability Ratio™: Your Proprietary Financial Signal</h3>
-<p>The centerpiece of the proposal is the Fundability Ratio™, a proprietary underwriting metric that removes the guesswork from the credit decision. Rather than burying key data, this ratio synthesizes five critical indicators into one clinical signal. Note Case Study Signal: In the Luxury Transport LLC prototype, the business achieved a Fundability Ratio™ of 82.4. This score is derived from specific inputs including Return on Assets (ROA), Return on Equity (ROE), Debt to Equity, and the Interest Coverage Ratio. By presenting these metrics upfront, the proposal provides the underwriter with an immediate risk signal, demonstrating strong margins and disciplined leverage.This focused metric stands in stark contrast to the narrative bloat of traditional business plans.</p>
-<h3>5. Why the 48-Hour Proposal Beats a Traditional Business Plan</h3>
-<p>In a professional lending environment, volume is the enemy of clarity. This process prioritizes the high-signal data points that actually trigger an approval.</p>
-<p>Criteria	The 48-Hour Loan Proposal™	Traditional Business Plans
-<p>Financial Accessibility	Front-and-center; 13+ pages of data.	Often buried or missing specific debt-service data.
-<p>Length	Clinical 20-page structure.	Bloated narrative (often 40-60 pages of "fluff").
-<p>Speed	48-Hour Weekend Sprint.	Weeks or months of drafting.
-<p>Underwriter Alignment	Engineered for bank approval and DSCR targets.	General purpose; lacks the "Ground Truth" for credit decisions.
-<p>By prioritizing what the lender actually needs—including the Debt Service Coverage Ratio (DSCR), Fundability Ratio™ and clear Use of Funds tables, the proposal minimizes the time between submission and funding.</p>
-<h3>6. Investment, Revisions, and Next Steps</h3>
-<p>The 48-Hour Loan Proposal™ is a high-value, fixed-price engagement for founders who require professional results without the traditional delay.</p>
-<p>•	Total Investment: $750.</p>
-<p>•	Payment Schedule: Two payments of $375 to maintain momentum.</p>
-<p>•	Commitment to Success: Every proposal includes 90 Days of Free Revisions. If you or your lender request any changes, we make those revisions at no additional cost.</p>
-<p>Starting the week with a completed, underwriter-aligned proposal allows you to go to the bank with maximum momentum and a toolkit that is "ready to operate."</p>
-<h3>7. Your 48-Hour Loan Proposal™ is a disciplined financial request.</h3>
-<p>The goal of this process is to replace uncertainty with financial literacy and operational structure. We show the banks a model of your business that is engineered for stability, scalability, and disciplined financial performance. By focusing on the data that matters most to lenders, the 48-Hour Loan Proposal™ transforms a business idea into a disciplined financial request.</p>
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <p><b>About 48-Hour Loan Proposal™</b></p>
+        <p>Alexander Durig, Founder — Creator of the Fundability Ratio™</p>
+        <p>2,000+ business plans since 2006</p>
+        <p>alex@48hrloanproposal.site</p>
+
+        <h3>1. Introduction: The Philosophy of Clarity and Momentum</h3>
+        <p>The 48-Hour Loan Proposal™ is engineered to solve the primary friction point in commercial lending: the "Information Gap" between a founder’s vision and an underwriter’s requirements. Traditional business planning assumes that volume equals value, but in a high-stakes credit environment, volume often hides risk.</p>
+
+        <p><b>The Core Purpose:</b> To provide an underwriter-aligned, professional funding toolkit that demonstrates a business is ready to launch, ready to operate, and ready to repay.</p>
+
+        <h3>2. The 5-Step Weekend Timeline</h3>
+        <p>This process eliminates "analysis paralysis" by compressing the development cycle into a structured 48-hour window.</p>
+
+        <!-- TABLE 1 -->
+        <table>
+            <tr>
+                <th>Phase</th>
+                <th>Timing</th>
+                <th>Action / Value</th>
+            </tr>
+            <tr>
+                <td>Step 1: Consultation</td>
+                <td>During the Week</td>
+                <td>High-level goal alignment and data intake to establish the project's "Ground Truth."</td>
+            </tr>
+            <tr>
+                <td>Step 2: Strategy Sessions</td>
+                <td>Saturday / Sunday</td>
+                <td>Intensive Zoom sessions to refine the business concept, brand identity, and operational logic.</td>
+            </tr>
+            <tr>
+                <td>Step 3: Financial Engineering</td>
+                <td>The Weekend</td>
+                <td>Construction of the 3-Year Pro Forma and stress-testing DSCR and Fundability Ratio™.</td>
+            </tr>
+            <tr>
+                <td>Step 4: Delivery</td>
+                <td>Monday Afternoon</td>
+                <td>Final 20-page professional proposal delivered for immediate bank submission.</td>
+            </tr>
+            <tr>
+                <td>Step 5: Ongoing Support</td>
+                <td>Following 90 Days</td>
+                <td>Revision window to address lender “what-if” scenarios or minor projection adjustments.</td>
+            </tr>
+        </table>
+
+        <h3>3. The Four Core Deliverables</h3>
+        <p>A successful loan request requires a suite of tools that bridge the gap between a founder's biography and their venture's bankability.</p>
+
+        <h3>4. The Fundability Ratio™</h3>
+        <p>The centerpiece of the proposal is the Fundability Ratio™, a proprietary underwriting metric that synthesizes five critical indicators into one clinical signal.</p>
+
+        <h3>5. Why the 48-Hour Proposal Beats a Traditional Business Plan</h3>
+
+        <!-- TABLE 2 -->
+        <table>
+            <tr>
+                <th>Criteria</th>
+                <th>The 48-Hour Loan Proposal™</th>
+                <th>Traditional Business Plans</th>
+            </tr>
+            <tr>
+                <td>Financial Accessibility</td>
+                <td>Front-and-center; 13+ pages of data.</td>
+                <td>Often buried or missing specific debt-service data.</td>
+            </tr>
+            <tr>
+                <td>Length</td>
+                <td>Clinical 20-page structure.</td>
+                <td>Bloated narrative (40–60 pages of fluff).</td>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td>48-Hour Weekend Sprint.</td>
+                <td>Weeks or months of drafting.</td>
+            </tr>
+            <tr>
+                <td>Underwriter Alignment</td>
+                <td>Engineered for bank approval and DSCR targets.</td>
+                <td>General purpose; lacks “Ground Truth.”</td>
+            </tr>
+        </table>
+
+        <h3>6. Investment, Revisions, and Next Steps</h3>
+        <p>Total Investment: $750 — two payments of $375.</p>
+        <p>Includes 90 days of free revisions.</p>
+
+        <h3>7. Your 48-Hour Loan Proposal™ is a disciplined financial request.</h3>
+        <p>The goal is to replace uncertainty with financial literacy and operational structure.</p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-main">
+            Our Promise to You: If we miss the deadline — Monday 5pm ET — you receive a 25% refund automatically.
+        </p>
+        <p>
+            Proviso: If you upload all required information by Friday 5pm ET and attend your scheduled weekend calls,
+            and we still miss delivery of your full 48-Hour Loan Proposal package by Monday 5pm ET,
+            you receive a 25% refund — automatically. No questions, no excuses.
+        </p>
+        <p>
+            Plus: We provide unlimited revisions for 90 days for any changes you request or your lender requires.
+        </p>
+        <p class="footer-meta">
+            © 2026 48-Hour Loan Proposal — alex@48hrloanproposal.site
+        </p>
+    </footer>
+
+</body>
+</html>
