@@ -3,65 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48-Hour Loan Proposal™</title>
 
-    <!-- Global Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/global.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    <title>48-Hour Loan Proposal™ — Corrected Page</title>
-</head>
+        /* NAV BAR */
+        nav {
+            background-color: #001f3f; /* Midnight Blue */
+            padding: 15px 30px;
+        }
 
-<body>
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
 
-    <!-- HEADER COMPONENT -->
-    <div id="header-placeholder"></div>
-    <script>
-        fetch("/components/Header.html")
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById("header-placeholder").innerHTML = html;
-            });
-    </script>
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
 
-    <!-- HERO COMPONENT (Single Logo + Single Title) -->
-    <div id="hero-placeholder"></div>
-    <script>
-        fetch("/components/Hero.html")
-            .then(r => r.text())
-            .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Your Correct Page Title");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your clean subtitle goes here.");
-                document.getElementById("hero-placeholder").innerHTML = html;
-            });
-    </script>
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
 
-    <!-- NAV COMPONENT (No logo above it) -->
-    <div id="nav-placeholder"></div>
-    <script>
-        fetch("/components/Nav.html")
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById("nav-placeholder").innerHTML = html;
-            });
-    </script>
+        /* HERO */
+        .hero {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
 
-    <!-- MAIN CONTENT -->
-    <div class="content">
-        <h2>Page Content</h2>
-        <p>This is where your page content goes. The top of the page is now clean, organized, and visually correct.</p>
-    </div>
+        .hero-logo img {
+            width: 45px;
+            height: 75px;
+            margin-bottom: 20px;
+        }
 
-    <!-- FOOTER COMPONENT -->
-    <div id="footer-placeholder"></div>
-    <script>
-        fetch("/components/Footer.html")
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
-            });
-    </script>
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
 
-</body>
-</html>
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            color: #003366;
+            margin-top: 0;
+        }
+
+        /* THREE-COLUMN FEATURES */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-box {
+            background: #fafafa;
+            padding: 25px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 280px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .feature-box h3 {
+            color: #003366;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #001f3f;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-top: 60px;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            margin: 4px 0;
+        }
+
+        .footer-meta {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-meta a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-meta a:hover {
+            text-decoration: underline;
+        }
 
 
 
