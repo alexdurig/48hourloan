@@ -28,8 +28,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Starte Here");
-                html = html.replace("[[PAGE_SUBTITLE]]", "The process is automated and easy to follow Contact Us with any questions along the way.");
+                html = html.replace("[[PAGE_TITLE]]", "Start Here");
+                html = html.replace("[[PAGE_SUBTITLE]]", "The process is automated and easy to follow. Contact Us with any questions.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
