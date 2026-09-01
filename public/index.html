@@ -218,8 +218,9 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Your Page Title");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your Page Subtitle");
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan ProposalTM")
+);
+                html = html.replace("[[PAGE_SUBTITLE]]", "A better, faster, more affordable lender-ready loan proposal and financial model with Fundability RatioTM — delivered in 48 hours.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
