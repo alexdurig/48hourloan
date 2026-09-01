@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/assets/css/global.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About 48-Hour Loan Proposal™</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
 
-        /* NAV BAR */
-        nav {
-            background-color: #001f3f; /* Midnight Blue */
-            padding: 15px 30px;
-        }
+    <title>48-Hour Loan Proposal™</title>
+</head>
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+<body>
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-        }
+    <!-- NAV BAR (top of page, no logo above it) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready business plan and financial model — delivered in 48 hours.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+            });
+    </script>
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(to bottom, #001f3f, #003366);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <h2>Welcome</h2>
+        <p>
+            The 48-Hour Loan Proposal™ is engineered for founders who need a fast, lender‑aligned,
+            professionally structured business plan and financial model — without the delays,
+            confusion, or narrative bloat of traditional planning.
+        </p>
 
-        .hero-logo img {
-            width: 45px;
-            height: 75px;
-            margin-bottom: 20px;
-        }
+        <p>
+            Our system focuses on clarity, financial precision, and underwriter alignment.
+            You receive a complete 20‑page proposal, a 3‑year pro forma, a strategic slide deck,
+            and a 60‑second pitch video — all delivered by Monday at 5pm ET.
+        </p>
 
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+        <h2>Your 48-Hour Sprint</h2>
+        <p>
+            Once you begin, you’ll schedule your weekend calls, complete your intake form,
+            upload your documents, and we’ll work together through a high‑intensity,
+            lender‑focused weekend sprint.
+        </p>
+    </div>
 
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("/components/Footer.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("footer-placeholder").innerHTML = html;
+            });
+    </script>
+
+</body>
+</html>
 
         /* MAIN CONTENT */
         .content {
