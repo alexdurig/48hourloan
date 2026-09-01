@@ -1,151 +1,74 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+
     <title>48-Hour Loan Proposal™</title>
+</head>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
+<body>
 
-        /* NAV BAR */
-        nav {
-            background-color: #001f3f; /* Midnight Blue */
-            padding: 15px 30px;
-        }
+    <!-- NAV BAR (top of page, no logo above it) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready business plan and financial model — delivered in 48 hours.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+            });
+    </script>
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-        }
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <h2>Welcome</h2>
+        <p>
+            The 48-Hour Loan Proposal™ is engineered for founders who need a fast, lender‑aligned,
+            professionally structured business plan and financial model — without the delays,
+            confusion, or narrative bloat of traditional planning.
+        </p>
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
+        <p>
+            Our system focuses on clarity, financial precision, and underwriter alignment.
+            You receive a complete 20‑page proposal, a 3‑year pro forma, a strategic slide deck,
+            and a 60‑second pitch video — all delivered by Monday at 5pm ET.
+        </p>
 
-        /* HERO */
-        .hero {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+        <h2>Your 48-Hour Sprint</h2>
+        <p>
+            Once you begin, you’ll schedule your weekend calls, complete your intake form,
+            upload your documents, and we’ll work together through a high‑intensity,
+            lender‑focused weekend sprint.
+        </p>
+    </div>
 
-        .hero-logo img {
-            width: 45px;
-            height: 75px;
-            margin-bottom: 20px;
-        }
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch("/components/Footer.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("footer-placeholder").innerHTML = html;
+            });
+    </script>
 
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* MAIN CONTENT */
-        .content {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: white;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .content h2 {
-            color: #003366;
-            margin-top: 0;
-        }
-
-        /* THREE-COLUMN FEATURES */
-        .features {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .feature-box {
-            background: #fafafa;
-            padding: 25px;
-            border-radius: 10px;
-            flex: 1;
-            min-width: 280px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-        }
-
-        .feature-box h3 {
-            color: #003366;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .feature-box p {
-            font-size: 16px;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: #001f3f;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 15px;
-            line-height: 1.5;
-            margin-top: 60px;
-        }
-
-        .footer-section {
-            margin-bottom: 20px;
-        }
-
-        .footer-section p {
-            margin: 4px 0;
-        }
-
-        .footer-meta {
-            margin-top: 10px;
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .footer-meta a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .footer-meta a:hover {
-            text-decoration: underline;
-        }
-
-
-
-
+</body>
+</html>
 
 
 
