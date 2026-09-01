@@ -29,7 +29,7 @@
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
-                html = html.replace("[[PAGE_SUBTITLE]]", "This is where you find your 48-Hour Intake Form, upload supporting documents, and download examples of or work.");
+                html = html.replace("[[PAGE_SUBTITLE]]", "You'll find your 48-Hour Intake Form here, you can upload any supporting documents, and download examples of our work.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
