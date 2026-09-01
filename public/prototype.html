@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>48-Hour Loan Proposal<sup>TM</sup> Web Portal</title>
+    <title>48-Hour Loan Proposal™ Web Portal</title>
 
-
-
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-logo">
-       <img src="/downloads/LOGO3.png" alt="The 48HR Logo" width="45" height="75">
-        </div>
-    
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
 
+        /* NAV BAR */
+        nav {
+            background-color: #001f3f; /* Midnight Blue */
+            padding: 15px 30px;
+        }
 
         nav ul {
             list-style: none;
@@ -43,129 +40,70 @@
             text-decoration: underline;
         }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             background: linear-gradient(to bottom, #001f3f, #003366);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
-        .hero-logo {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 25px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-logo svg {
-            width: 140px;
-            height: 140px;
+        .hero-logo img {
+            width: 45px;
+            height: 75px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 42px;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 22px;
+            font-size: 20px;
             max-width: 700px;
             margin: 0 auto;
         }
 
-        /* VALUE SECTION */
-        .value-section {
-            padding: 60px 20px;
+        /* MAIN CONTENT */
+        .content {
             max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .value-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #001f3f;
-        }
-
-        .value-section p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-        }
-
-        /* THREE-COLUMN FEATURES */
-        .features {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .feature-box {
+            margin: 40px auto;
             background: white;
-            padding: 30px;
+            padding: 50px;
             border-radius: 10px;
-            flex: 1;
-            min-width: 280px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            text-align: left;
         }
 
-        .feature-box h3 {
+        h2 {
             color: #003366;
-            font-size: 24px;
-            margin-bottom: 10px;
+            margin-top: 40px;
         }
 
-        .feature-box p {
-            font-size: 18px;
-            line-height: 1.5;
+        h3 {
+            color: #003366;
+            margin-top: 30px;
         }
 
-        /* GUARANTEE */
-        .guarantee {
+        /* DOWNLOAD BUTTONS */
+        .center-button {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 14px 28px;
             background-color: #003366;
             color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
         }
 
-        .guarantee h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .guarantee p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* TESTIMONIALS */
-        .testimonials {
-            background-color: #191970;
-            padding: 50px 20px;
-            margin-top: 60px;
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            font-size: 30px;
-            color: #001f3f;
-            margin-bottom: 30px;
-        }
-
-        .testimonial {
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            font-size: 18px;
-            line-height: 1.6;
-            text-align: center;
+        .download-btn:hover {
+            background-color: #001f3f;
         }
 
         /* FOOTER */
@@ -196,74 +134,110 @@
 
 <body>
 
-  
-<main>
+    <!-- NAV BAR -->
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About 48HR</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/prototype.html">Web Portal</a></li>
+        </ul>
+    </nav>
 
-    <p><b>This Web Portal hosts easy access to:</p> 
-    <p>[1] Your 48-Hour Intake Form - Click here to give us your information: 
-    </p>
-    <p>[2] Your Document Upload - Click here to upload your documents, and you can upload any files you want as supporting evidence for your loan proposal:</p>
-    </p>
-    <p>[3] And below you can download samples of our work.</p></b>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-logo">
+            <img src="/downloads/LOGO3.png" alt="48HR Logo">
+        </div>
+        <h1>Your 48-Hour Loan Proposal™ Web Portal</h1>
+        <p>Upload your information, submit documents, and download your sample materials.</p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <h2>Your Web Portal</h2>
+
+        <p><b>This Web Portal hosts easy access to:</b></p>
+
+        <p>[1] <b>Your 48-Hour Intake Form</b> — Click here to give us your information.</p>
+        <p>[2] <b>Your Document Upload</b> — Click here to upload any supporting documents for your loan proposal.</p>
+        <p>[3] <b>Download Samples</b> — Below you can download samples of our work.</p>
+
         <p>
-        Our primary goal is to ensure your unique business concept is the star of the show. 
-        To achieve this, these materials deliver a highly structured case centered on risk mitigation, backed by a thorough financial analysis that fully supports the capital request.
-    </p>
+            Our primary goal is to ensure your unique business concept is the star of the show. 
+            These materials deliver a highly structured case centered on risk mitigation, backed by a thorough financial analysis that fully supports the capital request.
+        </p>
 
-    <p>
-        To protect our proprietary IT and calculations, all public‑facing assets highlight your financial health — including the Fundability Ratio and Debt Service Coverage Ratio (DSCR) Summary — at a surface level. 
-        This approach provides lenders with the necessary underwriter alignment and risk‑mitigation data without exposing any confidential proprietary formulations.
-    </p>
+        <p>
+            To protect our proprietary IT and calculations, all public-facing assets highlight your financial health — including the Fundability Ratio™ and Debt Service Coverage Ratio (DSCR) Summary — at a surface level.
+        </p>
 
-    <hr>
+        <hr>
 
-    <h2>Available Materials for View and Download</h2>
+        <h2>Available Materials for View and Download</h2>
 
-    <!-- Prototype Sample -->
-    <h3>Prototype Sample Document</h3>
-    <p>
-        A full prototype sample of our work. This is exactly what you will receive as part of your deliverables, 
-        featuring the signature 20% narrative content and 80% financial information structure. </p>
+        <!-- Prototype Sample -->
+        <h3>Prototype Sample Document</h3>
+        <p>
+            A full prototype sample of our work — exactly what you will receive as part of your deliverables, 
+            featuring the signature 20% narrative content and 80% financial information structure.
+        </p>
 
-    <div class="center-button">
-        <a class="download-btn" <button style="background-color: #191970; color: #FFFFFF; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; href="https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing" download>
-            Download Prototype Sample
-        </a>
+        <div class="center-button">
+            <a class="download-btn" href="#" download>
+                Download Prototype Sample
+            </a>
+        </div>
+
+        <hr>
+
+        <!-- 60 Second Video -->
+        <h3>60‑Second Client Video</h3>
+        <p>
+            An impactful, high-level overview showcasing the strength of your business concept and its loan worthiness.
+        </p>
+
+        <div class="center-button">
+            <a class="download-btn" href="#" download>
+                Download 60‑Second Video
+            </a>
+        </div>
+
+        <hr>
+
+        <!-- Slide Deck -->
+        <h3>Slide Deck Presentation</h3>
+        <p>
+            A comprehensive deck focused on bank readiness and financial validation. 
+            This presentation serves as the visual and analytical backbone demonstrating your business is fully prepared for immediate underwriting.
+        </p>
+
+        <div class="center-button">
+            <a class="download-btn" href="#" download>
+                Download Slide Deck
+            </a>
+        </div>
+
     </div>
 
-    <hr>
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-main">
+            Our Promise to You: If we miss the deadline — Monday 5pm ET — you receive a 25% refund automatically.
+        </p>
+        <p>
+            Proviso: If you upload all required information by Friday 5pm ET and attend your scheduled weekend calls,
+            and we still miss delivery of your full 48-Hour Loan Proposal package by Monday 5pm ET,
+            you receive a 25% refund — automatically. No questions, no excuses.
+        </p>
+        <p>
+            Plus: We provide unlimited revisions for 90 days for any changes you request or your lender requires.
+        </p>
+        <p class="footer-meta">
+            © 2026 48-Hour Loan Proposal — alex@48hrloanproposal.site
+        </p>
+    </footer>
 
-    <!-- 60 Second Video -->
-    <h3>60‑Second Client Video</h3>
-    <p>
-        An impactful, 60-second video showcasing the strength of your business concept and its loan worthiness.
-    </p>
-
-    <div class="center-button">
-        <a class="download-btn" href="https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=drive_link" download>
-            Download 60‑Second Video
-        </a>
-    </div>
-
-    <hr>
-
-    <!-- Slide Deck -->
-    <h3>Slide Deck Presentation</h3>
-    <p>
-        A beautiful slide deck focused on your company's bank readiness and financial validation. 
-        This presentation serves as the visual and analytical backbone demonstrating your business is fully prepared for immediate underwriting.
-    </p>
-
-    <div class="center-button">
-        <a class="download-btn" href="https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=drive_link&ouid=102685605056643160340&rtpof=true&sd=true" download>
-            Download Slide Deck
-        </a>
-    </div>
-
-</main>
-
-
-</a>
 </body>
 </html>
-
