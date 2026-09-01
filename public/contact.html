@@ -151,23 +151,15 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-        <p class="footer-main">
-            Our Promise to You: If we miss the deadline — Monday 5pm ET — you receive a 25% refund automatically.
-        </p>
-        <p>
-            Proviso: If you upload all required information by Friday 5pm ET and attend your scheduled weekend calls,
-            and we still miss delivery of your full 48-Hour Loan Proposal package by Monday 5pm ET,
-            you receive a 25% refund — automatically. No questions, no excuses.
-        </p>
-        <p>
-            Plus: We provide unlimited revisions for 90 days for any changes you request or your lender requires.
-        </p>
-        <p class="footer-meta">
-            © 2026 48-Hour Loan Proposal — alex@48hrloanproposal.site
-        </p>
-    </footer>
+      <!-- FOOTER -->
+<div id="footer-placeholder"></div>
+<script>
+    fetch("/components/Footer.html")
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+        });
+</script>
 
 </body>
 </html>
