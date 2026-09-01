@@ -157,8 +157,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Your Page Title");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your Page Subtitle");
+                html = html.replace("[[PAGE_TITLE]]", "About");
+                html = html.replace("[[PAGE_SUBTITLE]]", "All About 48HR");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
