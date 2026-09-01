@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>STart Here</title>
+    <title>Start Here</title>
 </head>
 
 <body>
@@ -28,8 +28,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready business plan and financial model — delivered in 48 hours.");
+                html = html.replace("[[PAGE_TITLE]]", "Starte Here");
+                html = html.replace("[[PAGE_SUBTITLE]]", "The process is automated and easy to follow Contact Us with any questions along the way.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
