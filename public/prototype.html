@@ -1,179 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/assets/css/global.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>48-Hour Loan Proposal™ Web Portal</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
 
-        /* NAV BAR */
-        nav {
-            background-color: #001f3f; /* Midnight Blue */
-            padding: 15px 30px;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* HERO */
-        .hero {
-            background: linear-gradient(to bottom, #001f3f, #003366);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .hero-logo img {
-            width: 45px;
-            height: 75px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* MAIN CONTENT */
-        .content {
-            max-width: 1100px;
-            margin: 40px auto;
-            background: white;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: #003366;
-            margin-top: 40px;
-        }
-
-        h3 {
-            color: #003366;
-            margin-top: 30px;
-        }
-
-        /* DOWNLOAD BUTTONS */
-        .center-button {
-            text-align: center;
-            margin: 25px 0;
-        }
-
-        .download-btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background-color: #003366;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .download-btn:hover {
-            background-color: #001f3f;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: #001f3f;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 60px;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
-        footer .footer-main {
-            margin-bottom: 10px;
-        }
-
-        footer .footer-meta {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-    </style>
+    <title>48-Hour Loan Proposal™</title>
 </head>
 
 <body>
 
- <!-- Header Component -->
-    <div id="header-placeholder"></div>
-    <script>
-        fetch("/components/Header.html")
-            .then(r => r.text())
-            .then(html => document.getElementById("header-placeholder").innerHTML = html);
-    </script>
-
-    <!-- Nav Component -->
+    <!-- NAV BAR (top of page, no logo above it) -->
     <div id="nav-placeholder"></div>
     <script>
         fetch("/components/Nav.html")
-            .then(response => response.text())
+            .then(r => r.text())
             .then(html => {
                 document.getElementById("nav-placeholder").innerHTML = html;
             });
     </script>
 
-    <!-- Hero Component -->
+    <!-- HERO (single logo + single title) -->
     <div id="hero-placeholder"></div>
     <script>
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Your Page Title");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your Page Subtitle");
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready business plan and financial model — delivered in 48 hours.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-logo">
-            <img src="/downloads/LOGO3.png" alt="48HR Logo">
-        </div>
-        <h1>Your 48-Hour Loan Proposal™ Web Portal</h1>
-        <p>Upload your information, submit documents, and download your sample materials.</p>
-    </section>
 
     <!-- MAIN CONTENT -->
     <div class="content">
