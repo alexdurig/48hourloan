@@ -194,15 +194,35 @@
 
 <body>
 
-    <!-- NAV BAR -->
-    <nav>
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About 48HR</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-            <li><a href="/prototype.html">Web Portal</a></li>
-        </ul>
-    </nav>
+ <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch("/components/Header.html")
+            .then(r => r.text())
+            .then(html => document.getElementById("header-placeholder").innerHTML = html);
+    </script>
+
+    <!-- Nav Component -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- Hero Component -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "Your Page Title");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your Page Subtitle");
+                document.getElementById("hero-placeholder").innerHTML = html;
+            });
+    </script>
 
     <!-- HERO SECTION -->
     <section class="hero">
