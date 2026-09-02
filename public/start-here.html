@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>Start Here</title>
+    <title>Payments</title>
 </head>
 
 <body>
@@ -28,8 +28,9 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Start Here");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your on-ramp to the Fast Track.");
+                <center>html = html.replace("[[PAGE_TITLE]]", "Payments");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Make payments with secure Stripe payment processing.");</center>
+                document.getElementById("").innerHTML = html;
             });
     </script>
 
