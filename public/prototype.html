@@ -1,156 +1,590 @@
-
-
-    <!-- MAIN CONTENT -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Dashboard | 48-Hour Loan Proposal™</title>
+<!-- Global Stylesheet -->
+<link rel="stylesheet" href="/assets/css/global.css">
 
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <title>48-Hour Web Portal</title>
+<style>
+  /* Obsidian Theme Design System */
+  :root {
+    --bg-dark: #0b0f19;
+    --card-bg: #131a26;
+    --card-border: #1f2a3c;
+    --accent-teal: #0df2c9;
+    --accent-green: #10b981;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    --locked-overlay: rgba(11, 15, 25, 0.85);
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Header Section */
+  .dashboard-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 1.5rem;
+  }
+  .dashboard-header h1 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+  }
+  .dashboard-header p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* 5-Step Timeline Stepper */
+  .timeline-stepper {
+    display: flex;
+    justify-content: space-between;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+  }
+  .step-node {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    min-width: 150px;
+  }
+  .step-node:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--card-border);
+    z-index: 1;
+  }
+  .step-node.completed:not(:last-child)::after {
+    background-color: var(--accent-green);
+  }
+  .step-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1e293b;
+    border: 2px solid var(--card-border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  .step-node.active .step-badge {
+    border-color: var(--accent-teal);
+    color: var(--accent-teal);
+    box-shadow: 0 0 10px rgba(13, 242, 201, 0.3);
+  }
+  .step-node.completed .step-badge {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+    color: var(--bg-dark);
+  }
+  .step-label {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .step-node.active .step-label {
+    color: #fff;
+  }
+  .step-node.completed .step-label {
+    color: var(--accent-green);
+  }
+  .step-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Base Card Styling */
+  .bento-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  .bento-card:hover {
+    border-color: #2a3b54;
+  }
+  .bento-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Col sizes */
+  .col-12 { grid-column: span 12; }
+  .col-8  { grid-column: span 8; }
+  .col-6  { grid-column: span 6; }
+  .col-4  { grid-column: span 4; }
+
+  @media (max-width: 768px) {
+    .col-8, .col-6, .col-4 { grid-column: span 12; }
+  }
+
+  /* Module: Intake Wizard Card */
+  .intake-status {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Module: Secure Upload Card */
+  .upload-zone {
+    border: 2px dashed var(--card-border);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .upload-zone:hover {
+    border-color: var(--accent-teal);
+    background: rgba(13, 242, 201, 0.02);
+  }
+  .upload-zone p {
+    margin: 0.5rem 0 0 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+  .document-checklist {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Module: Call Scheduler Card */
+  .scheduler-widget {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .btn-action {
+    background-color: var(--accent-teal);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.75rem;
+    transition: opacity 0.2s;
+  }
+  .btn-action:hover {
+    opacity: 0.9;
+  }
+
+  /* Module: Fundability Ratio Gauge */
+  .fundability-gauge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+  }
+  .gauge-track {
+    width: 100%;
+    height: 12px;
+    background: #1e293b;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .gauge-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #10b981, var(--accent-teal));
+    transition: width 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
+  }
+  .gauge-score {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-teal);
+  }
+
+  /* Module: Locked Vault Card styling */
+  .vault-files {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--card-border);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .locked-card {
+    position: relative;
+  }
+  .vault-lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--locked-overlay);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+  }
+  .vault-lock-overlay svg {
+    width: 48px;
+    height: 48px;
+    fill: var(--accent-teal);
+    margin-bottom: 1rem;
+  }
+  .vault-lock-overlay p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    max-width: 250px;
+    margin: 0.5rem 0 1rem 0;
+  }
+  .unlocked .vault-lock-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.05);
+  }
+
+  /* Prototype Controls (For demonstration purposes) */
+  .demo-controls {
+    background-color: #1a2333;
+    border: 2px solid var(--accent-teal);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+  }
+  .demo-controls h4 {
+    margin: 0 0 1rem 0;
+    color: var(--accent-teal);
+  }
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .btn-demo {
+    background: #25334a;
+    color: #fff;
+    border: 1px solid var(--card-border);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  .btn-demo.active {
+    background: var(--accent-teal);
+    color: var(--bg-dark);
+    font-weight: bold;
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- NAV BAR -->
-    <div id="nav-placeholder"></div>
-    <script>
-        fetch("/components/Nav.html")
-            .then(r => r.text())
-            .then(html => {
-                document.getElementById("nav-placeholder").innerHTML = html;
-            });
-    </script>
+<!-- NAV BAR -->
+<div id="nav-placeholder"></div>
+<script>
+fetch("/components/Nav.html")
+.then(r => r.text())
+.then(html => {
+document.getElementById("nav-placeholder").innerHTML = html;
+});
+</script>
 
- <!-- HERO (single logo + single title) -->
-    <div id="hero-placeholder"></div>
-    <script>
-        fetch("/components/Hero.html")
-            .then(r => r.text())
-            .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your documents. Your progress. Your Fast Track.");
-                document.getElementById("hero-placeholder").innerHTML = html;
-            });
-    </script>
+<div class="dashboard-container">
+  
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <h1>Your 48-Hour Loan Proposal™ Portal</h1>
+    <p>Managing Partner: Alexander Durig | Creator of the Fundability Ratio™</p>
+  </header>
 
-    <!-- MAIN CONTENT -->
-    <div class="content">
+  <!-- Live Stepper Progress Tracker -->
+  <div class="timeline-stepper">
+    <div class="step-node completed" id="step-node-1">
+      <div class="step-badge">1</div>
+      <div class="step-label">Consultation</div>
+      <span class="step-time">During Week</span>
+    </div>
+    <div class="step-node completed" id="step-node-2">
+      <div class="step-badge">2</div>
+      <div class="step-label">Strategy Calls</div>
+      <span class="step-time">Sat / Sun</span>
+    </div>
+    <div class="step-node active" id="step-node-3">
+      <div class="step-badge">3</div>
+      <div class="step-label">Financial Engineering</div>
+      <span class="step-time">The Weekend</span>
+    </div>
+    <div class="step-node" id="step-node-4">
+      <div class="step-badge">4</div>
+      <div class="step-label">Delivery</div>
+      <span class="step-time">Monday 4 PM</span>
+    </div>
+    <div class="step-node" id="step-node-5">
+      <div class="step-badge">5</div>
+      <div class="step-label">90-Day Revision</div>
+      <span class="step-time">Ongoing Support</span>
+    </div>
+  </div>
 
-        <!-- DASHBOARD INTRO -->
-        <h2>Your Fast Track Dashboard</h2>
-        <p>
-            This Web Portal is your personal workspace for the 48‑Hour Fast Track.
-            You can complete your Intake Form, upload supporting documents, schedule your weekend calls,
-            track your progress, and download samples of our work — all from one place.
-        </p>
-
-Your Intake Form
-
-Upload Your Documents
-
-Schedule Your Weekend Calls
-
-Track Your Progress
-
-Your Deliverables (locked until Monday)
-
-        <!-- STEP 1 -->
-        <h2>Step 1 — Complete Your Intake Form</h2>
-        <p>
-            Your Intake Form gives us the core details about your business, your goals,
-            and your numbers. This is the first step of your Fast Track.
-        </p>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/viewform?usp=publish-editor" target="_blank">
-            <button type="button">Open Intake Form</button>
-        </a>
-
-        <hr>
-
-        <!-- STEP 2 -->
-        <h2>Step 2 — Upload Your Documents</h2>
-        <p>
-            Upload any supporting documents for your loan proposal: financial statements,
-            tax returns, leases, contracts, or other relevant files.
-        </p>
-        <p>
-            Each upload begins with a form asking for your first and last name.
-            This allows our system to automatically route your files into a dedicated folder
-            under your name — creating a personalized workspace without requiring registration.
-        </p>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor" target="_blank">
-            <button type="button">Upload Documents</button>
-        </a>
-
-        <hr>
-
-        <!-- STEP 3 -->
-        <h2>Step 3 — Schedule Your Weekend Calls</h2>
-        <p>
-            After your first payment, you will be directed to schedule your Saturday and Sunday
-            phone calls. These calls anchor your 48‑Hour Sprint.
-        </p>
-        <p><i>(Scheduling link appears automatically after payment.)</i></p>
-
-        <hr>
-
-        <!-- STEP 4 -->
-        <h2>Step 4 — Track Your Progress</h2>
-        <p>
-            As you complete each step — Intake Form, document uploads, weekend calls —
-            your Fast Track progresses. You can return to this Portal anytime during the week
-            to upload more documents or review your materials.
-        </p>
-
-        <hr>
-
-        <!-- STEP 5 -->
-        <h2>Step 5 — Your Deliverables</h2>
-        <p>
-            Your lender‑aligned business plan, 3‑year pro forma, slide deck, and 60‑second pitch video
-            will appear here on Monday at 5pm ET.
-        </p>
-        <p><i>(This section unlocks automatically during delivery.)</i></p>
-
-        <hr>
-
-        <!-- DOWNLOAD SAMPLES -->
-        <h2>Download Samples of Our Work</h2>
-        <p>
-            These samples demonstrate the clarity, structure, and lender‑aligned focus
-            of the 48‑Hour Loan Proposal™.
-        </p>
-
-        <h3>Prototype Sample Document</h3>
-        <a href="https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing" download="Sample of Work">
-            <button type="button">Download Sample Document</button>
-        </a>
-
-        <h3>60‑Second Client Video</h3>
-        <a href="https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=sharing" download="60-Second Video">
-            <button type="button">Download Sample Video</button>
-        </a>
-
-        <h3>Slide Deck Presentation</h3>
-        <a href="https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=sharing&ouid=102685605056643160340&rtpof=true&sd=true" download="Slide Deck">
-            <button type="button">Download Sample Slide Deck</button>
-        </a>
-
+  <!-- Bento Grid Dashboard -->
+  <div class="bento-grid">
+    
+    <!-- Column 1: Intake Form Progress (Left Grid Row 1) -->
+    <div class="bento-card col-6">
+      <h3>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"/></svg>
+        Ground Truth Intake Form
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">Your core business data is gathered here to establish high-level operational and financial logic.</p>
+      <div class="intake-status">
+        <strong style="color: var(--accent-green);">✓ Submission Received</strong>
+        <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: var(--text-secondary);">Your basic parameters have been stored into your secure client folder.</p>
+      </div>
+      <button class="btn-action" style="background-color: transparent; border: 1px solid var(--accent-teal); color: var(--accent-teal); margin-top: 1rem;">View Submitted Data</button>
     </div>
 
-    <!-- FOOTER -->
-    <div id="footer-placeholder"></div>
-    <script>
-        fetch("/components/Footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
-            });
-    </script>
+    <!-- Column 2: Strategy Sessions Scheduler (Right Grid Row 1) -->
+    <div class="bento-card col-6">
+      <h3>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+        Weekend Strategy Sessions
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem;">We use two strategy phone calls on Saturday and Sunday to stress-test your underwriter alignment.</p>
+      <div class="scheduler-widget">
+        <p style="margin: 0 0 0.5rem 0; font-weight: bold; color: #fff;">Scheduled Weekend Syncs:</p>
+        <div style="font-size: 0.85rem; display: flex; justify-content: space-around; margin-bottom: 0.5rem;">
+          <span style="color: var(--accent-green);">Call 1: Sat 10:00 AM CST ✓</span>
+          <span style="color: var(--accent-teal);">Call 2: Sun 2:00 PM CST</span>
+        </div>
+      </div>
+      <button class="btn-action">Reschedule Call</button>
+    </div>
 
+    <!-- Column 3: Secure Document Vault (Left Grid Row 2) -->
+    <div class="bento-card col-8">
+      <h3>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+        Secure Document Dropbox
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Upload necessary bank statements and support documents directly into your secure folder.</p>
+      <div class="upload-zone" onclick="alert('Demo File Selector Triggered')">
+        <svg width="24" height="24" fill="var(--text-muted)" viewBox="0 0 20 20" style="margin: 0 auto;"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm2 5a1 1 0 112 0v1h1a1 1 0 110 2H8v1a1 1 0 11-2 0v-1H5a1 1 0 110-2h1V9z" clip-rule="evenodd"/></svg>
+        <p><strong>Drag files here</strong> or click to browse</p>
+      </div>
+      <div class="document-checklist">
+        <p style="font-weight: bold; color: #fff; margin-bottom: 0.5rem;">Suggested Supporting Materials:</p>
+        <div class="checklist-item"><span style="color: var(--accent-green);">✓</span> 2-Years Financial Tax Returns</div>
+        <div class="checklist-item"><span style="color: var(--accent-green);">✓</span> Corporate Organization Documents</div>
+        <div class="checklist-item"><span style="color: var(--accent-teal);">⏱</span> 6-Months Business Bank Statements (Pending)</div>
+      </div>
+    </div>
+
+    <!-- Column 4: Underwriter Analytics / Live Ratio (Right Grid Row 2) -->
+    <div class="bento-card col-4">
+      <h3>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+        Fundability Ratio™
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.85rem;">Clinical credit underwriting metric calculated live during weekend modeling.</p>
+      <div class="fundability-gauge-container">
+        <span class="gauge-score" id="gauge-score-display">--</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;" id="gauge-status-text">Calculations In Progress</span>
+        <div class="gauge-track">
+          <div class="gauge-fill" id="gauge-fill-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 5: Locked Vault Deliverables (Full Width Grid Row 3) -->
+    <div class="bento-card col-12 locked-card" id="vault-card">
+      
+      <!-- FROSTED GLASS LOCKED OVERLAY -->
+      <div class="vault-lock-overlay" id="vault-overlay">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+        </svg>
+        <h3 style="color: #fff; margin: 0;">Monday Deliverables Vault</h3>
+        <p>Your institutional loan proposal is engineered and packaged! Confirm your final payment installment ($375) to unlock instant access.</p>
+        <button class="btn-action" style="max-width: 250px;" onclick="unlockVaultDemo()">Unlock Vault ($375)</button>
+      </div>
+
+      <h3>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h3a1 1 0 100-2H9z"/></svg>
+        Your Monday Deliverables
+      </h3>
+      <div class="vault-files">
+        <div class="file-item">
+          <span>📄 <strong>48-Hour Clinical Funding Request.pdf</strong> (20 Pages)</span>
+          <a href="#" class="btn-demo" style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none;">Download</a>
+        </div>
+        <div class="file-item">
+          <span>📊 <strong>Financial Slide Deck.pptx</strong> (Slide Presentation)</span>
+          <a href="#" class="btn-demo" style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none;">Download</a>
+        </div>
+        <div class="file-item">
+          <span>🎬 <strong>60-Second Video Pitch.mp4</strong> (High Definition)</span>
+          <a href="#" class="btn-demo" style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none;">Download</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Interactive Sandbox Controls (Only for prototype exploration) -->
+  <div class="demo-controls">
+    <h4>Interactive Prototyping Controls</h4>
+    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Use these controls to simulate how the dashboard handles client progression and payment unlocks during the real-world 48-hour sprint.</p>
+    <div class="btn-group">
+      <button class="btn-demo" onclick="setStep(1)">Simulate Step 1 (Intake)</button>
+      <button class="btn-demo" onclick="setStep(2)">Simulate Step 2 (Weekend Calls)</button>
+      <button class="btn-demo active" onclick="setStep(3)">Simulate Step 3 (Financial Engineering)</button>
+      <button class="btn-demo" onclick="setStep(4)">Simulate Step 4 (Ready to Unlock)</button>
+      <button class="btn-demo" onclick="setStep(5)">Simulate Step 5 (Ongoing Support)</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+<script>
+fetch("/components/Footer.html")
+.then(response => response.text())
+.then(html => {
+document.getElementById("footer-placeholder").innerHTML = html;
+});
+</script>
+
+<script>
+  // Simulated State Engine
+  function setStep(stepNumber) {
+    // Reset all nodes
+    for (let i = 1; i <= 5; i++) {
+      const node = document.getElementById('step-node-' + i);
+      node.classList.remove('active', 'completed');
+      if (i < stepNumber) {
+        node.classList.add('completed');
+      } else if (i === stepNumber) {
+        node.classList.add('active');
+      }
+    }
+
+    // Toggle active classes on demo buttons
+    const buttons = document.querySelectorAll('.btn-demo');
+    buttons.forEach((btn, idx) => {
+      if (idx === (stepNumber - 1)) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Handle interactive modules based on simulated steps
+    const gaugeScore = document.getElementById('gauge-score-display');
+    const gaugeFill = document.getElementById('gauge-fill-bar');
+    const gaugeStatus = document.getElementById('gauge-status-text');
+    const vault = document.getElementById('vault-card');
+
+    if (stepNumber < 3) {
+      gaugeScore.innerText = '--';
+      gaugeFill.style.width = '0%';
+      gaugeStatus.innerText = 'Calculations Pending';
+      vault.classList.remove('unlocked');
+    } else if (stepNumber === 3) {
+      gaugeScore.innerText = 'Analyzing';
+      gaugeFill.style.width = '45%';
+      gaugeStatus.innerText = 'Stress-Testing DSCR...';
+      vault.classList.remove('unlocked');
+    } else if (stepNumber >= 4) {
+      gaugeScore.innerText = '8.7 / 10';
+      gaugeFill.style.width = '87%';
+      gaugeStatus.innerText = 'Fundability Ratio™ Lock';
+      if (stepNumber === 5) {
+        vault.classList.add('unlocked');
+      }
+    }
+  }
+
+  function unlockVaultDemo() {
+    // Transition vault to unlocked
+    document.getElementById('vault-card').classList.add('unlocked');
+    // Set stepper to Step 5
+    setStep(5);
+    alert('Payment Received! Monday Deliverables and the 90-Day Revision sandbox are now unlocked.');
+  }
+
+  // Initialize display
+  setStep(3);
+</script>
 </body>
 </html>
+
 
