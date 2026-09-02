@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>Start Here</title>
+    <title>Payments</title>
 </head>
 
 <body>
@@ -22,12 +22,14 @@
             });
     </script>
 
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
     <script>
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Start Here");
-                html = html.replace("[[PAGE_SUBTITLE]]", "The process is automated and easy to follow. Contact Us with any questions.");
+                html = html.replace("[[PAGE_TITLE]]", "Payments");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Make payments with secure Stripe payment processing.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
