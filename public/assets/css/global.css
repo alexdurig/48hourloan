@@ -105,3 +105,10 @@ footer {
 .footer-meta a:hover {
     text-decoration: underline;
 }
+/* This targets your existing container class */
+.hero-logo {
+    position: absolute; /* Moves it out of the normal layout flow */
+    top: 20px;          /* Distance from the very top of the page */
+    right: 20px;        /* Distance from the very right edge of the page */
+    z-index: 1000;      /* Ensures the logo stays on top of other content */
+}
