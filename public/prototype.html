@@ -33,6 +33,41 @@
     </script>
 
     <!-- MAIN CONTENT -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <title>48-Hour Web Portal</title>
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+ <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your documents. Your progress. Your Fast Track.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- MAIN CONTENT -->
     <div class="content">
 
         <!-- DASHBOARD INTRO -->
