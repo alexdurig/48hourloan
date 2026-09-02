@@ -352,25 +352,35 @@
 </style>
 </head>
 <body>
-  <header class="dashboard-header">
-      <div class="hero-inner">
- <div class="hero-logo">
-      <img src="/downloads/LOGO3.png" alt="48HR Logo" width="45" height="75">
-  
-  <div class="dashboard-container">
-      <div class="dashboard-header">
-          <h1>Client Dashboard</h1>
-          <p></p>
-      </div>
-<!-- NAV BAR -->
-<div id="nav-placeholder"></div>
-<script>
-fetch("/components/Nav.html")
-.then(r => r.text())
-.then(html => {
-document.getElementById("nav-placeholder").innerHTML = html;
-});
-</script>
+ <body>
+
+    <!-- NAV BAR (always at the top) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- TOP-RIGHT LOGO -->
+    <div class="dashboard-logo">
+        <img src="/downloads/LOGO3.png" alt="48HR Logo" width="55" height="90">
+    </div>
+
+    <!-- HERO / PAGE HEADER -->
+    <header class="dashboard-hero">
+        <h1>Client Dashboard</h1>
+        <p>Your 48‑Hour Loan Proposal™ Web Portal</p>
+        <p class="dashboard-subtext">
+            Alexander Durig, Ph.D. — Founder, 48‑Hour Loan Proposal™ | Creator of the Fundability Ratio™
+        </p>
+    </header>
+
+    <!-- DASHBOARD CONTAINER START -->
+    <div class="dashboard-container">
+
 
 <div class="dashboard-container">
   
