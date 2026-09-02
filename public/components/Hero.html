@@ -1,7 +1,82 @@
-<section class="hero">
-    <div class="hero-logo">
-        <img src="/downloads/LOGO3.png" alt="48HR Logo" width="45" height="75">
+<!-- HERO COMPONENT -->
+<div class="hero">
+    <div class="hero-inner">
+
+        <!-- Logo -->
+        <div class="hero-logo">
+            <img src="/assets/img/48hr-logo.png" alt="48HR Logo">
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title">
+            [[PAGE_TITLE]]
+        </h1>
+
+        <!-- Subtitle (with fallback) -->
+        <p class="hero-subtitle">
+            [[PAGE_SUBTITLE]]
+        </p>
+
+        <!-- Optional Tagline (new) -->
+        <p class="hero-tagline">
+            [[PAGE_TAGLINE]]
+        </p>
+
     </div>
-    <h1 class="hero-title">[[PAGE_TITLE]]</h1>
-    <p class="hero-subtitle">[[PAGE_SUBTITLE]]</p>
-</section>
+</div>
+
+<style>
+    .hero {
+        background: #003366;
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero-inner {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero-logo img {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 48px;
+        margin: 10px 0;
+        font-weight: 700;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+        margin: 10px 0;
+        opacity: 0.9;
+    }
+
+    .hero-tagline {
+        font-size: 18px;
+        margin-top: 5px;
+        opacity: 0.8;
+        font-style: italic;
+    }
+</style>
+
+<script>
+    // Fallback subtitle if none provided
+    document.addEventListener("DOMContentLoaded", function () {
+        const hero = document.querySelector('.hero');
+
+        let subtitle = hero.querySelector('.hero-subtitle');
+        let tagline = hero.querySelector('.hero-tagline');
+
+        if (!subtitle.innerText || subtitle.innerText.includes("[[PAGE_SUBTITLE]]")) {
+            subtitle.innerText = "Fast. Precise. Lender‑Aligned.";
+        }
+
+        if (!tagline.innerText || tagline.innerText.includes("[[PAGE_TAGLINE]]")) {
+            tagline.style.display = "none"; // hide if unused
+        }
+    });
+</script>
