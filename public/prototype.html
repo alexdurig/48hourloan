@@ -27,7 +27,7 @@
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
-                html = html.replace("[[PAGE_SUBTITLE]]", ~Your documents~ ~Your progress~ ~Your Fast Track~);
+                html = html.replace("[[PAGE_SUBTITLE]]", ~Your documents~ ~Your progress~ ~Your Fast Track);
                 html = html.replace("[[PAGE_TAGLINE]]", "Everything you need for your 48‑Hour Sprint lives here.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
