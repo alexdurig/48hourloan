@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>Payments</title>
+    <title>48-Hour Loan Proposal<sup>TM</sup></title>
 </head>
 
 <body>
@@ -28,8 +28,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Payments");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Make payments with secure Stripe payment processing.");
+                html = html.replace("[[PAGE_TITLE]]", <center>"48-Hour Loan Proposal<sup>TM</sup>"</center>);
+                html = html.replace("[[PAGE_SUBTITLE]]", <center>"Fast. Precise. Lender-Aligned."</center>);
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
