@@ -29,7 +29,7 @@
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "Contact Us");
-                html = html.replace("[[PAGE_SUBTITLE]]", "~~We're always here for you~~");
+                html = html.replace("[[PAGE_SUBTITLE]]", "We're always here for you.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
