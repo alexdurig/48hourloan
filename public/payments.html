@@ -28,9 +28,10 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                <center>html = html.replace("[[PAGE_TITLE]]", "Payments");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Make payments with secure Stripe payment processing.");</center>
-                document.getElementById("").innerHTML = html;
+                html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal™");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready business plan and financial model — delivered in 48 hours.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+                
             });
     </script>
 
