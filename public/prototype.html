@@ -26,8 +26,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Contact Us");
-                html = html.replace("[[PAGE_SUBTITLE]]", "~~We're always here for you~~");
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your on-ramp to the Fast Track.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
