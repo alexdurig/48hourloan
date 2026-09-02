@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
-
     <title>48-Hour Web Portal</title>
 </head>
 
@@ -30,7 +28,7 @@
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
                 html = html.replace("[[PAGE_SUBTITLE]]", "Your documents. Your progress. Your Fast Track.");
-                html = html.replace("[[PAGE_TAGLINE]]", "Access your Intake Form, upload supporting documents, and download samples of our work.");
+                html = html.replace("[[PAGE_TAGLINE]]", "Everything you need for your 48‑Hour Sprint lives here.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
@@ -38,93 +36,95 @@
     <!-- MAIN CONTENT -->
     <div class="content">
 
-        <h2>Your Web Portal</h2>
+        <!-- DASHBOARD INTRO -->
+        <h2>Your Fast Track Dashboard</h2>
         <p>
-            This Web Portal is your command center for the 48‑Hour Fast Track.
-            From here, you can complete your Intake Form, upload supporting documents,
-            and download samples of our work — all in one place.
-        </p>
-
-        <h2>Step 1: Complete Your Intake Form</h2>
-        <p>
-            Your Intake Form gives us the core details about your business, your goals,
-            and your numbers. This is where your Fast Track begins.
-        </p>
-        <p>
-            Click the button below to open your 48HR Intake Form in a new tab.
-        </p>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/viewform?usp=publish-editor" target="_blank">
-            <button type="button">48HR Intake Form</button>
-        </a>
-
-        <h2>Step 2: Upload Your Supporting Documents</h2>
-        <p>
-            Use this upload form to send us any supporting documents for your loan proposal:
-            financial statements, tax returns, leases, contracts, or other relevant files.
-        </p>
-        <p>
-            Each time you upload, type your first and last name. Our system automatically
-            routes your files into a dedicated folder under your name, so everything stays
-            organized on our side.
-        </p>
-        <p>
-            You can return to this page during the week and upload documents as many times
-            as you need.
-        </p>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor" target="_blank">
-            <button type="button">48HR Upload Form</button>
-        </a>
-
-        <h2>Step 3: Download Samples of Our Work</h2>
-        <p>
-            Below you’ll find sample materials that show the structure, clarity, and
-            lender‑aligned focus of the 48‑Hour Loan Proposal™.
-        </p>
-        <p>
-            Our primary goal is to ensure your unique business concept is the star of the show.
-            These materials deliver a highly structured case centered on risk mitigation,
-            backed by a thorough financial analysis that fully supports the capital request.
-        </p>
-        <p>
-            To protect our proprietary IT and calculations, all public‑facing assets highlight
-            your financial health — including the Fundability Ratio™ and Debt Service Coverage
-            Ratio (DSCR) Summary — at a surface level.
+            This Web Portal is your personal workspace for the 48‑Hour Fast Track.
+            You can complete your Intake Form, upload supporting documents, schedule your weekend calls,
+            track your progress, and download samples of our work — all from one place.
         </p>
 
         <hr>
 
-        <h2>Available Materials for View and Download</h2>
+        <!-- STEP 1 -->
+        <h2>Step 1 — Complete Your Intake Form</h2>
+        <p>
+            Your Intake Form gives us the core details about your business, your goals,
+            and your numbers. This is the first step of your Fast Track.
+        </p>
 
-        <!-- Prototype Sample -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/viewform?usp=publish-editor" target="_blank">
+            <button type="button">Open Intake Form</button>
+        </a>
+
+        <hr>
+
+        <!-- STEP 2 -->
+        <h2>Step 2 — Upload Your Documents</h2>
+        <p>
+            Upload any supporting documents for your loan proposal: financial statements,
+            tax returns, leases, contracts, or other relevant files.
+        </p>
+        <p>
+            Each upload begins with a form asking for your first and last name.
+            This allows our system to automatically route your files into a dedicated folder
+            under your name — creating a personalized workspace without requiring registration.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor" target="_blank">
+            <button type="button">Upload Documents</button>
+        </a>
+
+        <hr>
+
+        <!-- STEP 3 -->
+        <h2>Step 3 — Schedule Your Weekend Calls</h2>
+        <p>
+            After your first payment, you will be directed to schedule your Saturday and Sunday
+            phone calls. These calls anchor your 48‑Hour Sprint.
+        </p>
+        <p><i>(Scheduling link appears automatically after payment.)</i></p>
+
+        <hr>
+
+        <!-- STEP 4 -->
+        <h2>Step 4 — Track Your Progress</h2>
+        <p>
+            As you complete each step — Intake Form, document uploads, weekend calls —
+            your Fast Track progresses. You can return to this Portal anytime during the week
+            to upload more documents or review your materials.
+        </p>
+
+        <hr>
+
+        <!-- STEP 5 -->
+        <h2>Step 5 — Your Deliverables</h2>
+        <p>
+            Your lender‑aligned business plan, 3‑year pro forma, slide deck, and 60‑second pitch video
+            will appear here on Monday at 5pm ET.
+        </p>
+        <p><i>(This section unlocks automatically during delivery.)</i></p>
+
+        <hr>
+
+        <!-- DOWNLOAD SAMPLES -->
+        <h2>Download Samples of Our Work</h2>
+        <p>
+            These samples demonstrate the clarity, structure, and lender‑aligned focus
+            of the 48‑Hour Loan Proposal™.
+        </p>
+
         <h3>Prototype Sample Document</h3>
-        <p>
-            A full prototype sample of our work — exactly what you will receive as part of
-            your deliverables, featuring the signature 30% narrative content and 70% financial
-            information structure, and our proprietary Fundability Ratio™.
-        </p>
         <a href="https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing" download="Sample of Work">
-            <button type="button">Download Sample of Work</button>
+            <button type="button">Download Sample Document</button>
         </a>
 
-        <!-- 60 Second Video -->
         <h3>60‑Second Client Video</h3>
-        <p>
-            An impactful, high‑level overview showcasing the strength of your business concept
-            and its loan worthiness.
-        </p>
         <a href="https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=sharing" download="60-Second Video">
-            <button type="button">Download Sample 60‑Second Video</button>
+            <button type="button">Download Sample Video</button>
         </a>
 
-        <!-- Slide Deck -->
         <h3>Slide Deck Presentation</h3>
-        <p>
-            A comprehensive deck focused on bank readiness and financial validation.
-            This presentation serves as the visual and analytical backbone demonstrating
-            your business is fully prepared for immediate underwriting.
-        </p>
         <a href="https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=sharing&ouid=102685605056643160340&rtpof=true&sd=true" download="Slide Deck">
             <button type="button">Download Sample Slide Deck</button>
         </a>
