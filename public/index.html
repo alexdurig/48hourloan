@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>48-Hour Loan Proposal™</title>
+    <title>Payments</title>
 </head>
 
 <body>
@@ -23,17 +23,13 @@
     </script>
 
     <!-- HERO (single logo + single title) -->
-            <!-- Logo -->
-        <div class="hero-logo">
-            <img src="/downloads/LOGO3.png" alt="48HR Logo" width="45" height="75">
-        </div>
     <div id="hero-placeholder"></div>
     <script>
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready loan proposal and financial model delivered in 48 hours.");
+                html = html.replace("[[PAGE_TITLE]]", "Payments");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Make payments with secure Stripe payment processing.");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
