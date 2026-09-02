@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="/assets/css/global.css">
 
 <style>
-  /* Obsidian Theme Design System */
-  :root {
+/* Obsidian Theme Design System */
+:root {
     --bg-dark: #0b0f19;
     --card-bg: #131a26;
     --card-border: #1f2a3c;
@@ -19,6 +19,14 @@
     --text-secondary: #9ca3af;
     --text-muted: #6b7280;
     --locked-overlay: rgba(11, 15, 25, 0.85);
+}
+
+/* Logo placement — MUST be outside :root */
+.dashboard-logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2000;
   }
 
   body {
