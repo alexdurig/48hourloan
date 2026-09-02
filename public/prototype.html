@@ -20,15 +20,14 @@
             });
     </script>
 
-    <!-- HERO -->
+ <!-- HERO (single logo + single title) -->
     <div id="hero-placeholder"></div>
     <script>
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "48-Hour Web Portal");
-                html = html.replace("[[PAGE_SUBTITLE]]", ~Your documents~ ~Your progress~ ~Your Fast Track);
-                html = html.replace("[[PAGE_TAGLINE]]", "Everything you need for your 48‑Hour Sprint lives here.");
+                html = html.replace("[[PAGE_TITLE]]", "Contact Us");
+                html = html.replace("[[PAGE_SUBTITLE]]", "~~We're always here for you~~");
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
