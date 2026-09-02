@@ -28,8 +28,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal™");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Your lender-ready business plan and financial model — delivered in 48 hours.");
+                html = html.replace("[[PAGE_TITLE]]", "Start Here");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your on-ramp to the Fast Track starts here.");
                 document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
