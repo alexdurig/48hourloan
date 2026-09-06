@@ -137,7 +137,193 @@
                 document.getElementById("nav-placeholder").innerHTML = html;
             });
     </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <title>48HR Outbound Engine</title>
+</head>
+
+<body>
+
+    <!-- NAV BAR (top of page, no logo above it) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "48HR Outbound Engine");
+                html = html.replace("[[PAGE_SUBTITLE]]", "A Clean Complete Monthly Outreach Engine Built and Managed for Your Business.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+                
+            });
+    </script>
+
+   <!-- MAIN CONTENT -->
+    <div class="content">
+<section class="outbound-engine">
+  <div class="container">
+    <header>
+      <h1>48HR Outbound Engine</h1>
+      <h2>Done For You Marketing &amp; Sales Automation</h2>
+      <h3>Grow Your Business Automatically — Every Single Month</h3>
+    </header>
+
+    <p>Most small business owners don’t have time to market. They don’t have time to sell. They don’t have time to write outreach messages. They don’t have time to follow up. They don’t have time to find leads.</p>
+    <p>But you still need customers. You still need conversations. You still need momentum.</p>
+    <p><strong>48HR Outbound Engine</strong> does it all for you. You hand us your email list — or we find one for you — and we run your entire outbound system using Apollo.io.</p>
+    <p>You get new conversations, new leads, and new opportunities every month… without lifting a finger.</p>
+
+<a href="/outbound-engine-portal.html" class="portal-btn">
+    Access Your Outbound Engine Client Portal
+</a>
+
+    <section>
+      <h2>What’s Included Every Month</h2>
+
+      <h3>&#10003; Custom Outreach Messaging</h3>
+      <p>We write your monthly outreach sequence:</p>
+      <ul>
+        <li>first touch message</li>
+        <li>follow ups</li>
+        <li>soft close</li>
+        <li>breakup message</li>
+      </ul>
+      <p>All tailored to your business, your voice, and your goals.</p>
+
+      <h3>&#10003; Automated Sending Through Apollo.io</h3>
+      <p>We load your messages into Apollo, set the schedule, and run the campaign. You don’t touch anything.</p>
+
+      <h3>&#10003; Monthly Follow Up Logic</h3>
+      <p>We build the rules:</p>
+      <ul>
+        <li>opened but no reply</li>
+        <li>clicked but no reply</li>
+        <li>ignored</li>
+        <li>bounced</li>
+      </ul>
+      <p>Apollo handles the automation. We handle the strategy.</p>
+
+      <h3>&#10003; Monthly Campaign Theme</h3>
+      <p>Each month has a new angle: origin story, competitive advantage, customer success, seasonal offer, credibility builder, etc.</p>
+
+      <h3>&#10003; Monthly Hooks &amp; Subject Lines</h3>
+      <p>We craft the openers that get attention and the CTAs that get replies.</p>
+
+      <h3>&#10003; Lead Tracking &amp; Reporting</h3>
+      <p>You get a simple monthly report showing:</p>
+      <ul>
+        <li>opens</li>
+        <li>clicks</li>
+        <li>replies</li>
+        <li>booked calls</li>
+        <li>warm leads</li>
+        <li>cold leads</li>
+        <li>recommended next steps</li>
+      </ul>
+
+      <h3>&#10003; Optional Lead Sourcing</h3>
+      <p>If you don’t have a list, we find one for you: 20, 50, 200, 500, or 1,000 verified leads per month.</p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Pricing Tiers</h2>
+
+      <h3>Tier 1 — You Provide the Email List</h3>
+      <p><strong>$149/month</strong></p>
+      <p>Perfect if you already have customers, prospects, or a CRM.</p>
+      <p>Includes:</p>
+      <ul>
+        <li>Monthly outreach sequence</li>
+        <li>Monthly follow up logic</li>
+        <li>Monthly campaign theme</li>
+        <li>Monthly hooks</li>
+        <li>Apollo automation</li>
+        <li>Monthly reporting</li>
+      </ul>
+
+      <h3>Tier 2 — We Find the Leads for You</h3>
+      <p>Choose your volume:</p>
+      <ul>
+        <li>20 leads/month — $149/month</li>
+        <li>50 leads/month — $249/month</li>
+        <li>200 leads/month — $499/month</li>
+        <li>500 leads/month — $899/month</li>
+        <li>1,000 leads/month — $1,499/month</li>
+      </ul>
+      <p>Includes everything in Tier 1 plus:</p>
+      <ul>
+        <li>Verified lead sourcing</li>
+        <li>Industry/role targeting</li>
+        <li>Segmentation</li>
+        <li>Monthly list refresh</li>
+      </ul>
+
+      <h3>Tier 3 — Full Outbound Agency</h3>
+      <p><strong>$2,500/month</strong></p>
+      <p>We become your entire marketing &amp; sales department.</p>
+      <p>Includes:</p>
+      <ul>
+        <li>Unlimited messaging</li>
+        <li>Unlimited sequences</li>
+        <li>Unlimited follow up logic</li>
+        <li>Unlimited lead sourcing</li>
+        <li>Weekly reporting</li>
+        <li>Monthly strategy call</li>
+        <li>Priority support</li>
+        <li>Custom campaigns</li>
+        <li>Multi channel outreach (email + X/Twitter + LinkedIn)</li>
+      </ul>
+      <p>This is the “done done” version. You show up to the calls. We handle everything else.</p>
+        <a href="/outbound-engine-portal.html" class="btn-primary portal-btn">
+    Access Your Outbound Engine Client Portal
+</a>
+
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Who This Is For</h2>
+      <ul>
+        <li>founders</li>
+        <li>small business owners</li>
+        <li>consultants</li>
+        <li>contractors</li>
+        <li>service providers</li>
+        <li>local businesses</li>
+        <li>online businesses</li>
+        <li>anyone who needs more conversations, more leads, and more opportunities</li>
+      </ul>
+      <p>If you want growth without the grind… this is your engine.</p>
+    </section>
+
+    <hr />
+
+    <section class="cta">
+      <h2>Ready to Grow Automatically?</h2>
+      <p>Choose your tier, upload your list (or let us find one), and your outbound engine starts running within 48 hours.</p>
+      <p>Your business grows. Your calendar fills. Your pipeline moves. You stay focused on what matters.</p>
+      <p><strong>48HR Outbound Engine — Your marketing and sales, done for you.</strong></p>
+    </section>
+  </div>
+</section>
     <!-- DASHBOARD LAYOUT -->
     <div class="oe-layout">
 
