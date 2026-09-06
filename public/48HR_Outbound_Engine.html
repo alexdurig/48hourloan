@@ -1,3 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <title>48HR Outbound Engine</title>
+</head>
+
+<body>
+
+    <!-- NAV BAR (top of page, no logo above it) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "48HR Outbound Engine");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Everything you ever wanted to know about 48HR but were afraid to ask.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+                
+            });
+    </script>
+
+   <!-- MAIN CONTENT -->
+    <div class="content">
 <section class="outbound-engine">
   <div class="container">
     <header>
