@@ -1,1 +1,77 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outbound Engine Client Portal</title>
+
+    <link rel="stylesheet" href="/assets/css/global.css">
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- HERO -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "Outbound Engine Client Portal");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Manage Your Monthly Outreach, Leads, and Reports");
+                document.getElementById("hero-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <h2>Your Outbound Engine Dashboard</h2>
+        <p>Welcome to your client portal. This is where you manage your monthly outreach engine.</p>
+
+        <hr>
+
+        <section>
+            <h3>Upload Your Email List</h3>
+            <p>Send us your CSV file and we’ll load it into Apollo.io for your next campaign.</p>
+            <a href="#" class="portal-btn">Upload List</a>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Monthly Reports</h3>
+            <p>View your opens, clicks, replies, booked calls, and warm leads.</p>
+            <a href="#" class="portal-btn">View Reports</a>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Campaign Status</h3>
+            <p>Your engine runs automatically every month. Check the current status here.</p>
+            <a href="#" class="portal-btn">Check Status</a>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Support</h3>
+            <p>Need help? Contact us anytime.</p>
+            <a href="/contact.html" class="portal-btn">Contact Support</a>
+        </section>
+
+    </div>
+
+</body>
+</html>
