@@ -71,6 +71,22 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+.portal-btn {
+    display: inline-block;
+    background-color: #1a3d7c; /* midnight blue */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+}
+
+.portal-btn:hover {
+    background-color: #102a55; /* darker hover */
+}
 
 /* FOOTER */
 footer {
