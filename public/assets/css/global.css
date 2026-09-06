@@ -73,15 +73,15 @@ body {
 }
 .portal-btn {
     display: inline-block;
-    background-color: #1a3d7c; /* midnight blue */
+    background-color: #1a3d7c;
     color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    font-size: 1.1rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-size: 1.15rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.2s ease;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
 .portal-btn:hover {
