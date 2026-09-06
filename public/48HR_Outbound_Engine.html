@@ -21,7 +21,6 @@
                 document.getElementById("nav-placeholder").innerHTML = html;
             });
     </script>
-
     <!-- HERO (single logo + single title) -->
     <div id="hero-placeholder"></div>
     <script>
@@ -29,9 +28,10 @@
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "48HR Outbound Engine");
-                <section class="outbound-subtitles">
-  <div class="container">
-    <h1 class="page-title">48HR Outbound Engine</h1>
+                html = html.replace("[[PAGE_SUBTITLE]]", "A Clean Complete Monthly Outreach Engine Built and Managed for Your Business.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+                
+            });
     </script>
 
    <!-- MAIN CONTENT -->
