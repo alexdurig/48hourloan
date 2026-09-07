@@ -166,6 +166,41 @@ body {
   .col-8, .col-6, .col-4 { grid-column: span 12; }
 }
 
+/* Elegant Form Controls styling */
+.form-group {
+  margin-bottom: 1.15rem;
+  text-align: left;
+}
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #0b0f19;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 8px rgba(188, 19, 254, 0.2);
+}
+.form-input::placeholder {
+  color: #4b5563;
+}
+
 /* Outbound Lead Monitor styling */
 .metric-row {
   display: grid;
@@ -195,14 +230,6 @@ body {
 }
 
 /* Interactive Modules */
-.icp-status {
-  background: rgba(188, 19, 254, 0.05);
-  border: 1px solid rgba(188, 19, 254, 0.15);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
 .upload-zone-link {
   text-decoration: none;
   display: block;
@@ -250,6 +277,7 @@ body {
   display: block;
   text-align: center;
   box-sizing: border-box;
+  font-size: 0.9rem;
 }
 .btn-action:hover {
   opacity: 0.9;
@@ -334,282 +362,105 @@ body {
 </head>
 <body>
 <!-- TOP-RIGHT BRAND LOGO -->
-<div class="dashboard-logo">
-  <div style="width: 50px; height: 50px; background: #131a26; border: 2px solid var(--accent-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(188,19,254,0.3);">
-    <span style="color: var(--accent-purple); font-weight: bold; font-size: 1.1rem;">48</span>
+<div class=\"dashboard-logo\">
+  <div style=\"width: 50px; height: 50px; background: #131a26; border: 2px solid var(--accent-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(188,19,254,0.3);\">
+    <span style=\"color: var(--accent-purple); font-weight: bold; font-size: 1.1rem;\">48</span>
   </div>
 </div>
 
-<div class="dashboard-container">
+<div class=\"dashboard-container\">
   <!-- HERO / PAGE HEADER -->
-  <header class="dashboard-header">
-    <h1><span style="color: var(--accent-purple);">Your 48HR Outbound Lead Engine</span></h1>
-    <p class="dashboard-subtext">
-      Alexander Durig, Ph.D. — Founder, 48‑Hour Loan Proposal™ | Powered by Outbound Engine AI
-    </p>
+  <header class=\"dashboard-header\">
+    <h1><span style=\"color: var(--accent-purple);\">Your 48HR Outbound Lead Engine</span></h1>
+    <p class=\"dashboard-subtext\">\n      Alexander Durig, Ph.D. — Founder, 48‑Hour Loan Proposal™ | Powered by Outbound Engine AI\n    </p>
   </header>
 
   <!-- Outbound Timeline Stepper -->
-  <div class="timeline-stepper">
-    <div class="step-node completed" id="step-node-1">
-      <div class="step-badge">1</div>
-      <div class="step-label">ICP Profile</div>
-      <span class="step-time">Setup Done</span>
+  <div class=\"timeline-stepper\">
+    <div class=\"step-node completed\" id=\"step-node-1\">
+      <div class=\"step-badge\">1</div>
+      <div class=\"step-label\">ICP Profile</div>
+      <span class=\"step-time\">Setup Done</span>
     </div>
-    <div class="step-node completed" id="step-node-2">
-      <div class="step-badge">2</div>
-      <div class="step-label">Target Lists</div>
-      <span class="step-time">Files Ingested</span>
+    <div class=\"step-node completed\" id=\"step-node-2\">
+      <div class=\"step-badge\">2</div>
+      <div class=\"step-label\">Target Lists</div>
+      <span class=\"step-time\">Files Ingested</span>
     </div>
-    <div class="step-node active" id="step-node-3">
-      <div class="step-badge">3</div>
-      <div class="step-label">Outbound Campaign</div>
-      <span class="step-time">Warmups & Sending</span>
+    <div class=\"step-node active\" id=\"step-node-3\">
+      <div class=\"step-badge\">3</div>
+      <div class=\"step-label\">Outbound Campaign</div>
+      <span class=\"step-time\">Warmups & Sending</span>
     </div>
-    <div class="step-node" id="step-node-4">
-      <div class="step-badge">4</div>
-      <div class="step-label">Leads Delivered</div>
-      <span class="step-time">Active Replies</span>
+    <div class=\"step-node\" id=\"step-node-4\">
+      <div class=\"step-badge\">4</div>
+      <div class=\"step-label\">Leads Delivered</div>
+      <span class=\"step-time\">Active Replies</span>
     </div>
-    <div class="step-node" id="step-node-5">
-      <div class="step-badge">5</div>
-      <div class="step-label">Optimization</div>
-      <span class="step-time">Scale Sequences</span>
+    <div class=\"step-node\" id=\"step-node-5\">
+      <div class=\"step-badge\">5</div>
+      <div class=\"step-label\">Optimization</div>
+      <span class=\"step-time\">Scale Sequences</span>
     </div>
   </div>
 
   <!-- Bento Grid Dashboard -->
-  <div class="bento-grid">
-    <!-- Ideal Customer Profile parameters (ICP Setup) -->
-    <div class="bento-card col-6">
+  <div class=\"bento-grid\">
+    
+    <!-- GORGEOUS DYNAMIC FORM BOX: Apollo ICP Onboarding Form Card (Left - col-6) -->
+    <div class=\"bento-card col-6\">
       <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/></svg>
-        Audience & ICP Parameters
+        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path d=\"M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z\"/></svg>
+        Apollo ICP Onboarding Form
       </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Your core outbound target filters have been mapped out and locked down into our neural routing engine.</p>
-      <div class="icp-status">
-        <strong style="color: var(--accent-purple);">✓ ICP Setup Locked</strong>
-        <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: var(--text-secondary);">Targeting: Business Owners, logistics operators, cross-border shippers within 250 miles of borders.</p>
-      </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/viewform?usp=publish-editor" target="_blank" class="btn-action" style="background-color: transparent; border: 1px solid var(--accent-purple); color: var(--accent-purple); margin-top: 1.5rem;">Edit Targeting Parameters</a>
+      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;\">
+        Complete this secure form to map your Ideal Customer Profile. This data routes directly into your Google Sheet to generate targeted B2B Apollo.io contact lists!
+      </p>
+
+      <!-- Fully Functional Dark Mode Form Connecting to Google Forms -->
+      <form action=\"https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/formResponse\" method=\"POST\" target=\"_blank\" style=\"margin-top: 1rem;\">
+        
+        <!-- Field 1: Company Name -->
+        <div class=\"form-group\">
+          <label class=\"form-label\" for=\"company-name\">Company Legal Name</label>
+          <input type=\"text\" id=\"company-name\" name=\"entry.1000001\" class=\"form-input\" placeholder=\"e.g. Luxury Transport LLC\" required>
+        </div>
+
+        <!-- Field 2: Target Job Titles -->
+        <div class=\"form-group\">
+          <label class=\"form-label\" for=\"target-titles\">Target Job Titles / Personas</label>
+          <input type=\"text\" id=\"target-titles\" name=\"entry.1000002\" class=\"form-input\" placeholder=\"e.g. Logistics Manager, VP Operations\" required>
+        </div>
+
+        <!-- Field 3: Geographic Scope -->
+        <div class=\"form-group\">
+          <label class=\"form-label\" for=\"target-geo\">Target Geography / Radius</label>
+          <input type=\"text\" id=\"target-geo\" name=\"entry.1000003\" class=\"form-input\" placeholder=\"e.g. El Paso corridor, Texas\" required>
+        </div>
+
+        <!-- Field 4: Target Industries -->
+        <div class=\"form-group\">
+          <label class=\"form-label\" for=\"target-industries\">Target Industries / Keywords</label>
+          <input type=\"text\" id=\"target-industries\" name=\"entry.1000004\" class=\"form-input\" placeholder=\"e.g. Shippers, Logistics, Retail Malls\" required>
+        </div>
+
+        <!-- Action Button to Submit directly to Google Forms -->
+        <button type=\"submit\" class=\"btn-action\" style=\"margin-top: 1.25rem; background-color: var(--accent-purple); color: var(--bg-dark); border-color: var(--accent-purple);\">
+          Lock ICP & Submit to Google Sheets
+        </button>
+      </form>
     </div>
 
-    <!-- Active Lead Ingestion / CSV Dropbox with Direct Google Forms Link -->
-    <div class="bento-card col-6">
+    <!-- Active Lead Ingestion / CSV Dropbox with Direct Google Forms Link (Right - col-6) -->
+    <div class=\"bento-card col-6\">
       <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path fill-rule=\"evenodd\" d=\"M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"/></svg>
         Domain & Target List Dropbox
       </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Upload operating list files (`.csv`, `.xlsx`), corporate target domains, or specific company names.</p>
+      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;\">Upload operating list files (`.csv`, `.xlsx`), corporate target domains, or specific company names.</p>
       
       <!-- Clickable dropbox linking straight to Google Form upload box -->
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor" target="_blank" class="upload-zone-link">
-        <div class="upload-zone">
-          <svg width="24" height="24" fill="var(--text-muted)" viewBox="0 0 20 20" style="margin: 0 auto; transition: fill 0.3s ease;"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm2 5a1 1 0 112 0v1h1a1 1 0 110 2H8v1a1 1 0 11-2 0v-1H5a1 1 0 110-2h1V9z" clip-rule="evenodd"/></svg>
-          <p style="margin-top: 0.75rem;"><strong>Open Secure Upload Form</strong></p>
-          <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.25rem;">Click to upload spreadsheets & list sheets via Google Forms</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- Real-time Outbound Analytics Tracker -->
-    <div class="bento-card col-8">
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/></svg>
-        Real-Time Outbound Campaign Monitor
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Tracking outreach momentum, active domains, open percentages, and reply engagement ratios.</p>
-      
-      <div class="metric-row">
-        <div class="metric-tile">
-          <div class="metric-value" id="val-procured">250</div>
-          <div class="metric-title">Leads Procured</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-value" id="val-delivered">820</div>
-          <div class="metric-title">Emails Sent</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-value" id="val-responses">Analyzing</div>
-          <div class="metric-title">Response Rate</div>
-        </div>
-      </div>
-
-      <div class="document-checklist">
-        <p style="font-weight: bold; color: #fff; margin-bottom: 0.5rem; font-size: 0.85rem;">Ingested Campaign Verification Assets:</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-          <div class="checklist-item"><span style="color: var(--accent-purple);">✓</span> Outbound target lists parsed successfully</div>
-          <div class="checklist-item"><span style="color: var(--accent-purple);">✓</span> Custom scripting sequences locked</div>
-          <div class="checklist-item" id="checklist-pending"><span style="color: var(--accent-purple);">⏱</span> Outbox sequence warming (Campaign Live soon)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Outbound Conversion Gauge -->
-    <div class="bento-card col-4">
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 110-2h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
-        Response Efficiency
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.85rem;">The AI Outbound conversion metric, calculating target list reply percentages live.</p>
-      <div class="fundability-gauge-container">
-        <!-- SVG Vector Semi-Circular Dial Gauge -->
-        <svg width="180" height="110" viewBox="0 0 100 60">
-          <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#1a2233" stroke-width="8" stroke-linecap="round" />
-          <path id="gauge-active-path" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="url(#gauge-gradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);" />
-          <g id="gauge-needle" transform="translate(50,50) rotate(-90)" style="transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);">
-            <polygon points="-2,2 0,-38 2,2" fill="#bc13fe" filter="drop-shadow(0 0 4px rgba(188,19,254,0.5))" />
-            <circle cx="0" cy="0" r="4" fill="#bc13fe" />
-          </g>
-          <defs>
-            <linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#7a0bc0" />
-              <stop offset="100%" stop-color="#bc13fe" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <!-- Value Display overlay -->
-        <span class="gauge-score" id="gauge-score-display">--</span>
-        <span class="gauge-label" id="gauge-status-text">Campaign Initializing</span>
-      </div>
-    </div>
-
-    <!-- Elegant Frosted Glass Weekly Lead Sheets Card (Full Width - Unlocked) -->
-    <div class="bento-card col-12" id="vault-card" style="background: rgba(19, 26, 38, 0.65); border: 1px solid rgba(188, 19, 254, 0.25); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);">
-      <!-- Secure Folder Directory Contents -->
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
-        Weekly Lead Sheets Download
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Access and download your verified positive reply leads, cold outbound contacts, and detailed sequence metrics below.</p>
-      
-      <div class="vault-files">
-        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
-          <span>📊 <strong>48HR Outbound Verified Lead Sheet - Luxury Transport LLC.xlsx</strong> (250 B2B Prospect Records)</span>
-          <a href="https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing" target="_blank" class="btn-demo" style="background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;">Download Sheets</a>
-        </div>
-        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
-          <span>✉ <strong>Positive Reply & Booking Transcript Log - Luxury Transport LLC.docx</strong> (Direct Warm Lead Replies)</span>
-          <a href="https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=sharing&ouid=102685605056643160340&rtpof=true&sd=true" target="_blank" class="btn-demo" style="background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;">Download Transcripts</a>
-        </div>
-        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
-          <span>📋 <strong>Outbound Metrics & Campaign Analytics Report.pdf</strong> (Detailed Deliverables summary)</span>
-          <a href="https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=sharing" target="_blank" class="btn-demo" style="background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;">Download Report</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Interactive Dashboard Controls -->
-  <div class="demo-controls">
-    <h4>Interactive Lead Portal Controls</h4>
-    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 1rem 0;">Simulate your clients' live outbox progress, database uploads, metric updates, and positive replies.</p>
-    <div class="btn-group">
-      <button class="btn-demo" id="btn-step-1" onclick="setStep(1)">Step 1 (Targeting Mapped)</button>
-      <button class="btn-demo" id="btn-step-2" onclick="setStep(2)">Step 2 (Raw Target Lists Uploaded)</button>
-      <button class="btn-demo active" id="btn-step-3" onclick="setStep(3)">Step 3 (Outbox Sequences Live)</button>
-      <button class="btn-demo" id="btn-step-4" onclick="setStep(4)">Step 4 (Leads Gathered & Verification)</button>
-      <button class="btn-demo" id="btn-step-5" onclick="setStep(5)">Step 5 (Campaign Optimized & Scaled)</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// State Engine for Dynamic Outbound Metrics, SVG Conversion Dial Gauge
-function setStep(stepNumber) {
-  // Update timeline stepper nodes
-  for (let i = 1; i <= 5; i++) {
-    const node = document.getElementById('step-node-' + i);
-    node.classList.remove('active', 'completed');
-    if (i < stepNumber) {
-      node.classList.add('completed');
-    } else if (i === stepNumber) {
-      node.classList.add('active');
-    }
-  }
-
-  // Update control buttons active state
-  for (let i = 1; i <= 5; i++) {
-    const btn = document.getElementById('btn-step-' + i);
-    if (i === stepNumber) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  }
-
-  // Identify targets
-  const valProcured = document.getElementById('val-procured');
-  const valDelivered = document.getElementById('val-delivered');
-  const valResponses = document.getElementById('val-responses');
-  const gaugeScore = document.getElementById('gauge-score-display');
-  const gaugeFill = document.getElementById('gauge-active-path');
-  const gaugeNeedle = document.getElementById('gauge-needle');
-  const gaugeStatus = document.getElementById('gauge-status-text');
-  const pendingCheck = document.getElementById('checklist-pending');
-
-  const arcLength = 125.6;
-
-  if (stepNumber === 1) {
-    valProcured.innerText = '0';
-    valDelivered.innerText = '0';
-    valResponses.innerText = '0.0%';
-    gaugeScore.innerText = '--';
-    gaugeFill.style.strokeDashoffset = arcLength;
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)";
-    gaugeStatus.innerText = "Setup Underway";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple);">⏱</span> Outbox sequence warming (Campaign Live soon)';
-  } 
-  else if (stepNumber === 2) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '0';
-    valResponses.innerText = '0.0%';
-    gaugeScore.innerText = '--';
-    gaugeFill.style.strokeDashoffset = arcLength;
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)";
-    gaugeStatus.innerText = "Target Ingestion Complete";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple);">⏱</span> Sequence launching over the weekend';
-  } 
-  else if (stepNumber === 3) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '820';
-    valResponses.innerText = 'Analyzing';
-    gaugeScore.innerText = 'Syncing';
-    // Position needle mid-way for computational modeling
-    gaugeFill.style.strokeDashoffset = arcLength * (1 - 0.45);
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-10deg)";
-    gaugeStatus.innerText = "Analyzing Active Replies...";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
-  } 
-  else if (stepNumber === 4) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '1,450';
-    valResponses.innerText = '8.4%';
-    gaugeScore.innerText = '8.4%';
-    const targetOffset = arcLength * (1 - 0.84);
-    gaugeFill.style.strokeDashoffset = targetOffset;
-    // Rotate needle to 8.4% visual scale representation (180 degrees * 0.84 = 151.2deg. Offset from -90 is 61.2deg)
-    gaugeNeedle.style.transform = "translate(50,50) rotate(61.2deg)";
-    gaugeStatus.style.color = "var(--accent-purple)";
-    gaugeStatus.innerText = "Outbox Response Lock";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
-  } 
-  else if (stepNumber === 5) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '1,450';
-    valResponses.innerText = '8.4%';
-    gaugeScore.innerText = '8.4%';
-    const targetOffset = arcLength * (1 - 0.84);
-    gaugeFill.style.strokeDashoffset = targetOffset;
-    gaugeNeedle.style.transform = "translate(50,50) rotate(61.2deg)";
-    gaugeStatus.style.color = "var(--accent-purple)";
-    gaugeStatus.innerText = "Outbox Response Lock";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
-  }
-}
-
-// Initialize step 3: Active Outbox Campaigns
-setStep(3);
-</script>
-</body>
-</html>
+      <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor\" target=\"_blank\" class=\"upload-zone-link\">
+        <div class=\"upload-zone\">
+          <svg width=\"24\" height=\"24\" fill=\"var(--text-muted)\" viewBox=\"0 0 20 20\" style=\"margin: 0 auto; transition: fill 0.3s ease;\"><path fill-rule=\"evenodd\" d=\"M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm2 5a1 1 0 112 0v1h1a1 1 0 110 2H8v1a1 1 0 11-2 0v-1H5a1 1 0 110-2h1V9z\" clip-rule=\"evenodd\"/></svg>
+          <p style=\"margin-top: 0.75rem;\"><strong>Open Secure Upload Form</strong></p>\n          <span style=\"font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.25rem;\">Click to upload spreadsheets & list sheets via Google Forms</span>\n        </div>\n      </a>\n      \n      <div style=\"background: rgba(188, 19, 254, 0.05); border: 1px solid rgba(188, 19, 254, 0.15); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; font-size: 0.9rem;\">\n        <strong style=\"color: var(--accent-purple); display: flex; align-items: center; gap: 6px;\">\n          <svg width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\" clip-rule=\"evenodd\"/></svg>\n          Google Sheets Automation Active\n        </strong>\n        <p style=\"margin: 0.25rem 0 0 0; font-size: 0.8rem; color: var(--text-secondary);\">Your submissions automatically trigger your Apps Script to establish client-specific target directories.</p>\n      </div>\n    </div>\n\n    <!-- Real-time Outbound Analytics Tracker -->\n    <div class=\"bento-card col-8\">\n      <h3>\n        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path fill-rule=\"evenodd\" d=\"M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z\" clip-rule=\"evenodd\"/></svg>\n        Real-Time Outbound Campaign Monitor\n      </h3>\n      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;\">Tracking outreach momentum, active domains, open percentages, and reply engagement ratios.</p>\n      \n      <div class=\"metric-row\">\n        <div class=\"metric-tile\">\n          <div class=\"metric-value\" id=\"val-procured\">250</div>\n          <div class=\"metric-title\">Leads Procured</div>\n        </div>\n        <div class=\"metric-tile\">\n          <div class=\"metric-value\" id=\"val-delivered\">820</div>\n          <div class=\"metric-title\">Emails Sent</div>\n        </div>\n        <div class=\"metric-tile\">\n          <div class=\"metric-value\" id=\"val-responses\">Analyzing</div>\n          <div class=\"metric-title\">Response Rate</div>\n        </div>\n      </div>\n\n      <div class=\"document-checklist\">\n        <p style=\"font-weight: bold; color: #fff; margin-bottom: 0.5rem; font-size: 0.85rem;\">Ingested Campaign Verification Assets:</p>\n        <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;\">\n          <div class=\"checklist-item\"><span style=\"color: var(--accent-purple);\">✓</span> Outbound target lists parsed successfully</div>\n          <div class=\"checklist-item\"><span style=\"color: var(--accent-purple);\">✓</span> Custom scripting sequences locked</div>\n          <div class=\"checklist-item\" id=\"checklist-pending\"><span style=\"color: var(--accent-purple);\">⏱</span> Outbox sequence warming (Campaign Live soon)</div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Outbound Conversion Gauge -->\n    <div class=\"bento-card col-4\">\n      <h3>\n        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path d=\"M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 110-2h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z\"/></svg>\n        Response Efficiency\n      </h3>\n      <p style=\"color: var(--text-secondary); font-size: 0.85rem;\">The AI Outbound conversion metric, calculating target list reply percentages live.</p>\n      <div class=\"fundability-gauge-container\">\n        <!-- SVG Vector Semi-Circular Dial Gauge -->\n        <svg width=\"180\" height=\"110\" viewBox=\"0 0 100 60\">\n          <path d=\"M 10 50 A 40 40 0 0 1 90 50\" fill=\"none\" stroke=\"#1a2233\" stroke-width=\"8\" stroke-linecap=\"round\" />\n          <path id=\"gauge-active-path\" d=\"M 10 50 A 40 40 0 0 1 90 50\" fill=\"none\" stroke=\"url(#gauge-gradient)\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-dasharray=\"125.6\" stroke-dashoffset=\"125.6\" style=\"transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);\" />\n          <g id=\"gauge-needle\" transform=\"translate(50,50) rotate(-90)\" style=\"transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);\">\n            <polygon points=\"-2,2 0,-38 2,2\" fill=\"#bc13fe\" filter=\"drop-shadow(0 0 4px rgba(188,19,254,0.5))\" />\n            <circle cx=\"0\" cy=\"0\" r=\"4\" fill=\"#bc13fe\" />\n          </g>\n          <defs>\n            <linearGradient id=\"gauge-gradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" stop-color=\"#7a0bc0\" />\n              <stop offset=\"100%\" stop-color=\"#bc13fe\" />\n            </linearGradient>\n          </defs>\n        </svg>\n        <!-- Value Display overlay -->\n        <span class=\"gauge-score\" id=\"gauge-score-display\">--</span>\n        <span class=\"gauge-label\" id=\"gauge-status-text\">Campaign Initializing</span>\n      </div>\n    </div>\n\n    <!-- Elegant Frosted Glass Weekly Lead Sheets Card (Full Width - Unlocked) -->\n    <div class=\"bento-card col-12\" id=\"vault-card\" style=\"background: rgba(19, 26, 38, 0.65); border: 1px solid rgba(188, 19, 254, 0.25); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);\">\n      <!-- Secure Folder Directory Contents -->\n      <h3>\n        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path d=\"M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z\"/></svg>\n        Weekly Lead Sheets Download\n      </h3>\n      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;\">Access and download your verified positive reply leads, cold outbound contacts, and detailed sequence metrics below.</p>\n      \n      <div class=\"vault-files\">\n        <div class=\"file-item\" style=\"background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);\">\n          <span>📊 <strong>48HR Outbound Verified Lead Sheet - Luxury Transport LLC.xlsx</strong> (250 B2B Prospect Records)</span>\n          <a href=\"https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing\" target=\"_blank\" class=\"btn-demo\" style=\"background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;\">Download Sheets</a>\n        </div>\n        <div class=\"file-item\" style=\"background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);\">\n          <span>✉ <strong>Positive Reply & Booking Transcript Log - Luxury Transport LLC.docx</strong> (Direct Warm Lead Replies)</span>\n          <a href=\"https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=sharing&ouid=102685605056643160340&rtpof=true&sd=true\" target=\"_blank\" class=\"btn-demo\" style=\"background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;\">Download Transcripts</a>\n        </div>\n        <div class=\"file-item\" style=\"background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);\">\n          <span>📋 <strong>Outbound Metrics & Campaign Analytics Report.pdf</strong> (Detailed Deliverables summary)</span>\n          <a href=\"https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=sharing\" target=\"_blank\" class=\"btn-demo\" style=\"background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;\">Download Report</a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Interactive Dashboard Controls -->\n  <div class=\"demo-controls\">\n    <h4>Interactive Lead Portal Controls</h4>\n    <p style=\"font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 1rem 0;\">Simulate your clients' live outbox progress, database uploads, metric updates, and positive replies.</p>\n    <div class=\"btn-group\">\n      <button class=\"btn-demo\" id=\"btn-step-1\" onclick=\"setStep(1)\">Step 1 (Targeting Mapped)</button>\n      <button class=\"btn-demo\" id=\"btn-step-2\" onclick=\"setStep(2)\">Step 2 (Raw Target Lists Uploaded)</button>\n      <button class=\"btn-demo active\" id=\"btn-step-3\" onclick=\"setStep(3)\">Step 3 (Outbox Sequences Live)</button>\n      <button class=\"btn-demo\" id=\"btn-step-4\" onclick=\"setStep(4)\">Step 4 (Leads Gathered & Verification)</button>\n      <button class=\"btn-demo\" id=\"btn-step-5\" onclick=\"setStep(5)\">Step 5 (Campaign Optimized & Scaled)</button>\n    </div>\n  </div>\n</div>\n\n<script>\n// State Engine for Dynamic Outbound Metrics, SVG Conversion Dial Gauge\nfunction setStep(stepNumber) {\n  // Update timeline stepper nodes\n  for (let i = 1; i <= 5; i++) {\n    const node = document.getElementById('step-node-' + i);\n    node.classList.remove('active', 'completed');\n    if (i < stepNumber) {\n      node.classList.add('completed');\n    } else if (i === stepNumber) {\n      node.classList.add('active');\n    }\n  }\n\n  // Update control buttons active state\n  for (let i = 1; i <= 5; i++) {\n    const btn = document.getElementById('btn-step-' + i);\n    if (i === stepNumber) {\n      btn.classList.add('active');\n    } else {\n      btn.classList.remove('active');\n    }\n  }\n\n  // Identify targets\n  const valProcured = document.getElementById('val-procured');\n  const valDelivered = document.getElementById('val-delivered');\n  const valResponses = document.getElementById('val-responses');\n  const gaugeScore = document.getElementById('gauge-score-display');\n  const gaugeFill = document.getElementById('gauge-active-path');\n  const gaugeNeedle = document.getElementById('gauge-needle');\n  const gaugeStatus = document.getElementById('gauge-status-text');\n  const pendingCheck = document.getElementById('checklist-pending');\n\n  const arcLength = 125.6;\n\n  if (stepNumber === 1) {\n    valProcured.innerText = '0';\n    valDelivered.innerText = '0';\n    valResponses.innerText = '0.0%';\n    gaugeScore.innerText = '--';\n    gaugeFill.style.strokeDashoffset = arcLength;\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(-90deg)\";\n    gaugeStatus.innerText = \"Setup Underway\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple);\">⏱</span> Outbox sequence warming (Campaign Live soon)';\n  } \n  else if (stepNumber === 2) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '0';\n    valResponses.innerText = '0.0%';\n    gaugeScore.innerText = '--';\n    gaugeFill.style.strokeDashoffset = arcLength;\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(-90deg)\";\n    gaugeStatus.innerText = \"Target Ingestion Complete\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple);\">⏱</span> Sequence launching over the weekend';\n  } \n  else if (stepNumber === 3) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '820';\n    valResponses.innerText = 'Analyzing';\n    gaugeScore.innerText = 'Syncing';\n    // Position needle mid-way for computational modeling\n    gaugeFill.style.strokeDashoffset = arcLength * (1 - 0.45);\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(-10deg)\";\n    gaugeStatus.innerText = \"Analyzing Active Replies...\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple); font-weight: 600;\">✓</span> Outbox engine cold email batches warm & sending';\n  } \n  else if (stepNumber === 4) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '1,450';\n    valResponses.innerText = '8.4%';\n    gaugeScore.innerText = '8.4%';\n    const targetOffset = arcLength * (1 - 0.84);\n    gaugeFill.style.strokeDashoffset = targetOffset;\n    // Rotate needle to 8.4% visual scale representation (180 degrees * 0.84 = 151.2deg. Offset from -90 is 61.2deg)\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(61.2deg)\";\n    gaugeStatus.style.color = \"var(--accent-purple)\";\n    gaugeStatus.innerText = \"Outbox Response Lock\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple); font-weight: 600;\">✓</span> Outbox engine cold email batches warm & sending';\n  } \n  else if (stepNumber === 5) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '1,450';\n    valResponses.innerText = '8.4%';\n    gaugeScore.innerText = '8.4%';\n    const targetOffset = arcLength * (1 - 0.84);\n    gaugeFill.style.strokeDashoffset = targetOffset;\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(61.2deg)\";\n    gaugeStatus.style.color = \"var(--accent-purple)\";\n    gaugeStatus.innerText = \"Outbox Response Lock\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple); font-weight: 600;\">✓</span> Outbox engine cold email batches warm & sending';\n  }\n}\n\n// Initialize step 3: Active Outbox Campaigns\nsetStep(3);\n</script>\n</body>\n</html>
