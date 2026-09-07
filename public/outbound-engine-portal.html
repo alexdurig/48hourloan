@@ -15,7 +15,6 @@
   --text-primary: #f3f4f6;
   --text-secondary: #9ca3af;
   --text-muted: #6b7280;
-  --locked-overlay: rgba(11, 15, 25, 0.75); /* Translucent base for frosting */
 }
 
 body {
@@ -273,7 +272,7 @@ body {
   bottom: 10px;
 }
 
-/* Beautiful Frosted Glass Locked Vault Overlay */
+/* Beautiful Frosted Glass Files */
 .vault-files {
   display: flex;
   flex-direction: column;
@@ -288,47 +287,6 @@ body {
   padding: 0.75rem;
   border-radius: 8px;
   font-size: 0.9rem;
-}
-.locked-card {
-  position: relative;
-}
-.vault-lock-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--locked-overlay);
-  /* Pure Apple-Style Backdrop Blur */
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  text-align: center;
-  padding: 1.5rem;
-  box-sizing: border-box;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.vault-lock-overlay svg {
-  width: 48px;
-  height: 48px;
-  fill: var(--accent-purple);
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 8px rgba(188, 19, 254, 0.5));
-}
-.vault-lock-overlay p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  max-width: 320px;
-  margin: 0.5rem 0 1.25rem 0;
-}
-.unlocked .vault-lock-overlay {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.05);
 }
 
 /* Simulation Controls styling */
@@ -479,7 +437,7 @@ body {
     <!-- Outbound Conversion Gauge -->
     <div class="bento-card col-4">
       <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 110-2h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
         Response Efficiency
       </h3>
       <p style="color: var(--text-secondary); font-size: 0.85rem;">The AI Outbound conversion metric, calculating target list reply percentages live.</p>
@@ -506,34 +464,26 @@ body {
       </div>
     </div>
 
-    <!-- Frosted Glass Weekly Lead Sheets Vault (Full Width) -->
-    <div class="bento-card col-12 locked-card" id="vault-card">
+    <!-- Elegant Frosted Glass Weekly Lead Sheets Card (Full Width) -->
+    <div class="bento-card col-12" id="vault-card" style="background: rgba(19, 26, 38, 0.65); border: 1px solid rgba(188, 19, 254, 0.25); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);">
       
-      <!-- Translucent Frosted Glass Window Overlay -->
-      <div class="vault-lock-overlay" id="vault-overlay">
-        <svg viewBox="0 0 24 24">
-          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-        </svg>
-        <h3 style="color: #fff; margin: 0; font-size: 1.3rem;">Weekly Lead Sheets Vault</h3>
-        <p>Your institutional lead list and verified positive responses are compiled! Settle your remaining balance ($375) to unlock instant CSV/Excel download access.</p>
-        <button class="btn-action" style="max-width: 280px;" onclick="unlockVaultDemo()">Unlock Secure Folder ($375)</button>
-      </div>
-
       <!-- Secure Folder Directory Contents -->
       <h3>
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
-        Monday Outbound Leads Directory
+        Weekly Lead Sheets Download
       </h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Access and download your verified positive reply leads, cold outbound contacts, and detailed sequence metrics below.</p>
+      
       <div class="vault-files">
-        <div class="file-item">
+        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
           <span>📊 <strong>48HR Outbound Verified Lead Sheet - Luxury Transport LLC.xlsx</strong> (250 B2B Prospect Records)</span>
           <a href="#" class="btn-demo" style="background: var(--accent-magenta); color: var(--bg-dark); text-decoration: none;" onclick="alert('Leads list downloaded.')">Download Sheets</a>
         </div>
-        <div class="file-item">
+        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
           <span>✉ <strong>Positive Reply & Booking Transcript Log - Luxury Transport LLC.docx</strong> (Direct Warm Lead Replies)</span>
           <a href="#" class="btn-demo" style="background: var(--accent-magenta); color: var(--bg-dark); text-decoration: none;" onclick="alert('Transcripts downloaded.')">Download Transcripts</a>
         </div>
-        <div class="file-item">
+        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
           <span>📋 <strong>Outbound Metrics & Campaign Analytics Report.pdf</strong> (Detailed Deliverables summary)</span>
           <a href="#" class="btn-demo" style="background: var(--accent-magenta); color: var(--bg-dark); text-decoration: none;" onclick="alert('Analytics downloaded.')">Download Report</a>
         </div>
@@ -550,13 +500,13 @@ body {
       <button class="btn-demo" id="btn-step-2" onclick="setStep(2)">Step 2 (Raw Target Lists Uploaded)</button>
       <button class="btn-demo active" id="btn-step-3" onclick="setStep(3)">Step 3 (Outbox Sequences Live)</button>
       <button class="btn-demo" id="btn-step-4" onclick="setStep(4)">Step 4 (Leads Gathered & Verification)</button>
-      <button class="btn-demo" id="btn-step-5" onclick="setStep(5)">Step 5 (Vault Folders Unlocked)</button>
+      <button class="btn-demo" id="btn-step-5" onclick="setStep(5)">Step 5 (Campaign Optimized & Scaled)</button>
     </div>
   </div>
 </div>
 
 <script>
-// State Engine for Dynamic Outbound Metrics, SVG Conversion Dial Gauge & Frosted Unlocks
+// State Engine for Dynamic Outbound Metrics, SVG Conversion Dial Gauge
 function setStep(stepNumber) {
   // Update timeline stepper nodes
   for (let i = 1; i <= 5; i++) {
@@ -587,7 +537,6 @@ function setStep(stepNumber) {
   const gaugeFill = document.getElementById('gauge-active-path');
   const gaugeNeedle = document.getElementById('gauge-needle');
   const gaugeStatus = document.getElementById('gauge-status-text');
-  const vault = document.getElementById('vault-card');
   const pendingCheck = document.getElementById('checklist-pending');
 
   const arcLength = 125.6;
@@ -600,7 +549,6 @@ function setStep(stepNumber) {
     gaugeFill.style.strokeDashoffset = arcLength; 
     gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)"; 
     gaugeStatus.innerText = "Setup Underway";
-    vault.classList.remove('unlocked');
     pendingCheck.innerHTML = '<span style="color: var(--accent-purple);">⏱</span> Outbox sequence warming (Campaign Live soon)';
   } 
   else if (stepNumber === 2) {
@@ -611,7 +559,6 @@ function setStep(stepNumber) {
     gaugeFill.style.strokeDashoffset = arcLength; 
     gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)";
     gaugeStatus.innerText = "Target Ingestion Complete";
-    vault.classList.remove('unlocked');
     pendingCheck.innerHTML = '<span style="color: var(--accent-purple);">⏱</span> Sequence launching over the weekend';
   } 
   else if (stepNumber === 3) {
@@ -623,8 +570,7 @@ function setStep(stepNumber) {
     gaugeFill.style.strokeDashoffset = arcLength * (1 - 0.45); 
     gaugeNeedle.style.transform = "translate(50,50) rotate(-10deg)"; 
     gaugeStatus.innerText = "Analyzing Active Replies...";
-    vault.classList.remove('unlocked');
-    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta);">✓</span> Outbox engine cold email batches warm & sending';
+    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
   } 
   else if (stepNumber === 4) {
     valProcured.innerText = '250';
@@ -637,8 +583,7 @@ function setStep(stepNumber) {
     gaugeNeedle.style.transform = "translate(50,50) rotate(61.2deg)"; 
     gaugeStatus.style.color = "var(--accent-magenta)";
     gaugeStatus.innerText = "Outbox Response Lock";
-    vault.classList.remove('unlocked');
-    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta);">✓</span> Outbox engine cold email batches warm & sending';
+    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
   } 
   else if (stepNumber === 5) {
     valProcured.innerText = '250';
@@ -650,17 +595,8 @@ function setStep(stepNumber) {
     gaugeNeedle.style.transform = "translate(50,50) rotate(61.2deg)";
     gaugeStatus.style.color = "var(--accent-magenta)";
     gaugeStatus.innerText = "Outbox Response Lock";
-    // Slide away frosted panel
-    vault.classList.add('unlocked');
-    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta);">✓</span> Outbox engine cold email batches warm & sending';
+    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
   }
-}
-
-// Payment simulation to unlock target sheets and reply transcripts
-function unlockVaultDemo() {
-  document.getElementById('vault-card').classList.add('unlocked');
-  setStep(5);
-  alert('Payment Verified! Secure Outbound Lead Folder and verified contacts have been unlocked.');
 }
 
 // Initialize step 3: Active Outbox Campaigns
