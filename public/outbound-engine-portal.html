@@ -3,604 +3,1061 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Dashboard | 48HR Outbound Lead Engine</title>
+<title>Client Portal Dashboard | 48-Hour Loan Proposal™</title>
 <style>
-/* Obsidian & Neon Purple Luxury Theme Design System */
+/* Modern Midnight Blue Luxury & Teal Design System */
 :root {
-  --bg-dark: #0b0f19;
-  --card-bg: #131a26;
-  --card-border: #1f2a3c;
-  --accent-purple: #bc13fe;      /* Glowing Neon Purple */
-  --accent-magenta: #ff007f;     /* Hot Pink / Magenta */
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+--bg-dark: #080c14;
+--card-bg: #0f172a;
+--card-border: #1e293b;
+--accent-teal: #0df2c9;
+--accent-green: #10b981;
+--accent-gold: #ffd700;
+--text-primary: #f8fafc;
+--text-secondary: #94a3b8;
+--text-muted: #64748b;
+--locked-overlay: rgba(8, 12, 20, 0.75);
 }
-
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  margin: 0;
-  padding: 0;
+background-color: var(--bg-dark);
+color: var(--text-primary);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+margin: 0;
+padding: 0;
+min-height: 100vh;
 }
-
-.dashboard-logo {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 2000;
-}
-
-.dashboard-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-/* Page Header */
+/* Header & Navigation Styling */
 .dashboard-header {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--card-border);
-  padding-bottom: 1.5rem;
+border-bottom: 1px solid var(--card-border);
+padding: 1.5rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: rgba(15, 23, 42, 0.6);
+backdrop-filter: blur(8px);
+position: sticky;
+top: 0;
+z-index: 100;
 }
-.dashboard-header h1 {
-  font-size: 2.2rem;
-  margin: 0 0 0.5rem 0;
-  color: #fff;
-  font-weight: 700;
+.brand-block {
+display: flex;
+align-items: center;
+gap: 12px;
 }
-.dashboard-subtext {
-  color: var(--text-secondary);
-  margin: 0;
-  font-size: 1rem;
+.brand-badge {
+width: 48px;
+height: 48px;
+background: #1e293b;
+border: 2px solid var(--accent-teal);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 0 15px rgba(13, 242, 201, 0.25);
+}
+.brand-badge span {
+color: var(--accent-teal);
+font-weight: 800;
+font-size: 1.25rem;
+}
+.brand-title h2 {
+margin: 0;
+font-size: 1.2rem;
+font-weight: 700;
+letter-spacing: -0.025em;
+color: #fff;
+}
+.brand-title p {
+margin: 0;
+font-size: 0.75rem;
+color: var(--text-secondary);
+}
+/* Main Dashboard Layout */
+.dashboard-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2.5rem 1.5rem;
 }
 
-/* 5-Step Outbound Timeline Stepper */
+/* Dashboard Welcome Hero Banner (Integrating Original Copy) */
+.welcome-banner {
+background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.4));
+border: 1px solid var(--card-border);
+border-radius: 16px;
+padding: 2.5rem;
+margin-bottom: 2.5rem;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.welcome-banner h1 {
+margin: 0 0 0.75rem 0;
+font-size: 2.2rem;
+font-weight: 800;
+color: #fff;
+letter-spacing: -0.03em;
+}
+.welcome-banner h1 span {
+color: var(--accent-teal);
+}
+.welcome-banner p {
+margin: 0;
+font-size: 1.05rem;
+color: var(--text-secondary);
+line-height: 1.6;
+max-width: 900px;
+}
+
+/* Stepper Progress Timeline */
 .timeline-stepper {
-  display: flex;
-  justify-content: space-between;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  overflow-x: auto;
+display: flex;
+justify-content: space-between;
+background: var(--card-bg);
+border: 1px solid var(--card-border);
+border-radius: 16px;
+padding: 1.75rem;
+margin-bottom: 2.5rem;
+overflow-x: auto;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 .step-node {
-  flex: 1;
-  text-align: center;
-  position: relative;
-  min-width: 150px;
+flex: 1;
+text-align: center;
+position: relative;
+min-width: 150px;
 }
 .step-node:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  width: 100%;
-  height: 2px;
-  background-color: var(--card-border);
-  z-index: 1;
+content: '';
+position: absolute;
+top: 20px;
+left: 50%;
+width: 100%;
+height: 3px;
+background-color: var(--card-border);
+z-index: 1;
+transition: background-color 0.4s ease;
 }
 .step-node.completed:not(:last-child)::after {
-  background-color: var(--accent-magenta);
+background-color: var(--accent-green);
 }
 .step-badge {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #1e293b;
-  border: 2px solid var(--card-border);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--text-secondary);
-  position: relative;
-  z-index: 2;
-  transition: all 0.3s ease;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background-color: #1e293b;
+border: 2px solid var(--card-border);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+font-weight: 700;
+color: var(--text-secondary);
+position: relative;
+z-index: 2;
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .step-node.active .step-badge {
-  border-color: var(--accent-purple);
-  color: var(--accent-purple);
-  box-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+border-color: var(--accent-teal);
+color: var(--accent-teal);
+background-color: #0f172a;
+box-shadow: 0 0 15px rgba(13, 242, 201, 0.4);
 }
 .step-node.completed .step-badge {
-  background-color: var(--accent-magenta);
-  border-color: var(--accent-magenta);
-  color: var(--bg-dark);
+background-color: var(--accent-green);
+border-color: var(--accent-green);
+color: var(--bg-dark);
 }
 .step-label {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+margin-top: 0.85rem;
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--text-secondary);
+transition: color 0.3s ease;
 }
 .step-node.active .step-label {
-  color: #fff;
+color: #fff;
 }
 .step-node.completed .step-label {
-  color: var(--accent-magenta);
+color: var(--accent-green);
 }
 .step-time {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  display: block;
-  margin-top: 0.25rem;
+font-size: 0.7rem;
+color: var(--text-muted);
+display: block;
+margin-top: 0.25rem;
 }
-
-/* Bento Grid */
+/* Bento Grid System */
 .bento-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+gap: 1.75rem;
+margin-bottom: 3rem;
 }
 .bento-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease;
+background-color: var(--card-bg);
+border: 1px solid var(--card-border);
+border-radius: 18px;
+padding: 1.75rem;
+position: relative;
+overflow: hidden;
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
 }
 .bento-card:hover {
-  border-color: #3b2a54;
+border-color: #334155;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 .bento-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+margin: 0 0 1.25rem 0;
+font-size: 1.15rem;
+color: #fff;
+display: flex;
+align-items: center;
+gap: 0.75rem;
 }
-
+.bento-card h3 svg {
+color: var(--accent-teal);
+}
 .col-12 { grid-column: span 12; }
 .col-8  { grid-column: span 8; }
 .col-6  { grid-column: span 6; }
 .col-4  { grid-column: span 4; }
-
+@media (max-width: 992px) {
+.col-8, .col-4 { grid-column: span 12; }
+}
 @media (max-width: 768px) {
-  .col-8, .col-6, .col-4 { grid-column: span 12; }
+.col-6 { grid-column: span 12; }
 }
-
-/* Outbound Lead Monitor styling */
-.metric-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
+/* Circular SVG Gauge Module */
+.fundability-gauge-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 220px;
+position: relative;
+margin-top: 0.5rem;
 }
-.metric-tile {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
+.gauge-svg {
+transform: rotate(-90deg);
 }
-.metric-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--accent-purple);
-  margin-bottom: 0.25rem;
-  text-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+.gauge-bg-path {
+fill: none;
+stroke: #1e293b;
+stroke-width: 8px;
 }
-.metric-title {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.gauge-fill-path {
+fill: none;
+stroke: url(#gauge-gradient);
+stroke-width: 8px;
+stroke-dasharray: 251.2; /* Correct calculation for full circle stroke */
+stroke-dashoffset: 251.2;
+stroke-linecap: round;
+transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* Interactive Modules */
-.icp-status {
-  background: rgba(255, 0, 127, 0.1);
-  border: 1px solid rgba(255, 0, 127, 0.2);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-size: 0.9rem;
+.gauge-needle {
+transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.gauge-needle-polygon {
+fill: var(--accent-teal);
+filter: drop-shadow(0 0 5px rgba(13, 242, 201, 0.6));
+}
+.gauge-score-value {
+position: absolute;
+font-size: 2.75rem;
+font-weight: 800;
+color: var(--accent-teal);
+text-shadow: 0 0 15px rgba(13, 242, 201, 0.3);
+bottom: 55px;
+}
+.gauge-score-label {
+position: absolute;
+font-size: 0.75rem;
+font-weight: 600;
+color: var(--text-muted);
+bottom: 25px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+}
+/* Beautiful Animated Secure Document Dropbox */
 .upload-zone {
-  border: 2px dashed var(--card-border);
-  border-radius: 12px;
-  padding: 2.2rem 1rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+border: 2px dashed #334155;
+border-radius: 14px;
+padding: 2rem 1.5rem;
+text-align: center;
+cursor: pointer;
+transition: all 0.3s ease;
+background: rgba(8, 12, 20, 0.3);
 }
-.upload-zone:hover {
-  border-color: var(--accent-purple);
-  background: rgba(188, 19, 254, 0.02);
+.upload-zone:hover, .upload-zone.dragover {
+border-color: var(--accent-teal);
+background: rgba(13, 242, 201, 0.03);
+}
+.upload-zone svg {
+width: 42px;
+height: 42px;
+fill: var(--text-muted);
+margin-bottom: 0.75rem;
+transition: fill 0.3s, transform 0.3s;
+}
+.upload-zone:hover svg {
+fill: var(--accent-teal);
+transform: translateY(-4px);
 }
 .upload-zone p {
-  margin: 0.5rem 0 0 0;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
+margin: 0;
+font-size: 0.9rem;
+color: var(--text-secondary);
 }
+.upload-zone span {
+font-size: 0.75rem;
+color: var(--text-muted);
+display: block;
+margin-top: 0.4rem;
+}
+/* Interactive Upload Checklist */
 .document-checklist {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+margin-top: 1.5rem;
+}
+.checklist-title {
+font-size: 0.8rem;
+font-weight: 700;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+margin-bottom: 0.75rem;
+}
+.checklist-items {
+display: grid;
+grid-template-columns: 1fr;
+gap: 0.75rem;
 }
 .checklist-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+background: rgba(30, 41, 59, 0.4);
+border: 1px solid var(--card-border);
+padding: 0.75rem 1rem;
+border-radius: 10px;
+font-size: 0.85rem;
+transition: all 0.3s ease;
 }
-.btn-action {
-  background-color: var(--accent-purple);
-  color: var(--bg-dark);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 0.75rem;
-  transition: opacity 0.2s;
+.checklist-status {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 0.7rem;
 }
-.btn-action:hover {
-  opacity: 0.9;
+.status-complete {
+background: rgba(16, 185, 129, 0.15);
+border: 1.5px solid var(--accent-green);
+color: var(--accent-green);
 }
-
-/* Circular SVG Conversion Gauge */
-.fundability-gauge-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 180px;
-  position: relative;
+.status-pending {
+background: rgba(13, 242, 201, 0.1);
+border: 1.5px solid var(--accent-teal);
+color: var(--accent-teal);
+animation: pulse 1.8s infinite;
 }
-.gauge-score {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent-purple);
-  position: absolute;
-  bottom: 35px;
-  text-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+/* Beautiful Frosted Glass Monday Deliverables Vault */
+.vault-locked-container {
+position: relative;
 }
-.gauge-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  position: absolute;
-  bottom: 10px;
+.frosted-glass-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(15, 23, 42, 0.45);
+/* Elite backdrop filtering for realistic frosting */
+backdrop-filter: blur(20px) saturate(190%);
+-webkit-backdrop-filter: blur(20px) saturate(190%);
+border-radius: 18px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+z-index: 10;
+text-align: center;
+padding: 2rem;
+box-sizing: border-box;
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* Beautiful Frosted Glass Files */
+.lock-glowing-icon {
+width: 72px;
+height: 72px;
+background: rgba(15, 23, 42, 0.8);
+border: 2.5px solid var(--accent-teal);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 1.25rem;
+box-shadow: 0 0 25px rgba(13, 242, 201, 0.4);
+transition: all 0.5s ease;
+}
+.lock-glowing-icon svg {
+width: 32px;
+height: 32px;
+fill: var(--accent-teal);
+transition: transform 0.5s ease;
+}
+.frosted-glass-overlay:hover .lock-glowing-icon {
+transform: scale(1.05);
+box-shadow: 0 0 35px rgba(13, 242, 201, 0.6);
+}
+.frosted-glass-overlay h4 {
+margin: 0;
+font-size: 1.5rem;
+color: #fff;
+font-weight: 700;
+}
+.frosted-glass-overlay p {
+font-size: 0.9rem;
+color: var(--text-secondary);
+max-width: 420px;
+margin: 0.5rem 0 1.5rem 0;
+line-height: 1.5;
+}
+.unlocked .frosted-glass-overlay {
+opacity: 0;
+pointer-events: none;
+transform: scale(1.03) translateY(-10px);
+}
+/* Vault File Assets Grid */
 .vault-files {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+filter: blur(1.5px); /* Keeps content tantalizingly blurred behind frosting */
+transition: filter 0.8s ease;
+}
+.unlocked .vault-files {
+filter: none;
 }
 .file-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--card-border);
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(30, 41, 59, 0.2);
+border: 1px solid var(--card-border);
+padding: 1rem 1.25rem;
+border-radius: 12px;
+transition: background 0.3s, border-color 0.3s;
 }
-
-/* Simulation Controls styling */
-.demo-controls {
-  background-color: #111827;
-  border: 1px solid var(--accent-purple);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 3rem;
+.file-item:hover {
+background: rgba(30, 41, 59, 0.4);
+border-color: #334155;
 }
-.demo-controls h4 {
-  margin: 0 0 0.5rem 0;
-  color: var(--accent-purple);
+.file-meta {
+display: flex;
+align-items: center;
+gap: 12px;
 }
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+.file-meta svg {
+color: var(--accent-teal);
+flex-shrink: 0;
 }
-.btn-demo {
-  background: #1f2937;
-  color: #fff;
-  border: 1px solid var(--card-border);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.2s ease;
+.file-info {
+display: flex;
+flex-direction: column;
 }
-.btn-demo.active {
-  background: var(--accent-purple);
-  color: var(--bg-dark);
-  font-weight: bold;
-  border-color: var(--accent-purple);
+.file-name {
+font-size: 0.9rem;
+font-weight: 600;
+color: #fff;
+}
+.file-size {
+font-size: 0.75rem;
+color: var(--text-muted);
+}
+.btn-download {
+background: rgba(16, 185, 129, 0.15);
+color: var(--accent-green);
+border: 1.5px solid var(--accent-green);
+padding: 0.5rem 1rem;
+font-size: 0.8rem;
+font-weight: 700;
+border-radius: 8px;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.2s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+.btn-download:hover {
+background: var(--accent-green);
+color: var(--bg-dark);
+}
+/* Styled Action Buttons */
+.btn-action {
+background-color: var(--accent-teal);
+color: var(--bg-dark);
+border: none;
+padding: 0.85rem 2rem;
+font-weight: 700;
+border-radius: 10px;
+cursor: pointer;
+width: 100%;
+transition: all 0.3s ease;
+box-shadow: 0 4px 15px rgba(13, 242, 201, 0.2);
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+.btn-action:hover {
+opacity: 0.95;
+box-shadow: 0 6px 20px rgba(13, 242, 201, 0.35);
+}
+/* Other bento-card elements */
+.card-paragraph {
+color: var(--text-secondary);
+font-size: 0.9rem;
+line-height: 1.5;
+margin: 0 0 1.25rem 0;
+}
+.call-scheduler-box {
+background: rgba(8, 12, 20, 0.3);
+border: 1px solid var(--card-border);
+border-radius: 12px;
+padding: 1.25rem;
+text-align: center;
+margin-bottom: 1.25rem;
+}
+.call-status-badge {
+display: flex;
+justify-content: space-around;
+margin-top: 0.5rem;
+font-size: 0.85rem;
+font-weight: 600;
+}
+/* Interactive Portal Control panel */
+.prototype-controller {
+background-color: #0b0f19;
+border: 2px solid var(--accent-teal);
+padding: 1.75rem;
+border-radius: 16px;
+margin-top: 3.5rem;
+box-shadow: 0 0 25px rgba(13, 242, 201, 0.15);
+}
+.prototype-controller h4 {
+margin: 0 0 0.5rem 0;
+color: var(--accent-teal);
+font-size: 1.1rem;
+}
+.prototype-controller p {
+margin: 0 0 1.25rem 0;
+font-size: 0.85rem;
+color: var(--text-secondary);
+line-height: 1.4;
+}
+.control-btn-grid {
+display: flex;
+flex-wrap: wrap;
+gap: 0.75rem;
+}
+.btn-simulate {
+background: #1e293b;
+color: #fff;
+border: 1px solid var(--card-border);
+padding: 0.6rem 1.25rem;
+border-radius: 8px;
+cursor: pointer;
+font-size: 0.8rem;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+.btn-simulate:hover {
+border-color: var(--accent-teal);
+}
+.btn-simulate.active {
+background: var(--accent-teal);
+color: var(--bg-dark);
+font-weight: 700;
+border-color: var(--accent-teal);
+box-shadow: 0 0 12px rgba(13, 242, 201, 0.35);
+}
+@keyframes pulse {
+0% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(13, 242, 201, 0.4); }
+70% { opacity: 1; box-shadow: 0 0 0 6px rgba(13, 242, 201, 0); }
+100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(13, 242, 201, 0); }
 }
 </style>
 </head>
 <body>
-
-<!-- TOP-RIGHT BRAND LOGO -->
-<div class="dashboard-logo">
-  <div style="width: 50px; height: 50px; background: #131a26; border: 2px solid var(--accent-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(188,19,254,0.3);">
-    <span style="color: var(--accent-purple); font-weight: bold; font-size: 1.1rem;">48</span>
-  </div>
+<!-- STICKY TOP-LEVEL NAVIGATION BAR -->
+<header class="dashboard-header">
+<div class="brand-block">
+<div class="brand-badge">
+<span>48</span>
 </div>
+<div class="brand-title">
+<h2>48-Hour Loan Proposal™</h2>
+<p>Luxury Transport LLC Portal | Guided Client System</p>
+</div>
+</div>
+<div style="font-size: 0.85rem; color: var(--accent-teal); font-weight: 700; background: rgba(13, 242, 201, 0.1); border: 1px solid rgba(13, 242, 201, 0.3); padding: 0.4rem 0.8rem; border-radius: 6px;">
+CLIENT ID: LT-9033
+</div>
+</header>
 
 <div class="dashboard-container">
-  <!-- HERO / PAGE HEADER -->
-  <header class="dashboard-header">
-    <h1><span style="color: var(--accent-purple);">Your 48HR Outbound Lead Engine</span></h1>
-    <p class="dashboard-subtext">
-      Alexander Durig, Ph.D. — Founder, 48‑Hour Loan Proposal™ | Powered by Outbound Engine AI
-    </p>
-  </header>
+<!-- DASHBOARD WELCOME HERO BANNER (INTEGRATING ORIGINAL COPY) -->
+<div class="welcome-banner">
+<h1>Your Fast Track <span>Dashboard</span></h1>
+<p>
+This Web Portal is your personal workspace for the 48‑Hour Fast Track. 
+You can complete your Intake Form, upload supporting documents, schedule your weekend calls, 
+track your progress, and download samples of our work — all from one place.
+</p>
+</div>
 
-  <!-- Outbound Timeline Stepper -->
-  <div class="timeline-stepper">
-    <div class="step-node completed" id="step-node-1">
-      <div class="step-badge">1</div>
-      <div class="step-label">ICP Profile</div>
-      <span class="step-time">Setup Done</span>
-    </div>
-    <div class="step-node completed" id="step-node-2">
-      <div class="step-badge">2</div>
-      <div class="step-label">Target Lists</div>
-      <span class="step-time">Files Ingested</span>
-    </div>
-    <div class="step-node active" id="step-node-3">
-      <div class="step-badge">3</div>
-      <div class="step-label">Outbound Campaign</div>
-      <span class="step-time">Warmups & Sending</span>
-    </div>
-    <div class="step-node" id="step-node-4">
-      <div class="step-badge">4</div>
-      <div class="step-label">Leads Delivered</div>
-      <span class="step-time">Active Replies</span>
-    </div>
-    <div class="step-node" id="step-node-5">
-      <div class="step-badge">5</div>
-      <div class="step-label">Optimization</div>
-      <span class="step-time">Scale Sequences</span>
-    </div>
-  </div>
+<!-- Active Step Progress Timeline (Dynamic Stepper) -->
+<div class="timeline-stepper">
+<div class="step-node completed" id="step-node-1">
+<div class="step-badge">1</div>
+<div class="step-label">Consultation</div>
+<span class="step-time">During Week</span>
+</div>
+<div class="step-node completed" id="step-node-2">
+<div class="step-badge">2</div>
+<div class="step-label">Strategy Calls</div>
+<span class="step-time">Sat / Sun</span>
+</div>
+<div class="step-node active" id="step-node-3">
+<div class="step-badge">3</div>
+<div class="step-label">Financial Engineering</div>
+<span class="step-time">The Weekend</span>
+</div>
+<div class="step-node" id="step-node-4">
+<div class="step-badge">4</div>
+<div class="step-label">Delivery</div>
+<span class="step-time">Monday 4 PM</span>
+</div>
+<div class="step-node" id="step-node-5">
+<div class="step-badge">5</div>
+<div class="step-label">90-Day Revision</div>
+<span class="step-time">Ongoing Support</span>
+</div>
+</div>
 
-  <!-- Bento Grid Dashboard -->
-  <div class="bento-grid">
-    <!-- Ideal Customer Profile parameters (ICP Setup) -->
-    <div class="bento-card col-6">
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/></svg>
-        Audience & ICP Parameters
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Your core outbound target filters have been mapped out and locked down into our neural routing engine.</p>
-      <div class="icp-status">
-        <strong style="color: var(--accent-magenta);">✓ ICP Setup Locked</strong>
-        <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: var(--text-secondary);">Targeting: Business Owners, logistics operators, cross-border shippers within 250 miles of borders.</p>
-      </div>
-      <button class="btn-action" style="background-color: transparent; border: 1px solid var(--accent-purple); color: var(--accent-purple); margin-top: 1.5rem;">Edit Targeting Parameters</button>
-    </div>
+<!-- Bento Grid Grid Layout -->
+<div class="bento-grid">
+<!-- Bento Column 1: Intake Status (Left Row 1 - INTEGRATING LIVE GOOGLE FORM) -->
+<div class="bento-card col-6">
+<h3>
+<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"/></svg>
+Step 1 — Ground Truth Intake Form
+</h3>
+<p class="card-paragraph">Your Intake Form gives us the core details about your business, your goals, and your numbers. This establishes high-level operational logic.</p>
+<div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 10px; padding: 1.1rem; font-size: 0.85rem; margin-bottom: 1rem;">
+<strong style="color: var(--accent-green); display: flex; align-items: center; gap: 6px;">
+<svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+Verification Complete
+</strong>
+<p style="margin: 0.35rem 0 0 0; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4;">Parameters fully integrated into our master models for El Paso to Chihuahua cross-border bus transport logistics.</p>
+</div>
+<div style="display: flex; gap: 0.75rem;">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/viewform?usp=publish-editor" target="_blank" class="btn-action" style="flex: 1;">Open Intake Form</a>
+<button class="btn-action" style="background-color: transparent; border: 1.5px solid var(--accent-teal); color: var(--accent-teal); flex: 1;" onclick="alert('Raw Data Logs Enclosed: Location=El Paso; Route=El Paso-Chihuahua; Passengers=10,500; LoanRequest=$300,000; BaseRate=11%; Ratio=82.4')">View Parameters</button>
+</div>
+</div>
 
-    <!-- Active Lead Ingestion / CSV Dropbox -->
-    <div class="bento-card col-6">
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-        Domain & Target List Dropbox
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Upload operating list files (`.csv`, `.xlsx`), corporate target domains, or specific company names.</p>
-      <div class="upload-zone" onclick="alert('Secure Outbound File selector opened.')">
-        <svg width="24" height="24" fill="var(--text-muted)" viewBox="0 0 20 20" style="margin: 0 auto;"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm2 5a1 1 0 112 0v1h1a1 1 0 110 2H8v1a1 1 0 11-2 0v-1H5a1 1 0 110-2h1V9z" clip-rule="evenodd"/></svg>
-        <p><strong>Drag CSV email files here</strong> or click to browse</p>
-      </div>
-    </div>
+<!-- Bento Column 2: Weekend Strategy Session Scheduler (Right Row 1) -->
+<div class="bento-card col-6">
+<h3>
+<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+Step 3 — Weekend Strategy Sessions
+</h3>
+<p class="card-paragraph">After your first payment, schedule your Saturday and Sunday phone calls. These intense 1-on-1 calls stress-test your debt assumptions and anchor your 48‑Hour Sprint.</p>
+<div class="call-scheduler-box">
+<span style="font-size: 0.8rem; font-weight: 700; color: #fff; text-transform: uppercase;">Active Weekend Schedules</span>
+<div class="call-status-badge">
+<span style="color: var(--accent-green); display: flex; align-items: center; gap: 4px;">✔ Session 1: Completed</span>
+<span style="color: var(--accent-teal); display: flex; align-items: center; gap: 4px;" id="strategy-call-2">⏱ Session 2: Sunday 2 PM</span>
+</div>
+</div>
+<button class="btn-action" onclick="alert('Connecting with Alexander Durig Ph.D. to schedule strategy review sessions.')">Reschedule Weekend Calls</button>
+</div>
 
-    <!-- Real-time Outbound Analytics Tracker -->
-    <div class="bento-card col-8">
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/></svg>
-        Real-Time Outbound Campaign Monitor
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Tracking outreach momentum, active domains, open percentages, and reply engagement ratios.</p>
-      
-      <div class="metric-row">
-        <div class="metric-tile">
-          <div class="metric-value" id="val-procured">0</div>
-          <div class="metric-title">Leads Procured</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-value" id="val-delivered">0</div>
-          <div class="metric-title">Emails Sent</div>
-        </div>
-        <div class="metric-tile">
-          <div class="metric-value" id="val-responses">0%</div>
-          <div class="metric-title">Response Rate</div>
-        </div>
-      </div>
+<!-- Bento Column 3: Secure Document Dropbox (Left Row 2 - INTEGRATING LIVE UPLOAD FORM) -->
+<div class="bento-card col-8">
+<h3>
+<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+Step 2 — Secure Document Dropbox
+</h3>
+<p class="card-paragraph">Upload operating statements, tax returns, leases, or ledger sheets. Drag files below, or click to open our secure routing upload form (automatically maps files under your name without requiring registration).</p>
+<!-- Interactive drag over zone with hover and visual styles -->
+<div class="upload-zone" id="drag-drop-zone" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor', '_blank')">
+<svg viewBox="0 0 24 24">
+<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+</svg>
+<p><strong>Drag files here</strong> or click to securely open Upload Form</p>
+<span>Supports PDF, DOCX, XLSX, and PNG (Max 50MB)</span>
+</div>
+<!-- Ingested Files Check list -->
+<div class="document-checklist">
+<div class="checklist-title">Verification Folder Check</div>
+<div class="checklist-items">
+<div class="checklist-item">
+<span class="checklist-status status-complete">✔</span>
+<span style="color: #fff;">2-Years Corporate Tax Returns</span>
+<span style="color: var(--text-muted); margin-left: auto;">Verified</span>
+</div>
+<div class="checklist-item">
+<span class="checklist-status status-complete">✔</span>
+<span style="color: #fff;">Corporate Organization Documents</span>
+<span style="color: var(--text-muted); margin-left: auto;">Verified</span>
+</div>
+<div class="checklist-item" id="checklist-statements-item">
+<span class="checklist-status status-pending" id="checklist-statements-status">⏱</span>
+<span style="color: #fff;" id="checklist-statements-text">6-Months Business Bank Statements</span>
+<span style="color: var(--accent-teal); margin-left: auto;" id="checklist-statements-label">Pending Upload</span>
+</div>
+</div>
+</div>
+</div>
 
-      <div class="document-checklist">
-        <p style="font-weight: bold; color: #fff; margin-bottom: 0.5rem; font-size: 0.85rem;">Ingested Campaign Verification Assets:</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-          <div class="checklist-item"><span style="color: var(--accent-magenta);">✓</span> Outbound target lists parsed successfully</div>
-          <div class="checklist-item"><span style="color: var(--accent-magenta);">✓</span> Custom scripting sequences locked</div>
-          <div class="checklist-item" id="checklist-pending"><span style="color: var(--accent-purple);">⏱</span> Outbox sequence warming (Campaign Live soon)</div>
-        </div>
-      </div>
-    </div>
+<!-- Bento Column 4: Spectacular Underwriter Circular SVG Gauge (Right Row 2) -->
+<div class="bento-card col-4">
+<h3>
+<svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+Fundability Ratio™
+</h3>
+<p class="card-paragraph" style="font-size: 0.85rem; margin-bottom: 1rem;">Lender credit-risk index compressing profitability, coverage ratios, and leverage indicators.</p>
+<!-- Circular Arc Dial Gauge -->
+<div class="fundability-gauge-container">
+<svg width="180" height="180" class="gauge-svg" viewBox="0 0 100 100">
+<defs>
+<!-- High-energy modern color gradient for excellent scores -->
+<linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#ef4444" />     <!-- Red -->
+<stop offset="40%" stop-color="#f59e0b" />    <!-- Orange/Gold -->
+<stop offset="80%" stop-color="#10b981" />    <!-- Green -->
+<stop offset="100%" stop-color="#0df2c9" />   <!-- Teal -->
+</linearGradient>
+<!-- Soft drop shadow for needle -->
+<filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+<feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#0df2c9" flood-opacity="0.5"/>
+</filter>
+</defs>
+<!-- Outer Reference Tracks -->
+<circle cx="50" cy="50" r="43" class="gauge-bg-path" />
+<!-- Main Arc track that fills up -->
+<circle cx="50" cy="50" r="40" class="gauge-fill-path" id="gauge-arc-path" />
+<!-- Dial ticks -->
+<path d="M50 6 L50 10 M50 90 L50 94 M6 50 L10 50 M90 50 L94 50" stroke="#334155" stroke-width="1.5" />
+<!-- Mechanical Center Hub -->
+<circle cx="50" cy="50" r="4" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+<!-- Pointer Needle -->
+<g class="gauge-needle" id="gauge-needle" transform="translate(50,50) rotate(-90)">
+<polygon points="-2,4 0,-38 2,4" class="gauge-needle-polygon" />
+<circle cx="0" cy="0" r="2.5" fill="#0df2c9" />
+</g>
+</svg>
+<!-- Live values changing on simulation clicks -->
+<span class="gauge-score-value" id="gauge-score">--</span>
+<span class="gauge-score-label" id="gauge-status">Awaiting Data</span>
+</div>
+</div>
 
-    <!-- Outbound Conversion Gauge -->
-    <div class="bento-card col-4">
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 110-2h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
-        Response Efficiency
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.85rem;">The AI Outbound conversion metric, calculating target list reply percentages live.</p>
-      
-      <div class="fundability-gauge-container">
-        <!-- SVG Vector Semi-Circular Dial Gauge -->
-        <svg width="180" height="110" viewBox="0 0 100 60">
-          <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#1a2233" stroke-width="8" stroke-linecap="round" />
-          <path id="gauge-active-path" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="url(#gauge-gradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);" />
-          <g id="gauge-needle" transform="translate(50,50) rotate(-90)" style="transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);">
-            <polygon points="-2,2 0,-38 2,2" fill="#bc13fe" filter="drop-shadow(0 0 4px rgba(188,19,254,0.5))" />
-            <circle cx="0" cy="0" r="4" fill="#bc13fe" />
-          </g>
-          <defs>
-            <linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#ff007f" />
-              <stop offset="100%" stop-color="#bc13fe" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <!-- Value Display overlay -->
-        <span class="gauge-score" id="gauge-score-display">--</span>
-        <span class="gauge-label" id="gauge-status-text">Campaign Initializing</span>
-      </div>
-    </div>
+<!-- Bento Column 5: Spectacular Frosted Glass Monday Deliverables Vault (Full Width) -->
+<div class="bento-card col-12 locked-card" id="vault-card" style="margin-bottom: 2.5rem;">
+<div class="vault-locked-container">
+<!-- Absolute Overlay with Realistic Blur Backdrop Filters -->
+<div class="frosted-glass-overlay" id="vault-overlay">
+<div class="lock-glowing-icon">
+<svg viewBox="0 0 24 24" id="vault-lock-svg">
+<!-- Lock Body -->
+<path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+</svg>
+</div>
+<h4>Step 5 — Your Deliverables Folder</h4>
+<p>Your custom loan proposals, widescreen slide deck, and 1-minute pitch video are completely engineered. Settle your second payment installment ($375) to unlock instant access!</p>
+<button class="btn-action" style="max-width: 320px;" onclick="simulateVaultUnlock()">Settle Installment & Unlock ($375)</button>
+</div>
 
-    <!-- Elegant Frosted Glass Weekly Lead Sheets Card (Full Width) -->
-    <div class="bento-card col-12" id="vault-card" style="background: rgba(19, 26, 38, 0.65); border: 1px solid rgba(188, 19, 254, 0.25); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);">
-      
-      <!-- Secure Folder Directory Contents -->
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
-        Weekly Lead Sheets Download
-      </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Access and download your verified positive reply leads, cold outbound contacts, and detailed sequence metrics below.</p>
-      
-      <div class="vault-files">
-        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
-          <span>📊 <strong>48HR Outbound Verified Lead Sheet - Luxury Transport LLC.xlsx</strong> (250 B2B Prospect Records)</span>
-          <a href="#" class="btn-demo" style="background: var(--accent-magenta); color: var(--bg-dark); text-decoration: none;" onclick="alert('Leads list downloaded.')">Download Sheets</a>
-        </div>
-        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
-          <span>✉ <strong>Positive Reply & Booking Transcript Log - Luxury Transport LLC.docx</strong> (Direct Warm Lead Replies)</span>
-          <a href="#" class="btn-demo" style="background: var(--accent-magenta); color: var(--bg-dark); text-decoration: none;" onclick="alert('Transcripts downloaded.')">Download Transcripts</a>
-        </div>
-        <div class="file-item" style="background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);">
-          <span>📋 <strong>Outbound Metrics & Campaign Analytics Report.pdf</strong> (Detailed Deliverables summary)</span>
-          <a href="#" class="btn-demo" style="background: var(--accent-magenta); color: var(--bg-dark); text-decoration: none;" onclick="alert('Analytics downloaded.')">Download Report</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- Safe Folder Contents (Revealed on Unlock) -->
+<h3 style="display: flex; justify-content: space-between; align-items: center;">
+<span style="display: flex; align-items: center; gap: 0.75rem;">
+<svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
+Ready Deliverables Directory (Luxury Transport LLC)
+</span>
+<span style="font-size: 0.8rem; color: var(--accent-green); font-weight: 700; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.3rem 0.6rem; border-radius: 4px;">SECURE FILE SHA-256</span>
+</h3>
+<div class="vault-files">
+<!-- Item 1: Proposal PDF -->
+<div class="file-item">
+<div class="file-meta">
+<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+</svg>
+<div class="file-info">
+<span class="file-name">48-Hour Clinical Funding Request - Luxury Transport LLC.pdf</span>
+<span class="file-size">20 Pages • PDF Document</span>
+</div>
+</div>
+<button class="btn-download" onclick="alert('Downloading Luxury Transport LLC Proposal PDF...')">Download PDF</button>
+</div>
+<!-- Item 2: Pitch slides -->
+<div class="file-item">
+<div class="file-meta">
+<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+</svg>
+<div class="file-info">
+<span class="file-name">Financial Pitch Slides - Luxury Transport LLC.pptx</span>
+<span class="file-size">Underwriter-Aligned Presentation • 10 Slides</span>
+</div>
+</div>
+<button class="btn-download" onclick="alert('Downloading Pitch Slide Deck...')">Download PPTX</button>
+</div>
+<!-- Item 3: Video file -->
+<div class="file-item">
+<div class="file-meta">
+<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 00-2 2z"/>
+</svg>
+<div class="file-info">
+<span class="file-name">60-Second Promotional Video Pitch - Luxury Transport LLC.mp4</span>
+<span class="file-size">High Definition HD (1080p) Video Pitch</span>
+</div>
+</div>
+<button class="btn-download" onclick="alert('Downloading Client Pitch Video...')">Download MP4</button>
+</div>
+</div>
+</div>
+</div>
 
-  <!-- Interactive Dashboard Controls -->
-  <div class="demo-controls">
-    <h4>Interactive Lead Portal Controls</h4>
-    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 1rem 0;">Simulate your clients' live outbox progress, database uploads, metric updates, and positive replies.</p>
-    <div class="btn-group">
-      <button class="btn-demo" id="btn-step-1" onclick="setStep(1)">Step 1 (Targeting Mapped)</button>
-      <button class="btn-demo" id="btn-step-2" onclick="setStep(2)">Step 2 (Raw Target Lists Uploaded)</button>
-      <button class="btn-demo active" id="btn-step-3" onclick="setStep(3)">Step 3 (Outbox Sequences Live)</button>
-      <button class="btn-demo" id="btn-step-4" onclick="setStep(4)">Step 4 (Leads Gathered & Verification)</button>
-      <button class="btn-demo" id="btn-step-5" onclick="setStep(5)">Step 5 (Campaign Optimized & Scaled)</button>
-    </div>
-  </div>
+<!-- Bento Column 6: Download Samples of Our Work (INTEGRATING CRITICAL ORIGINAL DOWNLOAD PATHS) -->
+<div class="bento-card col-12" id="samples-card">
+<h3>
+<svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+</svg>
+Download Samples of Our Work
+</h3>
+<p class="card-paragraph">These real-world samples demonstrate the clarity, executive density, and lender-aligned focus of our structured 48‑Hour Loan Proposal™ system. Download our general layouts instantly to preview your Monday deliverables:</p>
+<div class="vault-files" style="filter: none;">
+<!-- Sample 1: Document -->
+<div class="file-item">
+<div class="file-meta">
+<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" style="color: var(--accent-teal);">
+<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+</svg>
+<div class="file-info">
+<span class="file-name" style="color: #fff;">48HR Proposal Document Sample</span>
+<span class="file-size" style="color: var(--text-muted);">Institutional Standard Layout • 20-Page Pro Forma PDF</span>
+</div>
+</div>
+<a href="https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing" target="_blank" class="btn-download" style="background: rgba(13, 242, 201, 0.1); border-color: var(--accent-teal); color: var(--accent-teal);">Download Sample Document</a>
+</div>
+<!-- Sample 2: Slide Deck -->
+<div class="file-item">
+<div class="file-meta">
+<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" style="color: var(--accent-teal);">
+<path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+</svg>
+<div class="file-info">
+<span class="file-name" style="color: #fff;">Sleek Pitch Slide Deck Sample</span>
+<span class="file-size" style="color: var(--text-muted);">Underwriter-Friendly Widescreen Presentation • Widescreen PowerPoint</span>
+</div>
+</div>
+<a href="https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=sharing&ouid=102685605056643160340&rtpof=true&sd=true" target="_blank" class="btn-download" style="background: rgba(13, 242, 201, 0.1); border-color: var(--accent-teal); color: var(--accent-teal);">Download Sample Slide Deck</a>
+</div>
+<!-- Sample 3: Video Pitch -->
+<div class="file-item">
+<div class="file-meta">
+<svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" style="color: var(--accent-teal);">
+<path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 00-2 2z"/>
+</svg>
+<div class="file-info">
+<span class="file-name" style="color: #fff;">60-Second Client Pitch Video Sample</span>
+<span class="file-size" style="color: var(--text-muted);">Engaging High Definition HD Narrated Promotion</span>
+</div>
+</div>
+<a href="https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=sharing" target="_blank" class="btn-download" style="background: rgba(13, 242, 201, 0.1); border-color: var(--accent-teal); color: var(--accent-teal);">Download Sample Video</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Interactive Prototyping Controls (Alexa simulation area) -->
+<div class="prototype-controller">
+<h4>Interactive Sandbox Controls</h4>
+<p>Simulate how the portal updates automatically during your rapid 48-hour weekend work cycles. Watch the Fundability Ratio gauge needle translate, files change states, and the frosted lock mechanism release in real-time!</p>
+<div class="control-btn-grid">
+<button class="btn-simulate" id="sim-btn-1" onclick="updatePortalStep(1)">Simulate Step 1 (Intake)</button>
+<button class="btn-simulate" id="sim-btn-2" onclick="updatePortalStep(2)">Simulate Step 2 (Weekend Syncs)</button>
+<button class="btn-simulate active" id="sim-btn-3" onclick="updatePortalStep(3)">Simulate Step 3 (Financial Engineering)</button>
+<button class="btn-simulate" id="sim-btn-4" onclick="updatePortalStep(4)">Simulate Step 4 (Ready to Unlock)</button>
+<button class="btn-simulate" id="sim-btn-5" onclick="updatePortalStep(5)">Simulate Step 5 (Full Access)</button>
+</div>
+</div>
 </div>
 
 <script>
-// State Engine for Dynamic Outbound Metrics, SVG Conversion Dial Gauge
-function setStep(stepNumber) {
-  // Update timeline stepper nodes
-  for (let i = 1; i <= 5; i++) {
-    const node = document.getElementById('step-node-' + i);
-    node.classList.remove('active', 'completed');
-    if (i < stepNumber) {
-      node.classList.add('completed');
-    } else if (i === stepNumber) {
-      node.classList.add('active');
-    }
-  }
+// State Management for Interactive Gauge, Stepper, and Frosted Glass overlay
+const dragDropZone = document.getElementById('drag-drop-zone');
+// Add files and drag over indicators
+dragDropZone.addEventListener('dragover', (e) => {
+e.preventDefault();
+dragDropZone.classList.add('dragover');
+});
+dragDropZone.addEventListener('dragleave', () => {
+dragDropZone.classList.remove('dragover');
+});
+dragDropZone.addEventListener('drop', (e) => {
+e.preventDefault();
+dragDropZone.classList.remove('dragover');
+alert('Secure upload processed. File successfully ingested into verification folder!');
+// Transition check statements manually if dropped in step 1 or 2
+const statusEl = document.getElementById('checklist-statements-status');
+const labelEl = document.getElementById('checklist-statements-label');
+statusEl.className = 'checklist-status status-complete';
+statusEl.innerText = '✔';
+labelEl.innerText = 'Uploaded & Verified';
+labelEl.style.color = 'var(--accent-green)';
+});
 
-  // Update control buttons active state
-  for (let i = 1; i <= 5; i++) {
-    const btn = document.getElementById('btn-step-' + i);
-    if (i === stepNumber) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  }
+function updatePortalStep(step) {
+// Reset nodes active & completed status
+for (let i = 1; i <= 5; i++) {
+const node = document.getElementById('step-node-' + i);
+node.classList.remove('active', 'completed');
+if (i < step) {
+node.classList.add('completed');
+} else if (i === step) {
+node.classList.add('active');
+}
+}
+// Handle active simulate button class
+for (let i = 1; i <= 5; i++) {
+const btn = document.getElementById('sim-btn-' + i);
+if (i === step) {
+btn.classList.add('active');
+} else {
+btn.classList.remove('active');
+}
+}
+// Get DOM handles for dynamic elements
+const scoreDisplay = document.getElementById('gauge-score');
+const statusDisplay = document.getElementById('gauge-status');
+const activePath = document.getElementById('gauge-arc-path');
+const needle = document.getElementById('gauge-needle');
+const vaultCard = document.getElementById('vault-card');
+const lockSvg = document.getElementById('vault-lock-svg');
+const strategyCall = document.getElementById('strategy-call-2');
+const checklistStatus = document.getElementById('checklist-statements-status');
+const checklistLabel = document.getElementById('checklist-statements-label');
 
-  // Identify targets
-  const valProcured = document.getElementById('val-procured');
-  const valDelivered = document.getElementById('val-delivered');
-  const valResponses = document.getElementById('val-responses');
-  const gaugeScore = document.getElementById('gauge-score-display');
-  const gaugeFill = document.getElementById('gauge-active-path');
-  const gaugeNeedle = document.getElementById('gauge-needle');
-  const gaugeStatus = document.getElementById('gauge-status-text');
-  const pendingCheck = document.getElementById('checklist-pending');
+// Math variables for SVG circle stroke calculations
+// The circle has a radius r of 40, meaning total circumference is 2 * PI * r = ~251.2
+const maxCircumference = 251.2;
 
-  const arcLength = 125.6;
-
-  if (stepNumber === 1) {
-    valProcured.innerText = '0';
-    valDelivered.innerText = '0';
-    valResponses.innerText = '0.0%';
-    gaugeScore.innerText = '--';
-    gaugeFill.style.strokeDashoffset = arcLength; 
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)"; 
-    gaugeStatus.innerText = "Setup Underway";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple);">⏱</span> Outbox sequence warming (Campaign Live soon)';
-  } 
-  else if (stepNumber === 2) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '0';
-    valResponses.innerText = '0.0%';
-    gaugeScore.innerText = '--';
-    gaugeFill.style.strokeDashoffset = arcLength; 
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)";
-    gaugeStatus.innerText = "Target Ingestion Complete";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-purple);">⏱</span> Sequence launching over the weekend';
-  } 
-  else if (stepNumber === 3) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '820';
-    valResponses.innerText = 'Analyzing';
-    gaugeScore.innerText = 'Syncing';
-    // Position needle mid-way for computational modeling
-    gaugeFill.style.strokeDashoffset = arcLength * (1 - 0.45); 
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-10deg)"; 
-    gaugeStatus.innerText = "Analyzing Active Replies...";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
-  } 
-  else if (stepNumber === 4) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '1,450';
-    valResponses.innerText = '8.4%';
-    gaugeScore.innerText = '8.4%'; 
-    const targetOffset = arcLength * (1 - 0.84); 
-    gaugeFill.style.strokeDashoffset = targetOffset;
-    // Rotate needle to 8.4% visual scale representation (180 degrees * 0.84 = 151.2deg. Offset from -90 is 61.2deg)
-    gaugeNeedle.style.transform = "translate(50,50) rotate(61.2deg)"; 
-    gaugeStatus.style.color = "var(--accent-magenta)";
-    gaugeStatus.innerText = "Outbox Response Lock";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
-  } 
-  else if (stepNumber === 5) {
-    valProcured.innerText = '250';
-    valDelivered.innerText = '1,450';
-    valResponses.innerText = '8.4%';
-    gaugeScore.innerText = '8.4%';
-    const targetOffset = arcLength * (1 - 0.84);
-    gaugeFill.style.strokeDashoffset = targetOffset;
-    gaugeNeedle.style.transform = "translate(50,50) rotate(61.2deg)";
-    gaugeStatus.style.color = "var(--accent-magenta)";
-    gaugeStatus.innerText = "Outbox Response Lock";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-magenta); font-weight: 600;">✓</span> Outbox engine cold email batches warm & sending';
-  }
+if (step === 1) {
+// Step 1: Intake Active
+scoreDisplay.innerText = '--';
+statusDisplay.innerText = 'Awaiting Data';
+statusDisplay.style.color = 'var(--text-muted)';
+// Circle offset 251.2 = 0% filled, rotation at start (-90deg)
+activePath.style.strokeDashoffset = maxCircumference;
+needle.style.transform = 'translate(50,50) rotate(-90deg)';
+// Force locked state
+vaultCard.classList.remove('unlocked');
+lockSvg.style.transform = 'rotate(0deg)';
+strategyCall.innerHTML = '⏱ Session 2: Sunday 2 PM';
+strategyCall.style.color = 'var(--text-muted)';
+// Checklist pending
+checklistStatus.className = 'checklist-status status-pending';
+checklistStatus.innerText = '⏱';
+checklistLabel.innerText = 'Pending Upload';
+checklistLabel.style.color = 'var(--accent-teal)';
+}
+else if (step === 2) {
+// Step 2: Strategy Calls Session
+scoreDisplay.innerText = '--';
+statusDisplay.innerText = 'Analyzing Files';
+statusDisplay.style.color = 'var(--accent-teal)';
+activePath.style.strokeDashoffset = maxCircumference;
+needle.style.transform = 'translate(50,50) rotate(-90deg)';
+vaultCard.classList.remove('unlocked');
+strategyCall.innerHTML = '⚡ Session 2: Active';
+strategyCall.style.color = 'var(--accent-teal)';
+// Checklist complete
+checklistStatus.className = 'checklist-status status-complete';
+checklistStatus.innerText = '✔';
+checklistLabel.innerText = 'Uploaded & Verified';
+checklistLabel.style.color = 'var(--accent-green)';
+}
+else if (step === 3) {
+// Step 3: Computational Financial Modeling
+scoreDisplay.innerText = 'Modeling';
+scoreDisplay.style.fontSize = '2rem';
+scoreDisplay.style.bottom = '60px';
+statusDisplay.innerText = 'Stress-Testing DSCR';
+statusDisplay.style.color = 'var(--accent-teal)';
+// Fill path halfway
+activePath.style.strokeDashoffset = maxCircumference * 0.5;
+needle.style.transform = 'translate(50,50) rotate(90deg)';
+vaultCard.classList.remove('unlocked');
+strategyCall.innerHTML = '✔ Session 2: Completed';
+strategyCall.style.color = 'var(--accent-green)';
+checklistStatus.className = 'checklist-status status-complete';
+checklistStatus.innerText = '✔';
+checklistLabel.innerText = 'Uploaded & Verified';
+checklistLabel.style.color = 'var(--accent-green)';
+}
+else if (step === 4) {
+// Step 4: System Completed, Waiting Payment Unlock
+scoreDisplay.innerText = '82.4';
+scoreDisplay.style.fontSize = '2.75rem';
+scoreDisplay.style.bottom = '55px';
+statusDisplay.innerText = 'Highly Fundable';
+statusDisplay.style.color = 'var(--accent-green)';
+// Fill path to 82.4% (Offset: Circumference * (1 - pct))
+const offset = maxCircumference * (1 - 0.824);
+activePath.style.strokeDashoffset = offset;
+// Rotation mapping: rotate 360 degrees total * 82.4% = 296.6 degrees. Start rotation is at -90deg.
+const rotateAngle = (360 * 0.824) - 90;
+needle.style.transform = `translate(50,50) rotate(${rotateAngle}deg)`;
+vaultCard.classList.remove('unlocked');
+lockSvg.style.transform = 'rotate(0deg)';
+strategyCall.innerHTML = '✔ Session 2: Completed';
+strategyCall.style.color = 'var(--accent-green)';
+}
+else if (step === 5) {
+// Step 5: Deliverables folder open
+scoreDisplay.innerText = '82.4';
+scoreDisplay.style.fontSize = '2.75rem';
+scoreDisplay.style.bottom = '55px';
+statusDisplay.innerText = 'Highly Fundable';
+statusDisplay.style.color = 'var(--accent-green)';
+const offset = maxCircumference * (1 - 0.824);
+activePath.style.strokeDashoffset = offset;
+const rotateAngle = (360 * 0.824) - 90;
+needle.style.transform = `translate(50,50) rotate(${rotateAngle}deg)`;
+// Unlock vault
+vaultCard.classList.add('unlocked');
+// Rotate key inside SVG icon for polished look
+lockSvg.style.transform = 'rotate(180deg)';
+strategyCall.innerHTML = '✔ Session 2: Completed';
+strategyCall.style.color = 'var(--accent-green)';
+}
 }
 
-// Initialize step 3: Active Outbox Campaigns
-setStep(3);
+function simulateVaultUnlock() {
+alert('Success! Payment validated. The Monday Deliverables secure folder has been decrypted and unlocked.');
+updatePortalStep(5);
+}
+
+// Initial setup starts at step 3: Financial Engineering modeling
+updatePortalStep(3);
 </script>
 </body>
 </html>
