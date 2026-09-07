@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>48HR Outbound Engine</title>
+    <title>48HR Outbound Engine Client Portal</title>
 </head>
 
 <body>
@@ -27,8 +27,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "48HR Outbound Engine");
-                html = html.replace("[[PAGE_SUBTITLE]]", "A Clean Complete Monthly Outreach Engine Built and Managed for Your Business.");
+                html = html.replace("[[PAGE_TITLE]]", "48HR Outbound Engine Client Portal");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Finally: A Done‑For‑You System That Brings Customers to You Automatically.");
                 document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
