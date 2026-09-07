@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Dashboard | 48HR Outbound Lead Engine</title>
+<title>Apollo ICP Onboarding Form | 48HR Outbound Lead Engine</title>
 <style>
-/* Obsidian & Neon Purple Luxury Theme Design System */
+/* Midnight Blue & Neon Purple Luxury Design System */
 :root {
   --bg-dark: #0b0f19;
   --card-bg: #131a26;
   --card-border: #1f2a3c;
   --accent-purple: #bc13fe;      /* Glowing Neon Purple */
-  --accent-purple-glow: rgba(188, 19, 254, 0.4);
-  --accent-magenta: #e0006c;     /* Toned-down Magenta (used sparingly for indicators) */
+  --accent-magenta: #ff007f;     /* Hot Pink / Magenta */
   --text-primary: #f3f4f6;
   --text-secondary: #9ca3af;
   --text-muted: #6b7280;
+  --glow-shadow: 0 0 15px rgba(188, 19, 254, 0.25);
 }
 
 body {
@@ -24,443 +24,580 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
-.dashboard-logo {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 2000;
+/* Page Header & Navigation matching the Portal Dashboard */
+.dashboard-header {
+  border-bottom: 1px solid var(--card-border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(19, 26, 38, 0.6);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.dashboard-container {
-  max-width: 1200px;
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 48px;
+  height: 48px;
+  background: #131a26;
+  border: 2px solid var(--accent-purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--glow-shadow);
+}
+
+.brand-badge span {
+  color: var(--accent-purple);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.brand-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.brand-title p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.back-link {
+  font-size: 0.85rem;
+  color: var(--accent-purple);
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-magenta);
+  transform: translateX(-3px);
+}
+
+/* Centralized Form Container */
+.form-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.form-intro {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.form-intro h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem 0;
+  color: #fff;
+}
+
+.form-intro p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
   margin: 0 auto;
+}
+
+/* High-End Bento Form Card */
+.form-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+/* Progress bar indicator */
+.form-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+}
+
+.form-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-magenta), var(--accent-purple));
+  transition: width 0.4s ease;
+}
+
+/* Form Sections */
+.form-section {
+  display: none;
+}
+
+.form-section.active {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.section-indicator {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-magenta);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.75rem;
+}
+
+/* Beautiful Interactive Field Styling */
+.form-group {
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.form-label span {
+  color: var(--text-secondary);
+  font-weight: normal;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  background-color: rgba(8, 12, 20, 0.4);
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  color: #fff;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 10px rgba(188, 19, 254, 0.15);
+  background-color: rgba(8, 12, 20, 0.6);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Helper Tooltips */
+.help-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+  display: block;
+  line-height: 1.4;
+}
+
+/* Form Navigation Controls */
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-form {
+  padding: 0.85rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-prev {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1.5px solid var(--card-border);
+}
+
+.btn-prev:hover {
+  color: #fff;
+  border-color: var(--text-secondary);
+}
+
+.btn-next, .btn-submit {
+  background: var(--accent-purple);
+  color: var(--bg-dark);
+  box-shadow: var(--glow-shadow);
+}
+
+.btn-next:hover, .btn-submit:hover {
+  opacity: 0.95;
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--accent-magenta), var(--accent-purple));
+  color: #fff;
+}
+
+/* Success Confirmation Screen Styling */
+.success-screen {
+  text-align: center;
   padding: 2rem 1rem;
 }
 
-/* Page Header */
-.dashboard-header {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--card-border);
-  padding-bottom: 1.5rem;
-}
-.dashboard-header h1 {
-  font-size: 2.2rem;
-  margin: 0 0 0.5rem 0;
-  color: #fff;
-  font-weight: 700;
-}
-.dashboard-subtext {
-  color: var(--text-secondary);
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* 5-Step Outbound Timeline Stepper */
-.timeline-stepper {
-  display: flex;
-  justify-content: space-between;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  overflow-x: auto;
-}
-.step-node {
-  flex: 1;
-  text-align: center;
-  position: relative;
-  min-width: 150px;
-}
-.step-node:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  width: 100%;
-  height: 2px;
-  background-color: var(--card-border);
-  z-index: 1;
-}
-.step-node.completed:not(:last-child)::after {
-  background-color: var(--accent-purple);
-}
-.step-badge {
-  width: 40px;
-  height: 40px;
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 0, 127, 0.1);
+  border: 3.5px solid var(--accent-magenta);
   border-radius: 50%;
-  background-color: #1e293b;
-  border: 2px solid var(--card-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  color: var(--text-secondary);
-  position: relative;
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-.step-node.active .step-badge {
-  border-color: var(--accent-purple);
-  color: var(--accent-purple);
-  box-shadow: 0 0 10px var(--accent-purple-glow);
-}
-.step-node.completed .step-badge {
-  background-color: var(--accent-purple);
-  border-color: var(--accent-purple);
-  color: var(--bg-dark);
-}
-.step-label {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-.step-node.active .step-label {
-  color: #fff;
-}
-.step-node.completed .step-label {
-  color: var(--accent-purple);
-}
-.step-time {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  display: block;
-  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
 }
 
-/* Bento Grid */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-.bento-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease;
-}
-.bento-card:hover {
-  border-color: #3b2a54;
-}
-.bento-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.col-12 { grid-column: span 12; }
-.col-8  { grid-column: span 8; }
-.col-6  { grid-column: span 6; }
-.col-4  { grid-column: span 4; }
-@media (max-width: 768px) {
-  .col-8, .col-6, .col-4 { grid-column: span 12; }
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--accent-magenta);
 }
 
-/* Elegant Form Controls styling */
-.form-group {
-  margin-bottom: 1.15rem;
-  text-align: left;
-}
-.form-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 0.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.form-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: #0b0f19;
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-  color: #fff;
-  font-family: inherit;
-  font-size: 0.9rem;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
-.form-input:focus {
-  outline: none;
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 8px rgba(188, 19, 254, 0.2);
-}
-.form-input::placeholder {
-  color: #4b5563;
-}
-
-/* Outbound Lead Monitor styling */
-.metric-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.metric-tile {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--card-border);
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-}
-.metric-value {
+.success-screen h3 {
   font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--accent-purple);
-  margin-bottom: 0.25rem;
-  text-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
-}
-.metric-title {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Interactive Modules */
-.upload-zone-link {
-  text-decoration: none;
-  display: block;
-}
-.upload-zone {
-  border: 2px dashed var(--card-border);
-  border-radius: 12px;
-  padding: 2.2rem 1rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.upload-zone:hover {
-  border-color: var(--accent-purple);
-  background: rgba(188, 19, 254, 0.02);
-}
-.upload-zone p {
-  margin: 0.5rem 0 0 0;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-}
-.document-checklist {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-.checklist-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.btn-action {
-  background-color: var(--accent-purple);
-  color: var(--bg-dark);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 0.75rem;
-  transition: opacity 0.2s;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  box-sizing: border-box;
-  font-size: 0.9rem;
-}
-.btn-action:hover {
-  opacity: 0.9;
-}
-
-/* Circular SVG Conversion Gauge */
-.fundability-gauge-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 180px;
-  position: relative;
-}
-.gauge-score {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent-purple);
-  position: absolute;
-  bottom: 35px;
-  text-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
-}
-.gauge-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  position: absolute;
-  bottom: 10px;
-}
-
-/* Beautiful Frosted Glass Files */
-.vault-files {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.file-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--card-border);
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-}
-
-/* Simulation Controls styling */
-.demo-controls {
-  background-color: #111827;
-  border: 1px solid var(--accent-purple);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 3rem;
-}
-.demo-controls h4 {
-  margin: 0 0 0.5rem 0;
-  color: var(--accent-purple);
-}
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-.btn-demo {
-  background: #1f2937;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
   color: #fff;
-  border: 1px solid var(--card-border);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.2s ease;
 }
-.btn-demo.active {
-  background: var(--accent-purple);
-  color: var(--bg-dark);
-  font-weight: bold;
-  border-color: var(--accent-purple);
+
+.success-screen p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Fade In Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .dashboard-header {
+    padding: 1rem;
+  }
+  .form-card {
+    padding: 1.5rem;
+  }
+  .form-navigation {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+  .btn-form {
+    width: 100%;
+    text-align: center;
+  }
 }
 </style>
 </head>
 <body>
-<!-- TOP-RIGHT BRAND LOGO -->
-<div class=\"dashboard-logo\">
-  <div style=\"width: 50px; height: 50px; background: #131a26; border: 2px solid var(--accent-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(188,19,254,0.3);\">
-    <span style=\"color: var(--accent-purple); font-weight: bold; font-size: 1.1rem;\">48</span>
+
+<!-- TOP STICKY NAVIGATION BAR -->
+<header class="dashboard-header">
+  <div class="brand-block">
+    <div class="brand-badge">
+      <span>48</span>
+    </div>
+    <div class="brand-title">
+      <h2>48HR Outbound Engine</h2>
+      <p>Target List Configuration System</p>
+    </div>
+  </div>
+  <a href="javascript:history.back();" class="back-link">
+    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20" style="vertical-align: middle;">
+      <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+    </svg>
+    Return to Portal
+  </a>
+</header>
+
+<div class="form-container">
+  
+  <div class="form-intro">
+    <h1>Outbound Lead Generation</h1>
+    <p>Define your Ideal Customer Profile (ICP) parameters. These variables map directly to Apollo.io queries to compile your 48HR verified contact list.</p>
+  </div>
+
+  <!-- THE MASTER BENTO FORM CARD -->
+  <div class="form-card">
+    
+    <!-- Top Glowing Gradient Progress Bar -->
+    <div class="form-progress-bar">
+      <div class="form-progress-fill" id="form-progress"></div>
+    </div>
+
+    <!-- 
+      GOOGLE FORMS INTEGRATION METHOD (THE SEAMLESS HIDDEN IFRAME WORKFLOW)
+      
+      This allows you to preserve your stunning neon purple custom-designed dashboard interface
+      while safely posting the parameters straight to a Google Form, Google Sheets database, 
+      and Google Workspace folder in the background.
+
+      INSTRUCTIONS:
+      1. Create a Google Form with identical questions.
+      2. View the published Google Form, inspect the HTML, and find the "name" attribute for each field.
+         These will look like name="entry.123456789".
+      3. Change the action url below to your Google Form's "/formResponse" URL:
+         e.g., action="https://docs.google.com/forms/d/e/1FAIpQLS...YourFormID.../formResponse"
+      4. Swap out the "name" attributes on each input/textarea element in this code with your custom Form Entry IDs.
+      5. The "hidden_iframe" target allows the form to submit invisibly behind the scenes, triggering the custom Success page instantly!
+    -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccessScreen();}"></iframe>
+    
+    <form id="icp-onboarding-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+      
+      <!-- STEP 1: CLIENT IDENTIFICATION (Mapped to folder creation) -->
+      <div class="form-section active" id="sec-1">
+        <span class="section-indicator">Step 1 of 4</span>
+        <h3 class="section-title">Client Profile & Workspace Routing</h3>
+        
+        <div class="form-group">
+          <label class="form-label" for="entry-client-name">Company Legal Name</label>
+          <input type="text" id="entry-client-name" name="entry.200123456" class="form-input" placeholder="e.g. Luxury Transport LLC" required>
+          <span class="help-text">Used to tag your client workspace and automatically name your secure Google Sheets records.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entry-client-website">Corporate Domain / URL</label>
+          <input type="url" id="entry-client-website" name="entry.200234567" class="form-input" placeholder="e.g. https://luxurytransport.com" required>
+          <span class="help-text">Our system uses this to extract competitor records and scrape clean domain filters.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entry-client-contact">Primary Campaign Contact Name</label>
+          <input type="text" id="entry-client-contact" name="entry.200345678" class="form-input" placeholder="e.g. Alexander Durig" required>
+        </div>
+      </div>
+
+      <!-- STEP 2: AUDIENCE TARGETS (Mapped to Apollo Decision-Maker Filters) -->
+      <div class="form-section" id="sec-2">
+        <span class="section-indicator">Step 2 of 4</span>
+        <h3 class="section-title">Target Decision Maker Roles</h3>
+        
+        <div class="form-group">
+          <label class="form-label" for="entry-job-titles">Target Job Titles / Personas</label>
+          <textarea id="entry-job-titles" name="entry.200456789" class="form-textarea" placeholder="e.g. Logistics VP, Operations Manager, Supply Chain Director, Owner" required></textarea>
+          <span class="help-text">List the exact executive titles of decision-makers you want to reach. Separate multiple options with commas.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entry-management-level">Target Management Level</label>
+          <select id="entry-management-level" name="entry.200567890" class="form-select">
+            <option value="Executive/C-Suite">C-Suite & Board Members Only</option>
+            <option value="VP & Directors">VPs, Directors & General Managers (Recommended)</option>
+            <option value="Middle Management">Middle Management & Managers</option>
+            <option value="All Decision Makers" selected>All Levels (Broadest Reach)</option>
+          </select>
+          <span class="help-text">Apollo filter grouping based on institutional credit hierarchy.</span>
+        </div>
+      </div>
+
+      <!-- STEP 3: COMPANY PARAMETERS (Mapped to Apollo Company Filters) -->
+      <div class="form-section" id="sec-3">
+        <span class="section-indicator">Step 3 of 4</span>
+        <h3 class="section-title">Ideal Company Demographics (ICP)</h3>
+        
+        <div class="form-group">
+          <label class="form-label" for="entry-target-geography">Geographic Target Area</label>
+          <input type="text" id="entry-target-geography" name="entry.200678901" class="form-input" placeholder="e.g. Within 250 miles of El Paso border crossings, Texas, Chihuahua" required>
+          <span class="help-text">Enter cities, states, postal code radius bounds, or specific countries.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entry-target-industries">Target Industries / Keywords</label>
+          <textarea id="entry-target-industries" name="entry.200789012" class="form-textarea" placeholder="e.g. Supply Chain, Logistics, Cold Storage, Import/Export, Cargo Transport" required></textarea>
+          <span class="help-text">List specific industries or niche keywords to isolate companies in Apollo's database.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entry-company-size">Company Employee Count Size</label>
+          <select id="entry-company-size" name="entry.200890123" class="form-select">
+            <option value="1-10">1 - 10 employees (Micro Businesses)</option>
+            <option value="11-50" selected>11 - 50 employees (Small Enterprises)</option>
+            <option value="51-200">51 - 200 employees (Mid-Sized Enterprises)</option>
+            <option value="201-500">201 - 500 employees (Large Enterprises)</option>
+            <option value="501+">500+ employees (Enterprise Scale)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- STEP 4: CAMPAIGN SCRIPTS & CAMPAIGN LOGIC -->
+      <div class="form-section" id="sec-4">
+        <span class="section-indicator">Step 4 of 4</span>
+        <h3 class="section-title">Sequence Strategy & Restrictions</h3>
+        
+        <div class="form-group">
+          <label class="form-label" for="entry-campaign-pitch">Core Campaign Offer / Pain Point</label>
+          <textarea id="entry-campaign-pitch" name="entry.200901234" class="form-textarea" placeholder="e.g. Offering premium door-to-door El Paso to Chihuahua logistics transport with 99.8% border timing predictability and absolute executive safety." required></textarea>
+          <span class="help-text">Describe the main value proposition or problem your campaign aims to solve for prospects.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="entry-competitor-negatives">Negative Filters / Domain Exclusions <span>(Optional)</span></label>
+          <textarea id="entry-competitor-negatives" name="entry.201012345" class="form-textarea" placeholder="e.g. competitor1.com, partner-domain.net, active-leads.csv"></textarea>
+          <span class="help-text">List competitor domains or existing active partners we should exclude from Apollo searches to avoid redundant outreach.</span>
+        </div>
+      </div>
+
+      <!-- FORM NAVIGATION BUTTONS -->
+      <div class="form-navigation" id="form-nav-controls">
+        <button type="button" class="btn-form btn-prev" id="btn-back" onclick="navigateStep(-1)" style="visibility: hidden;">Previous Step</button>
+        <button type="button" class="btn-form btn-next" id="btn-forward" onclick="navigateStep(1)">Next Step</button>
+      </div>
+
+    </form>
+
+    <!-- CUSTOM DARK MODE SUCCESS SCREEN (Shows seamlessly upon successful iframe upload) -->
+    <div class="success-screen" id="onboarding-success" style="display: none;">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.42z"/>
+        </svg>
+      </div>
+      <h3>Onboarding Parameters Transmitted</h3>
+      <p>Your Ideal Customer Profile criteria have been uploaded, compiled into your master Google Sheets log, and routed directly into your dedicated 48HR Workspace folder!</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: -1rem;">We are opening Apollo.io to construct, clean, and verify your 250 contact cold outbound sequence list.</p>
+      <button class="btn-form btn-submit" style="max-width: 280px;" onclick="returnToDashboard()">Return to Outbound Dashboard</button>
+    </div>
+
   </div>
 </div>
 
-<div class=\"dashboard-container\">
-  <!-- HERO / PAGE HEADER -->
-  <header class=\"dashboard-header\">
-    <h1><span style=\"color: var(--accent-purple);\">Your 48HR Outbound Lead Engine</span></h1>
-    <p class=\"dashboard-subtext\">\n      Alexander Durig, Ph.D. — Founder, 48‑Hour Loan Proposal™ | Powered by Outbound Engine AI\n    </p>
-  </header>
+<script>
+// Global variables to manage form state and transition hooks
+var currentStep = 1;
+var totalSteps = 4;
+var submitted = false; // Flag triggered by form submission target loading
 
-  <!-- Outbound Timeline Stepper -->
-  <div class=\"timeline-stepper\">
-    <div class=\"step-node completed\" id=\"step-node-1\">
-      <div class=\"step-badge\">1</div>
-      <div class=\"step-label\">ICP Profile</div>
-      <span class=\"step-time\">Setup Done</span>
-    </div>
-    <div class=\"step-node completed\" id=\"step-node-2\">
-      <div class=\"step-badge\">2</div>
-      <div class=\"step-label\">Target Lists</div>
-      <span class=\"step-time\">Files Ingested</span>
-    </div>
-    <div class=\"step-node active\" id=\"step-node-3\">
-      <div class=\"step-badge\">3</div>
-      <div class=\"step-label\">Outbound Campaign</div>
-      <span class=\"step-time\">Warmups & Sending</span>
-    </div>
-    <div class=\"step-node\" id=\"step-node-4\">
-      <div class=\"step-badge\">4</div>
-      <div class=\"step-label\">Leads Delivered</div>
-      <span class=\"step-time\">Active Replies</span>
-    </div>
-    <div class=\"step-node\" id=\"step-node-5\">
-      <div class=\"step-badge\">5</div>
-      <div class=\"step-label\">Optimization</div>
-      <span class=\"step-time\">Scale Sequences</span>
-    </div>
-  </div>
+// Initialize Progress Bar fill
+updateProgressBar();
 
-  <!-- Bento Grid Dashboard -->
-  <div class=\"bento-grid\">
-    
-    <!-- GORGEOUS DYNAMIC FORM BOX: Apollo ICP Onboarding Form Card (Left - col-6) -->
-    <div class=\"bento-card col-6\">
-      <h3>
-        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path d=\"M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z\"/></svg>
-        Apollo ICP Onboarding Form
-      </h3>
-      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;\">
-        Complete this secure form to map your Ideal Customer Profile. This data routes directly into your Google Sheet to generate targeted B2B Apollo.io contact lists!
-      </p>
+function navigateStep(direction) {
+  // Validate standard HTML form fields before proceeding to the next step
+  if (direction === 1) {
+    var activeFields = document.querySelectorAll('#sec-' + currentStep + ' [required]');
+    var stepValid = true;
+    activeFields.forEach(function(field) {
+      if (!field.value || !field.checkValidity()) {
+        field.reportValidity();
+        stepValid = false;
+      }
+    });
+    if (!stepValid) return; // Halt navigation if validation checks fail
+  }
 
-      <!-- Fully Functional Dark Mode Form Connecting to Google Forms -->
-      <form action=\"https://docs.google.com/forms/d/e/1FAIpQLScYifn5cj0ctklEZw4OqepuwIazeMl2m6hN3Xfr5xI2J4Nn0w/formResponse\" method=\"POST\" target=\"_blank\" style=\"margin-top: 1rem;\">
-        
-        <!-- Field 1: Company Name -->
-        <div class=\"form-group\">
-          <label class=\"form-label\" for=\"company-name\">Company Legal Name</label>
-          <input type=\"text\" id=\"company-name\" name=\"entry.1000001\" class=\"form-input\" placeholder=\"e.g. Luxury Transport LLC\" required>
-        </div>
+  // Hide the currently active section block
+  document.getElementById('sec-' + currentStep).classList.remove('active');
+  
+  // Update state pointer
+  currentStep += direction;
 
-        <!-- Field 2: Target Job Titles -->
-        <div class=\"form-group\">
-          <label class=\"form-label\" for=\"target-titles\">Target Job Titles / Personas</label>
-          <input type=\"text\" id=\"target-titles\" name=\"entry.1000002\" class=\"form-input\" placeholder=\"e.g. Logistics Manager, VP Operations\" required>
-        </div>
+  // Show the target section block
+  document.getElementById('sec-' + currentStep).classList.add('active');
 
-        <!-- Field 3: Geographic Scope -->
-        <div class=\"form-group\">
-          <label class=\"form-label\" for=\"target-geo\">Target Geography / Radius</label>
-          <input type=\"text\" id=\"target-geo\" name=\"entry.1000003\" class=\"form-input\" placeholder=\"e.g. El Paso corridor, Texas\" required>
-        </div>
+  // Configure navigation buttons layout based on step position
+  var btnBack = document.getElementById('btn-back');
+  var btnForward = document.getElementById('btn-forward');
 
-        <!-- Field 4: Target Industries -->
-        <div class=\"form-group\">
-          <label class=\"form-label\" for=\"target-industries\">Target Industries / Keywords</label>
-          <input type=\"text\" id=\"target-industries\" name=\"entry.1000004\" class=\"form-input\" placeholder=\"e.g. Shippers, Logistics, Retail Malls\" required>
-        </div>
+  // Back button visibility
+  if (currentStep === 1) {
+    btnBack.style.visibility = 'hidden';
+  } else {
+    btnBack.style.visibility = 'visible';
+  }
 
-        <!-- Action Button to Submit directly to Google Forms -->
-        <button type=\"submit\" class=\"btn-action\" style=\"margin-top: 1.25rem; background-color: var(--accent-purple); color: var(--bg-dark); border-color: var(--accent-purple);\">
-          Lock ICP & Submit to Google Sheets
-        </button>
-      </form>
-    </div>
+  // Forward button style/text transitions on the final step
+  if (currentStep === totalSteps) {
+    btnForward.innerText = 'Lock Parameters & Build List';
+    btnForward.className = 'btn-form btn-submit';
+    btnForward.type = 'submit';
+    // Change click target behavior to submit the HTML form directly
+    btnForward.onclick = null; 
+  } else {
+    btnForward.innerText = 'Next Step';
+    btnForward.className = 'btn-form btn-next';
+    btnForward.type = 'button';
+    btnForward.onclick = function() { navigateStep(1); };
+  }
 
-    <!-- Active Lead Ingestion / CSV Dropbox with Direct Google Forms Link (Right - col-6) -->
-    <div class=\"bento-card col-6\">
-      <h3>
-        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path fill-rule=\"evenodd\" d=\"M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\"/></svg>
-        Domain & Target List Dropbox
-      </h3>
-      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;\">Upload operating list files (`.csv`, `.xlsx`), corporate target domains, or specific company names.</p>
-      
-      <!-- Clickable dropbox linking straight to Google Form upload box -->
-      <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSdGdCSQbRuu0C9cnCSybDf8nUqCHxPOx2BjeTAgk3hvQLbyxQ/viewform?usp=publish-editor\" target=\"_blank\" class=\"upload-zone-link\">
-        <div class=\"upload-zone\">
-          <svg width=\"24\" height=\"24\" fill=\"var(--text-muted)\" viewBox=\"0 0 20 20\" style=\"margin: 0 auto; transition: fill 0.3s ease;\"><path fill-rule=\"evenodd\" d=\"M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm2 5a1 1 0 112 0v1h1a1 1 0 110 2H8v1a1 1 0 11-2 0v-1H5a1 1 0 110-2h1V9z\" clip-rule=\"evenodd\"/></svg>
-          <p style=\"margin-top: 0.75rem;\"><strong>Open Secure Upload Form</strong></p>\n          <span style=\"font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.25rem;\">Click to upload spreadsheets & list sheets via Google Forms</span>\n        </div>\n      </a>\n      \n      <div style=\"background: rgba(188, 19, 254, 0.05); border: 1px solid rgba(188, 19, 254, 0.15); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; font-size: 0.9rem;\">\n        <strong style=\"color: var(--accent-purple); display: flex; align-items: center; gap: 6px;\">\n          <svg width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\" clip-rule=\"evenodd\"/></svg>\n          Google Sheets Automation Active\n        </strong>\n        <p style=\"margin: 0.25rem 0 0 0; font-size: 0.8rem; color: var(--text-secondary);\">Your submissions automatically trigger your Apps Script to establish client-specific target directories.</p>\n      </div>\n    </div>\n\n    <!-- Real-time Outbound Analytics Tracker -->\n    <div class=\"bento-card col-8\">\n      <h3>\n        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path fill-rule=\"evenodd\" d=\"M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z\" clip-rule=\"evenodd\"/></svg>\n        Real-Time Outbound Campaign Monitor\n      </h3>\n      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;\">Tracking outreach momentum, active domains, open percentages, and reply engagement ratios.</p>\n      \n      <div class=\"metric-row\">\n        <div class=\"metric-tile\">\n          <div class=\"metric-value\" id=\"val-procured\">250</div>\n          <div class=\"metric-title\">Leads Procured</div>\n        </div>\n        <div class=\"metric-tile\">\n          <div class=\"metric-value\" id=\"val-delivered\">820</div>\n          <div class=\"metric-title\">Emails Sent</div>\n        </div>\n        <div class=\"metric-tile\">\n          <div class=\"metric-value\" id=\"val-responses\">Analyzing</div>\n          <div class=\"metric-title\">Response Rate</div>\n        </div>\n      </div>\n\n      <div class=\"document-checklist\">\n        <p style=\"font-weight: bold; color: #fff; margin-bottom: 0.5rem; font-size: 0.85rem;\">Ingested Campaign Verification Assets:</p>\n        <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;\">\n          <div class=\"checklist-item\"><span style=\"color: var(--accent-purple);\">✓</span> Outbound target lists parsed successfully</div>\n          <div class=\"checklist-item\"><span style=\"color: var(--accent-purple);\">✓</span> Custom scripting sequences locked</div>\n          <div class=\"checklist-item\" id=\"checklist-pending\"><span style=\"color: var(--accent-purple);\">⏱</span> Outbox sequence warming (Campaign Live soon)</div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Outbound Conversion Gauge -->\n    <div class=\"bento-card col-4\">\n      <h3>\n        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path d=\"M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 110-2h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z\"/></svg>\n        Response Efficiency\n      </h3>\n      <p style=\"color: var(--text-secondary); font-size: 0.85rem;\">The AI Outbound conversion metric, calculating target list reply percentages live.</p>\n      <div class=\"fundability-gauge-container\">\n        <!-- SVG Vector Semi-Circular Dial Gauge -->\n        <svg width=\"180\" height=\"110\" viewBox=\"0 0 100 60\">\n          <path d=\"M 10 50 A 40 40 0 0 1 90 50\" fill=\"none\" stroke=\"#1a2233\" stroke-width=\"8\" stroke-linecap=\"round\" />\n          <path id=\"gauge-active-path\" d=\"M 10 50 A 40 40 0 0 1 90 50\" fill=\"none\" stroke=\"url(#gauge-gradient)\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-dasharray=\"125.6\" stroke-dashoffset=\"125.6\" style=\"transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);\" />\n          <g id=\"gauge-needle\" transform=\"translate(50,50) rotate(-90)\" style=\"transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);\">\n            <polygon points=\"-2,2 0,-38 2,2\" fill=\"#bc13fe\" filter=\"drop-shadow(0 0 4px rgba(188,19,254,0.5))\" />\n            <circle cx=\"0\" cy=\"0\" r=\"4\" fill=\"#bc13fe\" />\n          </g>\n          <defs>\n            <linearGradient id=\"gauge-gradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" stop-color=\"#7a0bc0\" />\n              <stop offset=\"100%\" stop-color=\"#bc13fe\" />\n            </linearGradient>\n          </defs>\n        </svg>\n        <!-- Value Display overlay -->\n        <span class=\"gauge-score\" id=\"gauge-score-display\">--</span>\n        <span class=\"gauge-label\" id=\"gauge-status-text\">Campaign Initializing</span>\n      </div>\n    </div>\n\n    <!-- Elegant Frosted Glass Weekly Lead Sheets Card (Full Width - Unlocked) -->\n    <div class=\"bento-card col-12\" id=\"vault-card\" style=\"background: rgba(19, 26, 38, 0.65); border: 1px solid rgba(188, 19, 254, 0.25); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);\">\n      <!-- Secure Folder Directory Contents -->\n      <h3>\n        <svg width=\"20\" height=\"20\" fill=\"currentColor\" viewBox=\"0 0 20 20\"><path d=\"M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z\"/></svg>\n        Weekly Lead Sheets Download\n      </h3>\n      <p style=\"color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;\">Access and download your verified positive reply leads, cold outbound contacts, and detailed sequence metrics below.</p>\n      \n      <div class=\"vault-files\">\n        <div class=\"file-item\" style=\"background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);\">\n          <span>📊 <strong>48HR Outbound Verified Lead Sheet - Luxury Transport LLC.xlsx</strong> (250 B2B Prospect Records)</span>\n          <a href=\"https://drive.google.com/file/d/18yEla5eJLdGznr4D70nrLIesonNfTVI3/view?usp=sharing\" target=\"_blank\" class=\"btn-demo\" style=\"background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;\">Download Sheets</a>\n        </div>\n        <div class=\"file-item\" style=\"background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);\">\n          <span>✉ <strong>Positive Reply & Booking Transcript Log - Luxury Transport LLC.docx</strong> (Direct Warm Lead Replies)</span>\n          <a href=\"https://docs.google.com/presentation/d/1j0-TpoQU56U-EWztQDz2mszrWVasyMfr/edit?usp=sharing&ouid=102685605056643160340&rtpof=true&sd=true\" target=\"_blank\" class=\"btn-demo\" style=\"background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;\">Download Transcripts</a>\n        </div>\n        <div class=\"file-item\" style=\"background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(188, 19, 254, 0.15);\">\n          <span>📋 <strong>Outbound Metrics & Campaign Analytics Report.pdf</strong> (Detailed Deliverables summary)</span>\n          <a href=\"https://drive.google.com/file/d/1QhbKRBBYOSdvJcxn7joBfD7oqvMzFPo3/view?usp=sharing\" target=\"_blank\" class=\"btn-demo\" style=\"background: var(--accent-purple); color: var(--bg-dark); text-decoration: none;\">Download Report</a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- Interactive Dashboard Controls -->\n  <div class=\"demo-controls\">\n    <h4>Interactive Lead Portal Controls</h4>\n    <p style=\"font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 1rem 0;\">Simulate your clients' live outbox progress, database uploads, metric updates, and positive replies.</p>\n    <div class=\"btn-group\">\n      <button class=\"btn-demo\" id=\"btn-step-1\" onclick=\"setStep(1)\">Step 1 (Targeting Mapped)</button>\n      <button class=\"btn-demo\" id=\"btn-step-2\" onclick=\"setStep(2)\">Step 2 (Raw Target Lists Uploaded)</button>\n      <button class=\"btn-demo active\" id=\"btn-step-3\" onclick=\"setStep(3)\">Step 3 (Outbox Sequences Live)</button>\n      <button class=\"btn-demo\" id=\"btn-step-4\" onclick=\"setStep(4)\">Step 4 (Leads Gathered & Verification)</button>\n      <button class=\"btn-demo\" id=\"btn-step-5\" onclick=\"setStep(5)\">Step 5 (Campaign Optimized & Scaled)</button>\n    </div>\n  </div>\n</div>\n\n<script>\n// State Engine for Dynamic Outbound Metrics, SVG Conversion Dial Gauge\nfunction setStep(stepNumber) {\n  // Update timeline stepper nodes\n  for (let i = 1; i <= 5; i++) {\n    const node = document.getElementById('step-node-' + i);\n    node.classList.remove('active', 'completed');\n    if (i < stepNumber) {\n      node.classList.add('completed');\n    } else if (i === stepNumber) {\n      node.classList.add('active');\n    }\n  }\n\n  // Update control buttons active state\n  for (let i = 1; i <= 5; i++) {\n    const btn = document.getElementById('btn-step-' + i);\n    if (i === stepNumber) {\n      btn.classList.add('active');\n    } else {\n      btn.classList.remove('active');\n    }\n  }\n\n  // Identify targets\n  const valProcured = document.getElementById('val-procured');\n  const valDelivered = document.getElementById('val-delivered');\n  const valResponses = document.getElementById('val-responses');\n  const gaugeScore = document.getElementById('gauge-score-display');\n  const gaugeFill = document.getElementById('gauge-active-path');\n  const gaugeNeedle = document.getElementById('gauge-needle');\n  const gaugeStatus = document.getElementById('gauge-status-text');\n  const pendingCheck = document.getElementById('checklist-pending');\n\n  const arcLength = 125.6;\n\n  if (stepNumber === 1) {\n    valProcured.innerText = '0';\n    valDelivered.innerText = '0';\n    valResponses.innerText = '0.0%';\n    gaugeScore.innerText = '--';\n    gaugeFill.style.strokeDashoffset = arcLength;\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(-90deg)\";\n    gaugeStatus.innerText = \"Setup Underway\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple);\">⏱</span> Outbox sequence warming (Campaign Live soon)';\n  } \n  else if (stepNumber === 2) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '0';\n    valResponses.innerText = '0.0%';\n    gaugeScore.innerText = '--';\n    gaugeFill.style.strokeDashoffset = arcLength;\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(-90deg)\";\n    gaugeStatus.innerText = \"Target Ingestion Complete\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple);\">⏱</span> Sequence launching over the weekend';\n  } \n  else if (stepNumber === 3) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '820';\n    valResponses.innerText = 'Analyzing';\n    gaugeScore.innerText = 'Syncing';\n    // Position needle mid-way for computational modeling\n    gaugeFill.style.strokeDashoffset = arcLength * (1 - 0.45);\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(-10deg)\";\n    gaugeStatus.innerText = \"Analyzing Active Replies...\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple); font-weight: 600;\">✓</span> Outbox engine cold email batches warm & sending';\n  } \n  else if (stepNumber === 4) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '1,450';\n    valResponses.innerText = '8.4%';\n    gaugeScore.innerText = '8.4%';\n    const targetOffset = arcLength * (1 - 0.84);\n    gaugeFill.style.strokeDashoffset = targetOffset;\n    // Rotate needle to 8.4% visual scale representation (180 degrees * 0.84 = 151.2deg. Offset from -90 is 61.2deg)\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(61.2deg)\";\n    gaugeStatus.style.color = \"var(--accent-purple)\";\n    gaugeStatus.innerText = \"Outbox Response Lock\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple); font-weight: 600;\">✓</span> Outbox engine cold email batches warm & sending';\n  } \n  else if (stepNumber === 5) {\n    valProcured.innerText = '250';\n    valDelivered.innerText = '1,450';\n    valResponses.innerText = '8.4%';\n    gaugeScore.innerText = '8.4%';\n    const targetOffset = arcLength * (1 - 0.84);\n    gaugeFill.style.strokeDashoffset = targetOffset;\n    gaugeNeedle.style.transform = \"translate(50,50) rotate(61.2deg)\";\n    gaugeStatus.style.color = \"var(--accent-purple)\";\n    gaugeStatus.innerText = \"Outbox Response Lock\";\n    pendingCheck.innerHTML = '<span style=\"color: var(--accent-purple); font-weight: 600;\">✓</span> Outbox engine cold email batches warm & sending';\n  }\n}\n\n// Initialize step 3: Active Outbox Campaigns\nsetStep(3);\n</script>\n</body>\n</html>
+  updateProgressBar();
+}
+
+function updateProgressBar() {
+  var progressPercent = ((currentStep - 1) / (totalSteps - 1)) * 100;
+  document.getElementById('form-progress').style.width = progressPercent + '%';
+}
+
+function showSuccessScreen() {
+  // Hide form and step control navigators
+  document.getElementById('icp-onboarding-form').style.display = 'none';
+  document.getElementById('form-nav-controls').style.display = 'none';
+  document.querySelector('.form-progress-bar').style.display = 'none';
+  
+  // Reveal beautiful custom success confirmation template
+  document.getElementById('onboarding-success').style.display = 'block';
+}
+
+function returnToDashboard() {
+  // Route client back to dashboard layout
+  window.history.back();
+}
+</script>
+</body>
+</html>
