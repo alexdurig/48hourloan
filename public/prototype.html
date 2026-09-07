@@ -3,160 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client Dashboard | 48-Hour Loan Proposal™</title>
+<title>Client Portal Dashboard | 48-Hour Loan Proposal™</title>
 <style>
-/* Obsidian & Teal Theme Design System */
+/* Modern Midnight Blue Luxury & Teal Design System */
 :root {
-  --bg-dark: #0b0f19;
-  --card-bg: #131a26;
-  --card-border: #1f2a3c;
+  --bg-dark: #080c14;
+  --card-bg: #0f172a;
+  --card-border: #1e293b;
   --accent-teal: #0df2c9;
   --accent-green: #10b981;
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --locked-overlay: rgba(11, 15, 25, 0.7); /* Translucent base for frosting */
+  --accent-gold: #ffd700;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --locked-overlay: rgba(8, 12, 20, 0.75);
 }
 
 body {
   background-color: var(--bg-dark);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
-.dashboard-logo {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 2000;
+/* Header & Navigation Styling */
+.dashboard-header {
+  border-bottom: 1px solid var(--card-border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 48px;
+  height: 48px;
+  background: #1e293b;
+  border: 2px solid var(--accent-teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(13, 242, 201, 0.25);
+}
+
+.brand-badge span {
+  color: var(--accent-teal);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.brand-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+.brand-title p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Main Dashboard Layout */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.5rem;
 }
 
-/* Page Header */
-.dashboard-hero {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--card-border);
-  padding-bottom: 1.5rem;
-}
-.dashboard-hero h1 {
-  font-size: 2.2rem;
-  margin: 0 0 0.5rem 0;
-  color: #fff;
-  font-weight: 700;
-}
-.dashboard-subtext {
-  color: var(--text-secondary);
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* 5-Step Timeline Stepper */
+/* Stepper Progress Timeline */
 .timeline-stepper {
   display: flex;
   justify-content: space-between;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
   overflow-x: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
 .step-node {
   flex: 1;
   text-align: center;
   position: relative;
   min-width: 150px;
 }
+
 .step-node:not(:last-child)::after {
   content: '';
   position: absolute;
   top: 20px;
   left: 50%;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: var(--card-border);
   z-index: 1;
+  transition: background-color 0.4s ease;
 }
+
 .step-node.completed:not(:last-child)::after {
   background-color: var(--accent-green);
 }
+
 .step-badge {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background-color: #1e293b;
   border: 2px solid var(--card-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--text-secondary);
   position: relative;
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .step-node.active .step-badge {
   border-color: var(--accent-teal);
   color: var(--accent-teal);
-  box-shadow: 0 0 10px rgba(13, 242, 201, 0.3);
+  background-color: #0f172a;
+  box-shadow: 0 0 15px rgba(13, 242, 201, 0.4);
 }
+
 .step-node.completed .step-badge {
   background-color: var(--accent-green);
   border-color: var(--accent-green);
   color: var(--bg-dark);
 }
+
 .step-label {
-  margin-top: 0.75rem;
+  margin-top: 0.85rem;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
+
 .step-node.active .step-label {
   color: #fff;
 }
+
 .step-node.completed .step-label {
   color: var(--accent-green);
 }
+
 .step-time {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   display: block;
   margin-top: 0.25rem;
 }
 
-/* Bento Grid */
+/* Bento Grid System */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
   margin-bottom: 3rem;
 }
+
 .bento-card {
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 1.5rem;
+  border-radius: 18px;
+  padding: 1.75rem;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
 }
+
 .bento-card:hover {
-  border-color: #2a3b54;
+  border-color: #334155;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
 .bento-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 1.25rem 0;
+  font-size: 1.15rem;
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+}
+
+.bento-card h3 svg {
+  color: var(--accent-teal);
 }
 
 .col-12 { grid-column: span 12; }
@@ -164,207 +217,444 @@ body {
 .col-6  { grid-column: span 6; }
 .col-4  { grid-column: span 4; }
 
+@media (max-width: 992px) {
+  .col-8, .col-4 { grid-column: span 12; }
+}
+
 @media (max-width: 768px) {
-  .col-8, .col-6, .col-4 { grid-column: span 12; }
+  .col-6 { grid-column: span 12; }
 }
 
-/* Interactive Modules */
-.intake-status {
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-.upload-zone {
-  border: 2px dashed var(--card-border);
-  border-radius: 12px;
-  padding: 2rem 1rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.upload-zone:hover {
-  border-color: var(--accent-teal);
-  background: rgba(13, 242, 201, 0.02);
-}
-.upload-zone p {
-  margin: 0.5rem 0 0 0;
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-}
-.document-checklist {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-.checklist-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.scheduler-widget {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  padding: 1rem;
-  text-align: center;
-}
-.btn-action {
-  background-color: var(--accent-teal);
-  color: var(--bg-dark);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 0.75rem;
-  transition: opacity 0.2s;
-}
-.btn-action:hover {
-  opacity: 0.9;
-}
-
-/* Spectacular SVG semi-circular Gauge Module */
+/* Circular SVG Gauge Module */
 .fundability-gauge-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 180px;
+  height: 220px;
   position: relative;
-}
-.gauge-score {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent-teal);
-  position: absolute;
-  bottom: 35px;
-  text-shadow: 0 0 10px rgba(13, 242, 201, 0.2);
-}
-.gauge-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  position: absolute;
-  bottom: 10px;
+  margin-top: 0.5rem;
 }
 
-/* Beautiful Frosted Glass Locked Vault Overlay */
-.vault-files {
-  display: flex;
-  flex-direction: column;
+.gauge-svg {
+  transform: rotate(-90deg);
+}
+
+.gauge-bg-path {
+  fill: none;
+  stroke: #1e293b;
+  stroke-width: 8px;
+}
+
+.gauge-fill-path {
+  fill: none;
+  stroke: url(#gauge-gradient);
+  stroke-width: 8px;
+  stroke-dasharray: 251.2; /* Correct calculation for full circle stroke */
+  stroke-dashoffset: 251.2;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gauge-needle {
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gauge-needle-polygon {
+  fill: var(--accent-teal);
+  filter: drop-shadow(0 0 5px rgba(13, 242, 201, 0.6));
+}
+
+.gauge-score-value {
+  position: absolute;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--accent-teal);
+  text-shadow: 0 0 15px rgba(13, 242, 201, 0.3);
+  bottom: 55px;
+}
+
+.gauge-score-label {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Beautiful Animated Secure Document Dropbox */
+.upload-zone {
+  border: 2px dashed #334155;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(8, 12, 20, 0.3);
+}
+
+.upload-zone:hover, .upload-zone.dragover {
+  border-color: var(--accent-teal);
+  background: rgba(13, 242, 201, 0.03);
+}
+
+.upload-zone svg {
+  width: 42px;
+  height: 42px;
+  fill: var(--text-muted);
+  margin-bottom: 0.75rem;
+  transition: fill 0.3s, transform 0.3s;
+}
+
+.upload-zone:hover svg {
+  fill: var(--accent-teal);
+  transform: translateY(-4px);
+}
+
+.upload-zone p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.upload-zone span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 0.4rem;
+}
+
+/* Interactive Upload Checklist */
+.document-checklist {
+  margin-top: 1.5rem;
+}
+
+.checklist-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.checklist-items {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.75rem;
 }
-.file-item {
+
+.checklist-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.02);
+  gap: 0.75rem;
+  background: rgba(30, 41, 59, 0.4);
   border: 1px solid var(--card-border);
-  padding: 0.75rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
 }
-.locked-card {
+
+.checklist-status {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.status-complete {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1.5px solid var(--accent-green);
+  color: var(--accent-green);
+}
+
+.status-pending {
+  background: rgba(13, 242, 201, 0.1);
+  border: 1.5px solid var(--accent-teal);
+  color: var(--accent-teal);
+  animation: pulse 1.8s infinite;
+}
+
+/* Beautiful Frosted Glass Monday Deliverables Vault */
+.vault-locked-container {
   position: relative;
 }
-.vault-lock-overlay {
+
+.frosted-glass-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--locked-overlay);
-  /* The Secret Sauce: Frosted Glass Backdrop Blur */
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(15, 23, 42, 0.45);
+  /* Elite backdrop filtering for realistic frosting */
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 10;
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem;
   box-sizing: border-box;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.vault-lock-overlay svg {
-  width: 48px;
-  height: 48px;
-  fill: var(--accent-teal);
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 8px rgba(13, 242, 201, 0.4));
-}
-.vault-lock-overlay p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  max-width: 320px;
-  margin: 0.5rem 0 1.25rem 0;
-}
-.unlocked .vault-lock-overlay {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.05);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Simulation Controls styling */
-.demo-controls {
-  background-color: #111827;
-  border: 1px solid var(--accent-teal);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 3rem;
-}
-.demo-controls h4 {
-  margin: 0 0 0.5rem 0;
-  color: var(--accent-teal);
-}
-.btn-group {
+.lock-glowing-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 2.5px solid var(--accent-teal);
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 25px rgba(13, 242, 201, 0.4);
+  transition: all 0.5s ease;
 }
-.btn-demo {
-  background: #1f2937;
+
+.lock-glowing-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--accent-teal);
+  transition: transform 0.5s ease;
+}
+
+.frosted-glass-overlay:hover .lock-glowing-icon {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(13, 242, 201, 0.6);
+}
+
+.frosted-glass-overlay h4 {
+  margin: 0;
+  font-size: 1.5rem;
   color: #fff;
+  font-weight: 700;
+}
+
+.frosted-glass-overlay p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  max-width: 420px;
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.unlocked .frosted-glass-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.03) translateY(-10px);
+}
+
+/* Vault File Assets Grid */
+.vault-files {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  filter: blur(1.5px); /* Keeps content tantalizingly blurred behind frosting */
+  transition: filter 0.8s ease;
+}
+
+.unlocked .vault-files {
+  filter: none;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30, 41, 59, 0.2);
   border: 1px solid var(--card-border);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.file-item:hover {
+  background: rgba(30, 41, 59, 0.4);
+  border-color: #334155;
+}
+
+.file-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-meta svg {
+  color: var(--accent-teal);
+  flex-shrink: 0;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.file-size {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.btn-download {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-green);
+  border: 1.5px solid var(--accent-green);
   padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
   font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
-.btn-demo.active {
+
+.btn-download:hover {
+  background: var(--accent-green);
+  color: var(--bg-dark);
+}
+
+/* Styled Action Buttons */
+.btn-action {
+  background-color: var(--accent-teal);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.85rem 2rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(13, 242, 201, 0.2);
+}
+
+.btn-action:hover {
+  opacity: 0.95;
+  box-shadow: 0 6px 20px rgba(13, 242, 201, 0.35);
+}
+
+/* Other bento-card elements */
+.card-paragraph {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1.25rem 0;
+}
+
+.call-scheduler-box {
+  background: rgba(8, 12, 20, 0.3);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.call-status-badge {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Interactive Portal Control panel */
+.prototype-controller {
+  background-color: #0b0f19;
+  border: 2px solid var(--accent-teal);
+  padding: 1.75rem;
+  border-radius: 16px;
+  margin-top: 3.5rem;
+  box-shadow: 0 0 25px rgba(13, 242, 201, 0.15);
+}
+
+.prototype-controller h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent-teal);
+  font-size: 1.1rem;
+}
+
+.prototype-controller p {
+  margin: 0 0 1.25rem 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.control-btn-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-simulate {
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid var(--card-border);
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-simulate:hover {
+  border-color: var(--accent-teal);
+}
+
+.btn-simulate.active {
   background: var(--accent-teal);
   color: var(--bg-dark);
-  font-weight: bold;
+  font-weight: 700;
   border-color: var(--accent-teal);
+  box-shadow: 0 0 12px rgba(13, 242, 201, 0.35);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(13, 242, 201, 0.4); }
+  70% { opacity: 1; box-shadow: 0 0 0 6px rgba(13, 242, 201, 0); }
+  100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(13, 242, 201, 0); }
 }
 </style>
 </head>
 <body>
 
-<!-- TOP-RIGHT BRAND LOGO -->
-<div class="dashboard-logo">
-  <!-- Glowing circular badge styled from your official LOGO.png -->
-  <div style="width: 50px; height: 50px; background: #131a26; border: 2px solid var(--accent-teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(13,242,201,0.2);">
-    <span style="color: var(--accent-teal); font-weight: bold; font-size: 1.1rem;">48</span>
+<!-- STICKY TOP-LEVEL NAVIGATION BAR -->
+<header class="dashboard-header">
+  <div class="brand-block">
+    <div class="brand-badge">
+      <span>48</span>
+    </div>
+    <div class="brand-title">
+      <h2>48-Hour Loan Proposal™</h2>
+      <p>Luxury Transport LLC Portal | Guided Client System</p>
+    </div>
   </div>
-</div>
+  <div style="font-size: 0.85rem; color: var(--accent-teal); font-weight: 700; background: rgba(13, 242, 201, 0.1); border: 1px solid rgba(13, 242, 201, 0.3); padding: 0.4rem 0.8rem; border-radius: 6px;">
+    CLIENT ID: LT-9033
+  </div>
+</header>
 
 <div class="dashboard-container">
-  <!-- HERO / PAGE HEADER -->
-  <header class="dashboard-hero">
-    <h1><span style="color: var(--accent-teal);">Your 48‑Hour Loan Proposal™ Web Portal</span></h1>
-    <p class="dashboard-subtext">
-      Alexander Durig, Ph.D. — Founder, 48‑Hour Loan Proposal™ | Creator of the Fundability Ratio™
-    </p>
-  </header>
-
-  <!-- Live Stepper Progress Tracker -->
+  
+  <!-- Active Step Progress Timeline (Dynamic Stepper) -->
   <div class="timeline-stepper">
     <div class="step-node completed" id="step-node-1">
       <div class="step-badge">1</div>
@@ -388,248 +678,414 @@ body {
     </div>
     <div class="step-node" id="step-node-5">
       <div class="step-badge">5</div>
-      <div class="step-label">90-Day Support</div>
-      <span class="step-time">Ongoing Revisions</span>
+      <div class="step-label">90-Day Revision</div>
+      <span class="step-time">Ongoing Support</span>
     </div>
   </div>
 
-  <!-- Bento Grid Dashboard -->
+  <!-- Bento Grid Grid Layout -->
   <div class="bento-grid">
-    <!-- Intake Form Status (Left) -->
+    
+    <!-- Bento Column 1: Intake Status (Left Row 1) -->
     <div class="bento-card col-6">
       <h3>
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z"/></svg>
         Ground Truth Intake Form
       </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Your core business parameters have been securely captured to establish structural underwriting logic.</p>
-      <div class="intake-status">
-        <strong style="color: var(--accent-green);">✓ Submission Received</strong>
-        <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: var(--text-secondary);">Your parameters have been logged into your encrypted master directory folder.</p>
+      <p class="card-paragraph">Your operational core parameters have been securely captured to feed underwriter-aligned financial engineering models directly.</p>
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 10px; padding: 1.1rem; font-size: 0.85rem;">
+        <strong style="color: var(--accent-green); display: flex; align-items: center; gap: 6px;">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Verification Complete
+        </strong>
+        <p style="margin: 0.35rem 0 0 0; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4;">Parameters fully integrated into our master models for El Paso to Chihuahua cross-border bus transport logistics.</p>
       </div>
-      <button class="btn-action" style="background-color: transparent; border: 1px solid var(--accent-teal); color: var(--accent-teal); margin-top: 1.5rem;">View Raw Data Logs</button>
+      <button class="btn-action" style="background-color: transparent; border: 1.5px solid var(--accent-teal); color: var(--accent-teal); margin-top: 1.5rem;" onclick="alert('Raw Data Logs Enclosed.')">View Ground Truth Parameters</button>
     </div>
 
-    <!-- Weekend Sync Sessions (Right) -->
+    <!-- Bento Column 2: Weekend Strategy Session Scheduler (Right Row 1) -->
     <div class="bento-card col-6">
       <h3>
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
         Weekend Strategy Sessions
       </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">We hold two rapid strategy review calls over the weekend to pressure-test risk profiles and bank readiness.</p>
-      <div class="scheduler-widget">
-        <p style="margin: 0 0 0.5rem 0; font-weight: bold; color: #fff; font-size: 0.9rem;">Scheduled Weekend Syncs:</p>
-        <div style="font-size: 0.85rem; display: flex; justify-content: space-around; margin-bottom: 0.5rem;">
-          <span style="color: var(--accent-green);">Call 1: Sat 10:00 AM CST ✓</span>
-          <span style="color: var(--accent-teal);" id="sync-call-2">Call 2: Sun 2:00 PM CST</span>
+      <p class="card-paragraph">We use two intense reviews during Saturday and Sunday to stress-test your debt assumptions and build defense layers before underwriter delivery.</p>
+      <div class="call-scheduler-box">
+        <span style="font-size: 0.8rem; font-weight: 700; color: #fff; text-transform: uppercase;">Active Weekend Schedules</span>
+        <div class="call-status-badge">
+          <span style="color: var(--accent-green); display: flex; align-items: center; gap: 4px;">✔ Session 1: Completed</span>
+          <span style="color: var(--accent-teal); display: flex; align-items: center; gap: 4px;" id="strategy-call-2">⏱ Session 2: Sunday 2 PM</span>
         </div>
       </div>
-      <button class="btn-action">Reschedule Call</button>
+      <button class="btn-action" onclick="alert('Connecting with Alexander Durig Ph.D.')">Reschedule Weekend Calls</button>
     </div>
 
-    <!-- Secure Document Dropbox (Left Row 2) -->
+    <!-- Bento Column 3: Secure Document Dropbox (Left Row 2) -->
     <div class="bento-card col-8">
       <h3>
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
         Secure Document Dropbox
       </h3>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.25rem;">Upload operating tax statements, bank ledgers, or organizational charts directly into your vault folder.</p>
-      <div class="upload-zone" onclick="alert('Secure File Selector Opened.')">
-        <svg width="24" height="24" fill="var(--text-muted)" viewBox="0 0 20 20" style="margin: 0 auto;"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2h-5L9 4H4zm2 5a1 1 0 112 0v1h1a1 1 0 110 2H8v1a1 1 0 11-2 0v-1H5a1 1 0 110-2h1V9z" clip-rule="evenodd"/></svg>
-        <p><strong>Drag & Drop supporting documents here</strong> or click to browse</p>
+      <p class="card-paragraph">Upload your operating tax statements, incorporation paperwork, or ledger sheets. Drag files straight into your private verification bank folder.</p>
+      
+      <!-- Interactive drag over zone with hover and visual styles -->
+      <div class="upload-zone" id="drag-drop-zone">
+        <svg viewBox="0 0 24 24">
+          <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+        </svg>
+        <p><strong>Drag files here</strong> or click to securely browse</p>
+        <span>Supports PDF, DOCX, XLSX, and PNG (Max 50MB)</span>
       </div>
+
+      <!-- Ingested Files Check list -->
       <div class="document-checklist">
-        <p style="font-weight: bold; color: #fff; margin-bottom: 0.5rem; font-size: 0.85rem;">Ingested Verification Assets:</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-          <div class="checklist-item"><span style="color: var(--accent-green);">✓</span> 2-Years Corporate Tax Returns</div>
-          <div class="checklist-item"><span style="color: var(--accent-green);">✓</span> Organization Certificate</div>
-          <div class="checklist-item" id="checklist-pending"><span style="color: var(--accent-teal);">⏱</span> 6-Months Bank Statements (Pending)</div>
+        <div class="checklist-title">Verification Folder Check</div>
+        <div class="checklist-items">
+          <div class="checklist-item">
+            <span class="checklist-status status-complete">✔</span>
+            <span style="color: #fff;">2-Years Corporate Tax Returns</span>
+            <span style="color: var(--text-muted); margin-left: auto;">Verified</span>
+          </div>
+          <div class="checklist-item">
+            <span class="checklist-status status-complete">✔</span>
+            <span style="color: #fff;">Corporate Organization Documents</span>
+            <span style="color: var(--text-muted); margin-left: auto;">Verified</span>
+          </div>
+          <div class="checklist-item" id="checklist-statements-item">
+            <span class="checklist-status status-pending" id="checklist-statements-status">⏱</span>
+            <span style="color: #fff;" id="checklist-statements-text">6-Months Business Bank Statements</span>
+            <span style="color: var(--accent-teal); margin-left: auto;" id="checklist-statements-label">Pending Upload</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Underwriter Analytics / Custom SVG Gauge (Right Row 2) -->
+    <!-- Bento Column 4: Spectacular Underwriter Circular SVG Gauge (Right Row 2) -->
     <div class="bento-card col-4">
       <h3>
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
         Fundability Ratio™
       </h3>
-      <p style="color: var(--text-secondary); font-size: 0.85rem;">Clinical banking credit risk alignment indicator generated over weekend sprints.</p>
+      <p class="card-paragraph" style="font-size: 0.85rem; margin-bottom: 1rem;">Lender credit-risk index compressing profitability, coverage ratios, and leverage indicators [11].</p>
       
+      <!-- Circular Arc Dial Gauge -->
       <div class="fundability-gauge-container">
-        <!-- SVG Vector Semi-Circular Dial Gauge -->
-        <svg width="180" height="110" viewBox="0 0 100 60">
-          <!-- Dial Background Track -->
-          <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#1a2233" stroke-width="8" stroke-linecap="round" />
-          <!-- Animated Gauge Fill -->
-          <path id="gauge-active-path" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="url(#gauge-gradient)" stroke-width="8" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);" />
-          <!-- Dial Needle -->
-          <g id="gauge-needle" transform="translate(50,50) rotate(-90)" style="transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);">
-            <polygon points="-2,2 0,-38 2,2" fill="#0df2c9" filter="drop-shadow(0 0 4px rgba(13,242,201,0.5))" />
-            <circle cx="0" cy="0" r="4" fill="#0df2c9" />
-          </g>
+        <svg width="180" height="180" class="gauge-svg" viewBox="0 0 100 100">
           <defs>
-            <!-- Emerald to Teal gradient representing high fundability -->
-            <linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#10b981" />
-              <stop offset="100%" stop-color="#0df2c9" />
+            <!-- High-energy modern color gradient for excellent scores -->
+            <linearGradient id="gauge-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ef4444" />     <!-- Red -->
+              <stop offset="40%" stop-color="#f59e0b" />    <!-- Orange/Gold -->
+              <stop offset="80%" stop-color="#10b981" />    <!-- Green -->
+              <stop offset="100%" stop-color="#0df2c9" />   <!-- Teal -->
             </linearGradient>
+            <!-- Soft drop shadow for needle -->
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#0df2c9" flood-opacity="0.5"/>
+            </filter>
           </defs>
+          
+          <!-- Outer Reference Tracks -->
+          <circle cx="50" cy="50" r="43" class="gauge-bg-path" />
+          
+          <!-- Main Arc track that fills up -->
+          <!-- 2 * PI * r = 2 * 3.1415 * 40 = ~251.2 total stroke width -->
+          <circle cx="50" cy="50" r="40" class="gauge-fill-path" id="gauge-arc-path" />
+          
+          <!-- Dial ticks -->
+          <path d="M50 6 L50 10 M50 90 L50 94 M6 50 L10 50 M90 50 L94 50" stroke="#334155" stroke-width="1.5" />
+          
+          <!-- Mechanical Center Hub -->
+          <circle cx="50" cy="50" r="4" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+          
+          <!-- Pointer Needle -->
+          <g class="gauge-needle" id="gauge-needle" transform="translate(50,50) rotate(-90)">
+            <polygon points="-2,4 0,-38 2,4" class="gauge-needle-polygon" />
+            <circle cx="0" cy="0" r="2.5" fill="#0df2c9" />
+          </g>
         </svg>
-        <!-- Interactive Value Overlay -->
-        <span class="gauge-score" id="gauge-score-display">--</span>
-        <span class="gauge-label" id="gauge-status-text">Calculations In Progress</span>
+        
+        <!-- Live values changing on simulation clicks -->
+        <span class="gauge-score-value" id="gauge-score">--</span>
+        <span class="gauge-score-label" id="gauge-status">Awaiting Data</span>
       </div>
     </div>
 
-    <!-- Elegant Frosted Glass Client Folder Deliverables (Full Width) -->
+    <!-- Bento Column 5: Spectacular Frosted Glass Monday Deliverables Vault (Full Width) -->
     <div class="bento-card col-12 locked-card" id="vault-card">
-      
-      <!-- Translucent Frosted Glass Window Overlay -->
-      <div class="vault-lock-overlay" id="vault-overlay">
-        <svg viewBox="0 0 24 24">
-          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-        </svg>
-        <h3 style="color: #fff; margin: 0; font-size: 1.3rem;">Monday Deliverables Folder</h3>
-        <p>Your custom loan proposal documents are engineered and packaged inside your secure environment! Settle your remaining balance ($375) to unlock instant access.</p>
-        <button class="btn-action" style="max-width: 280px;" onclick="unlockVaultDemo()">Unlock Secure Folder ($375)</button>
-      </div>
+      <div class="vault-locked-container">
+        
+        <!-- Absolute Overlay with Realistic Blur Backdrop Filters -->
+        <div class="frosted-glass-overlay" id="vault-overlay">
+          <div class="lock-glowing-icon">
+            <svg viewBox="0 0 24 24" id="vault-lock-svg">
+              <!-- Lock Body -->
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+          </div>
+          <h4>Monday Deliverables Vault</h4>
+          <p>Your institutional loan proposals, widescreen slide deck, and 1-minute pitch video are completely engineered, backed by your excellent credit profile. Settle your second payment installment ($375) to unlock instant access [103]!</p>
+          <button class="btn-action" style="max-width: 320px;" onclick="simulateVaultUnlock()">Settle Installment & Unlock ($375)</button>
+        </div>
 
-      <!-- Secure Folder Directory Contents -->
-      <h3>
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
-        Encrypted Proposal Deliverables Folder
-      </h3>
-      <div class="vault-files">
-        <div class="file-item">
-          <span>📄 <strong>48-Hour Clinical Funding Request - Luxury Transport LLC.pdf</strong> (20-Page Decision Support)</span>
-          <a href="#" class="btn-demo" style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none;" onclick="alert('Proposal PDF downloaded.')">Download PDF</a>
+        <!-- Safe Folder Contents (Revealed on Unlock) -->
+        <h3 style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="display: flex; align-items: center; gap: 0.75rem;">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/></svg>
+            Ready Deliverables Directory
+          </span>
+          <span style="font-size: 0.8rem; color: var(--accent-green); font-weight: 700; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.3rem 0.6rem; border-radius: 4px;">SECURE FILE SHA-256</span>
+        </h3>
+        
+        <div class="vault-files">
+          <!-- Item 1: Proposal PDF -->
+          <div class="file-item">
+            <div class="file-meta">
+              <!-- PDF Red Icon style -->
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+              <div class="file-info">
+                <span class="file-name">48-Hour Clinical Funding Request - Luxury Transport LLC.pdf [104]</span>
+                <span class="file-size">20 Pages • PDF Document Document [7, 104]</span>
+              </div>
+            </div>
+            <button class="btn-download" onclick="alert('Downloading Luxury Transport LLC Proposal PDF...')">Download PDF</button>
+          </div>
+          
+          <!-- Item 2: Pitch slides -->
+          <div class="file-item">
+            <div class="file-meta">
+              <!-- Presentation Icon -->
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+              <div class="file-info">
+                <span class="file-name">Financial Pitch Slides - Luxury Transport LLC.pptx [105]</span>
+                <span class="file-size">Underwriter-Aligned Presentation • 10 Slides [105]</span>
+              </div>
+            </div>
+            <button class="btn-download" onclick="alert('Downloading Pitch Slide Deck...')">Download PPTX</button>
+          </div>
+          
+          <!-- Item 3: Video file -->
+          <div class="file-item">
+            <div class="file-meta">
+              <!-- Video Camera Icon -->
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 00-2 2z"/>
+              </svg>
+              <div class="file-info">
+                <span class="file-name">60-Second Promotional Video Pitch - Luxury Transport LLC.mp4 [105]</span>
+                <span class="file-size">High Definition HD (1080p) Video Pitch [105]</span>
+              </div>
+            </div>
+            <button class="btn-download" onclick="alert('Downloading Client Pitch Video...')">Download MP4</button>
+          </div>
         </div>
-        <div class="file-item">
-          <span>📊 <strong>Financial Pitch Deck - Luxury Transport LLC.pptx</strong> (Widescreen Slides)</span>
-          <a href="#" class="btn-demo" style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none;" onclick="alert('PowerPoint slides downloaded.')">Download PPTX</a>
-        </div>
-        <div class="file-item">
-          <span>🎬 <strong>60-Second Video Pitch - Luxury Transport LLC.mp4</strong> (High Definition HD)</span>
-          <a href="#" class="btn-demo" style="background: var(--accent-green); color: var(--bg-dark); text-decoration: none;" onclick="alert('Video downloaded.')">Download MP4</a>
-        </div>
+
       </div>
+    </div>
+
+  </div>
+
+  <!-- Interactive Prototyping Controls (Alexa simulation area) -->
+  <div class="prototype-controller">
+    <h4>Interactive Sandbox Controls</h4>
+    <p>Simulate how the portal updates automatically during your rapid 48-hour weekend work cycles. Watch the Fundability Ratio gauge needle translate, files change states, and the frosted lock mechanism release in real-time!</p>
+    <div class="control-btn-grid">
+      <button class="btn-simulate" id="sim-btn-1" onclick="updatePortalStep(1)">Simulate Step 1 (Intake)</button>
+      <button class="btn-simulate" id="sim-btn-2" onclick="updatePortalStep(2)">Simulate Step 2 (Weekend Syncs)</button>
+      <button class="btn-simulate active" id="sim-btn-3" onclick="updatePortalStep(3)">Simulate Step 3 (Financial Engineering)</button>
+      <button class="btn-simulate" id="sim-btn-4" onclick="updatePortalStep(4)">Simulate Step 4 (Ready to Unlock)</button>
+      <button class="btn-simulate" id="sim-btn-5" onclick="updatePortalStep(5)">Simulate Step 5 (Full Access)</button>
     </div>
   </div>
 
-  <!-- Prototyping Engine Dashboard Controls -->
-  <div class="demo-controls">
-    <h4>Interactive Portal Controls</h4>
-    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 1rem 0;">Use these interactive triggers to simulate client progression and real-time calculations during your standard 48-hour sprint.</p>
-    <div class="btn-group">
-      <button class="btn-demo" id="btn-step-1" onclick="setStep(1)">Step 1 (Intake Started)</button>
-      <button class="btn-demo" id="btn-step-2" onclick="setStep(2)">Step 2 (Calls Active)</button>
-      <button class="btn-demo active" id="btn-step-3" onclick="setStep(3)">Step 3 (Financial Engineering)</button>
-      <button class="btn-demo" id="btn-step-4" onclick="setStep(4)">Step 4 (Ready to Unlock)</button>
-      <button class="btn-demo" id="btn-step-5" onclick="setStep(5)">Step 5 (Folder Unlocked)</button>
-    </div>
-  </div>
 </div>
 
 <script>
-// State Engine for Dynamic SVG Gauge and Frosted Window Unlocks
-function setStep(stepNumber) {
-  // Update the progress stepper nodes
+// State Management for Interactive Gauge, Stepper, and Frosted Glass overlay
+const dragDropZone = document.getElementById('drag-drop-zone');
+
+// Add files and drag over indicators
+dragDropZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dragDropZone.classList.add('dragover');
+});
+
+dragDropZone.addEventListener('dragleave', () => {
+  dragDropZone.classList.remove('dragover');
+});
+
+dragDropZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dragDropZone.classList.remove('dragover');
+  alert('Secure upload processed. File successfully ingested into verification folder!');
+  
+  // Transition check statements manually if dropped in step 1 or 2
+  const statusEl = document.getElementById('checklist-statements-status');
+  const labelEl = document.getElementById('checklist-statements-label');
+  statusEl.className = 'checklist-status status-complete';
+  statusEl.innerText = '✔';
+  labelEl.innerText = 'Uploaded & Verified';
+  labelEl.style.color = 'var(--accent-green)';
+});
+
+function updatePortalStep(step) {
+  // Reset nodes active & completed status
   for (let i = 1; i <= 5; i++) {
     const node = document.getElementById('step-node-' + i);
     node.classList.remove('active', 'completed');
-    if (i < stepNumber) {
+    if (i < step) {
       node.classList.add('completed');
-    } else if (i === stepNumber) {
+    } else if (i === step) {
       node.classList.add('active');
     }
   }
 
-  // Update control buttons active state
+  // Handle active simulate button class
   for (let i = 1; i <= 5; i++) {
-    const btn = document.getElementById('btn-step-' + i);
-    if (i === stepNumber) {
+    const btn = document.getElementById('sim-btn-' + i);
+    if (i === step) {
       btn.classList.add('active');
     } else {
       btn.classList.remove('active');
     }
   }
 
-  // Dynamic elements targeting the SVG Dial Gauge and the Vault Folder
-  const gaugeScore = document.getElementById('gauge-score-display');
-  const gaugeFill = document.getElementById('gauge-active-path');
-  const gaugeNeedle = document.getElementById('gauge-needle');
-  const gaugeStatus = document.getElementById('gauge-status-text');
-  const vault = document.getElementById('vault-card');
-  const call2 = document.getElementById('sync-call-2');
-  const pendingCheck = document.getElementById('checklist-pending');
+  // Get DOM handles for dynamic elements
+  const scoreDisplay = document.getElementById('gauge-score');
+  const statusDisplay = document.getElementById('gauge-status');
+  const activePath = document.getElementById('gauge-arc-path');
+  const needle = document.getElementById('gauge-needle');
+  const vaultCard = document.getElementById('vault-card');
+  const lockSvg = document.getElementById('vault-lock-svg');
+  const strategyCall = document.getElementById('strategy-call-2');
+  
+  const checklistItem = document.getElementById('checklist-statements-item');
+  const checklistStatus = document.getElementById('checklist-statements-status');
+  const checklistLabel = document.getElementById('checklist-statements-label');
 
-  // Total stroke-dasharray is 125.6 representing a semi-circular path arc
-  const arcLength = 125.6;
+  // Math variables for SVG circle stroke calculations
+  // The circle has a radius r of 40, meaning total circumference is 2 * PI * r = ~251.2
+  const maxCircumference = 251.2;
 
-  if (stepNumber === 1) {
-    gaugeScore.innerText = '--';
-    gaugeFill.style.strokeDashoffset = arcLength; // 0%
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)"; // Start of dial
-    gaugeStatus.innerText = "Calculations Pending";
-    vault.classList.remove('unlocked');
-    call2.style.color = "var(--text-secondary)";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-teal);">⏱</span> 6-Months Business Bank Statements (Pending)';
-  } 
-  else if (stepNumber === 2) {
-    gaugeScore.innerText = '--';
-    gaugeFill.style.strokeDashoffset = arcLength; 
-    gaugeNeedle.style.transform = "translate(50,50) rotate(-90deg)";
-    gaugeStatus.innerText = "Calculations Pending";
-    vault.classList.remove('unlocked');
-    call2.style.color = "var(--accent-teal)";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-green);">✓</span> 6-Months Business Bank Statements';
-  } 
-  else if (stepNumber === 3) {
-    gaugeScore.innerText = 'Analyzing';
-    // Position needle and arc mid-way for computational modeling
-    gaugeFill.style.strokeDashoffset = arcLength * (1 - 0.50); // 50%
-    gaugeNeedle.style.transform = "translate(50,50) rotate(0deg)"; // Center of dial
-    gaugeStatus.innerText = "Stress-Testing DSCR...";
-    vault.classList.remove('unlocked');
-    call2.style.color = "var(--accent-green)";
-    pendingCheck.innerHTML = '<span style="color: var(--accent-green);">✓</span> 6-Months Business Bank Statements';
-  } 
-  else if (stepNumber === 4) {
-    gaugeScore.innerText = '82.4'; // Real Luxury Transport LLC Fundability Ratio
-    // 82.4% fill Calculation
-    const targetOffset = arcLength * (1 - 0.824); 
-    gaugeFill.style.strokeDashoffset = targetOffset;
-    // Rotate needle to 82.4% of arc (180 degrees * 0.824 = 148.32 degrees. Offset from -90 is 58.32)
-    gaugeNeedle.style.transform = "translate(50,50) rotate(58.32deg)"; 
-    gaugeStatus.style.color = "var(--accent-green)";
-    gaugeStatus.innerText = "Fundability Ratio™ Lock";
-    vault.classList.remove('unlocked');
-    call2.style.color = "var(--accent-green)";
-  } 
-  else if (stepNumber === 5) {
-    gaugeScore.innerText = '82.4';
-    const targetOffset = arcLength * (1 - 0.824);
-    gaugeFill.style.strokeDashoffset = targetOffset;
-    gaugeNeedle.style.transform = "translate(50,50) rotate(58.32deg)";
-    gaugeStatus.style.color = "var(--accent-green)";
-    gaugeStatus.innerText = "Fundability Ratio™ Lock";
-    // Slide the Frosted Window away
-    vault.classList.add('unlocked');
-    call2.style.color = "var(--accent-green)";
+  if (step === 1) {
+    // Step 1: Intake Active
+    scoreDisplay.innerText = '--';
+    statusDisplay.innerText = 'Awaiting Data';
+    statusDisplay.style.color = 'var(--text-muted)';
+    
+    // Circle offset 251.2 = 0% filled, rotation at start (-90deg)
+    activePath.style.strokeDashoffset = maxCircumference;
+    needle.style.transform = 'translate(50,50) rotate(-90deg)';
+    
+    // Force locked state
+    vaultCard.classList.remove('unlocked');
+    lockSvg.style.transform = 'rotate(0deg)';
+    strategyCall.innerHTML = '⏱ Session 2: Sunday 2 PM';
+    strategyCall.style.color = 'var(--text-muted)';
+    
+    // Checklist pending
+    checklistStatus.className = 'checklist-status status-pending';
+    checklistStatus.innerText = '⏱';
+    checklistLabel.innerText = 'Pending Upload';
+    checklistLabel.style.color = 'var(--accent-teal)';
+  }
+  else if (step === 2) {
+    // Step 2: Strategy Calls Session
+    scoreDisplay.innerText = '--';
+    statusDisplay.innerText = 'Analyzing Files';
+    statusDisplay.style.color = 'var(--accent-teal)';
+    
+    activePath.style.strokeDashoffset = maxCircumference;
+    needle.style.transform = 'translate(50,50) rotate(-90deg)';
+    
+    vaultCard.classList.remove('unlocked');
+    strategyCall.innerHTML = '⚡ Session 2: Active';
+    strategyCall.style.color = 'var(--accent-teal)';
+    
+    // Checklist complete
+    checklistStatus.className = 'checklist-status status-complete';
+    checklistStatus.innerText = '✔';
+    checklistLabel.innerText = 'Uploaded & Verified';
+    checklistLabel.style.color = 'var(--accent-green)';
+  }
+  else if (step === 3) {
+    // Step 3: Computational Financial Modeling
+    scoreDisplay.innerText = 'Modeling';
+    scoreDisplay.style.fontSize = '2rem';
+    scoreDisplay.style.bottom = '60px';
+    statusDisplay.innerText = 'Stress-Testing DSCR';
+    statusDisplay.style.color = 'var(--accent-teal)';
+    
+    // Fill path halfway
+    activePath.style.strokeDashoffset = maxCircumference * 0.5;
+    needle.style.transform = 'translate(50,50) rotate(90deg)';
+    
+    vaultCard.classList.remove('unlocked');
+    strategyCall.innerHTML = '✔ Session 2: Completed';
+    strategyCall.style.color = 'var(--accent-green)';
+    
+    checklistStatus.className = 'checklist-status status-complete';
+    checklistStatus.innerText = '✔';
+    checklistLabel.innerText = 'Uploaded & Verified';
+    checklistLabel.style.color = 'var(--accent-green)';
+  }
+  else if (step === 4) {
+    // Step 4: System Completed, Waiting Payment Unlock
+    scoreDisplay.innerText = '82.4';
+    scoreDisplay.style.fontSize = '2.75rem';
+    scoreDisplay.style.bottom = '55px';
+    statusDisplay.innerText = 'Highly Fundable';
+    statusDisplay.style.color = 'var(--accent-green)';
+    
+    // Fill path to 82.4% (Offset: Circumference * (1 - pct))
+    const offset = maxCircumference * (1 - 0.824);
+    activePath.style.strokeDashoffset = offset;
+    
+    // Rotation mapping: rotate 360 degrees total * 82.4% = 296.6 degrees. Start rotation is at -90deg.
+    // Rotate to match stroke offset
+    const rotateAngle = (360 * 0.824) - 90;
+    needle.style.transform = `translate(50,50) rotate(${rotateAngle}deg)`;
+    
+    vaultCard.classList.remove('unlocked');
+    lockSvg.style.transform = 'rotate(0deg)';
+    strategyCall.innerHTML = '✔ Session 2: Completed';
+    strategyCall.style.color = 'var(--accent-green)';
+  }
+  else if (step === 5) {
+    // Step 5: Deliverables folder open
+    scoreDisplay.innerText = '82.4';
+    scoreDisplay.style.fontSize = '2.75rem';
+    scoreDisplay.style.bottom = '55px';
+    statusDisplay.innerText = 'Highly Fundable';
+    statusDisplay.style.color = 'var(--accent-green)';
+    
+    const offset = maxCircumference * (1 - 0.824);
+    activePath.style.strokeDashoffset = offset;
+    
+    const rotateAngle = (360 * 0.824) - 90;
+    needle.style.transform = `translate(50,50) rotate(${rotateAngle}deg)`;
+    
+    // Unlock vault
+    vaultCard.classList.add('unlocked');
+    // Rotate key inside SVG icon for polished look
+    lockSvg.style.transform = 'rotate(180deg)';
+    strategyCall.innerHTML = '✔ Session 2: Completed';
+    strategyCall.style.color = 'var(--accent-green)';
   }
 }
 
-// Function to simulate user making their final weekend payment installment
-function unlockVaultDemo() {
-  document.getElementById('vault-card').classList.add('unlocked');
-  setStep(5);
-  alert('Payment Verified! Secure Portal Folder and Monday Deliverables have been unlocked.');
+function simulateVaultUnlock() {
+  alert('Success! Payment validated. The Monday Deliverables secure folder has been decrypted and unlocked.');
+  updatePortalStep(5);
 }
 
-// Initialize on Step 3: Financial Engineering
-setStep(3);
+// Initial setup starts at step 3: Financial Engineering modeling
+updatePortalStep(3);
 </script>
+
 </body>
 </html>
-
-
