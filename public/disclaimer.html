@@ -7,7 +7,7 @@
     <!-- Global Stylesheet -->
     <link rel="stylesheet" href="/assets/css/global.css">
 
-    <title>About 48-Hour Loan Proposal&#8482</title>
+    <title>Disclaimer</title>
 </head>
 
 <body>
@@ -28,8 +28,8 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal™");
-                html = html.replace("[[PAGE_SUBTITLE]]", "Everything you ever wanted to know about 48HR but were afraid to ask.");
+                html = html.replace("[[PAGE_TITLE]]", "Disclaimer");
+                html = html.replace("[[PAGE_SUBTITLE]]", "No Suprises");
                 document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
@@ -85,4 +85,54 @@
 
         <h2>4. Third‑Party Links and Services</h2>
         <p>
-            Our website may contain links to
+            Our website may contain links to third‑party websites or services. These links are provided for convenience
+            only. We do not endorse, control, or assume responsibility for the content, policies, or practices of any
+            third‑party site or service.
+        </p>
+
+        <hr>
+
+        <h2>5. Service Availability</h2>
+        <p>
+            While we strive to maintain uninterrupted access to our website and services, we make no guarantees
+            regarding uptime, availability, or the absence of technical issues.
+        </p>
+
+        <hr>
+
+        <h2>6. Limitation of Liability</h2>
+        <p>
+            To the fullest extent permitted by law, 48HR shall not be liable for any direct, indirect, incidental,
+            consequential, or special damages arising from:
+        </p>
+
+        <ul>
+            <li>Use of our website or services</li>
+            <li>Reliance on any information provided</li>
+            <li>Decisions made based on our documents</li>
+            <li>Interactions with lenders or third‑party partners</li>
+        </ul>
+
+        <p>
+            Your use of our services is at your own risk.
+        </p>
+
+        <hr>
+
+        <h2>7. Changes to This Disclaimer</h2>
+        <p>
+            We may update this Disclaimer from time to time. The “Effective Date” above reflects the most recent
+            revision. Continued use of our website or services after changes indicates acceptance of the updated terms.
+        </p>
+
+        <hr>
+
+        <h2>8. Contact Information</h2>
+        <p>If you have questions about this Disclaimer, contact us:</p>
+
+        <p><strong>48‑Hour Loan Proposal</strong><br>
+        Email: <strong>support@48hrloanproposal.com</strong><br>
+        Website: <strong>www.48hrloanproposal.com</strong></p>
+    </main>
+</body>
+</html> 
