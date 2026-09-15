@@ -13,6 +13,9 @@ o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+
 o.onload=function(){window.trackingFunctions.onLoad({appId:"6a9d0212a2744400205db976"})},
 document.head.appendChild(o)}initApollo();</script>
 </head>
+
+<body>
+
     <!-- NAV BAR (top of page, no logo above it) -->
     <div id="nav-placeholder"></div>
     <script>
@@ -21,8 +24,9 @@ document.head.appendChild(o)}initApollo();</script>
             .then(html => {
                 document.getElementById("nav-placeholder").innerHTML = html;
             });
+    </script>
 
-        <!-- HERO (single logo + single title) -->
+    <!-- HERO (single logo + single title) -->
     <div id="hero-placeholder"></div>
     <script>
         fetch("/components/Hero.html")
