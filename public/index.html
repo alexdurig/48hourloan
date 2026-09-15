@@ -30,7 +30,7 @@ document.head.appendChild(o)}initApollo();</script>
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
-                html = html.replace("[[PAGE_SUBTITLE]]", "The Modern Alternative to Traditional BUsiness Plans.");
+                html = html.replace("[[PAGE_SUBTITLE]]", "The Modern Alternative to Traditional Business Plans.");
                 document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
