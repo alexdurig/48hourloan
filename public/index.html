@@ -33,7 +33,7 @@ document.head.appendChild(o)}initApollo();</script>
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal&#8482");
-                html = html.replace("[[PAGE_SUBTITLE]]", <b>"We will give you the most thorough, amazing, unbelievable loan proposal service, guaranteed, or it's free."</b>);
+                <b>html = html.replace("[[PAGE_SUBTITLE]]", <b>"We will give you the most thorough, amazing, unbelievable loan proposal service, guaranteed, or it's free."</b>);
                 document.getElementById("hero-placeholder").innerHTML = html;
             });
     </script>
