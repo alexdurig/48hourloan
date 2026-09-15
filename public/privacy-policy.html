@@ -2,8 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>48‑Hour Loan Proposal — Privacy Policy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <title>Privacy Policy</title>
+</head>
+
+<body>
+
+    <!-- NAV BAR (top of page, no logo above it) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "Privacy Policy");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Your Privacy Is 100% Assured");
+                document.getElementById("hero-placeholder").innerHTML = html;
+                
+            });
+    </script>
+
+   <!-- MAIN CONTENT -->
+
+
 </head>
 <body>
     <main>
