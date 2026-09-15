@@ -32,11 +32,11 @@ document.head.appendChild(o)}initApollo();</script>
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal&#8482");
+                html = html.replace("[[PAGE_TITLE]]", <span title="About 48-Hour Loan Proposal&#8482">Move your mouse over me!</span>);
                 html = html.replace("[[PAGE_SUBTITLE]]", "The modern alternative to the traditional business plan.");
                 document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
     </script>
 <span style="background-image: url(https://i0.wp.com/www.learnically.com/wp-content/uploads/2023/05/html-strucher.jpg resize=768%2C432&ssl=1);  font-size: 20pt; ">Learnically presents...</span>
-<span title="this is the tooltip.">Move your mouse over me!</span>
+<span title="About 48-Hour Loan Proposal&#8482">Move your mouse over me!</span>
