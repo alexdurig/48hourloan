@@ -28,8 +28,9 @@
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "Terms of Use");
-
+                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™ Terms of Use");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Ground Rules and Guidelines");
+                document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
     </script>
