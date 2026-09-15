@@ -21,21 +21,19 @@ document.head.appendChild(o)}initApollo();</script>
             .then(html => {
                 document.getElementById("nav-placeholder").innerHTML = html;
             });
-    </script>
 
-   <!-- HERO (single logo + single title) -->
+        <!-- HERO (single logo + single title) -->
     <div id="hero-placeholder"></div>
     <script>
         fetch("/components/Hero.html")
             .then(r => r.text())
             .then(html => {
-                html = html.replace("[[PAGE_TITLE]]", "48-Hour Loan Proposal™");
-                html = html.replace("[[PAGE_SUBTITLE]]", "The Modern Alternative to Traditional Business Plans.");
+                html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal™");
+                html = html.replace("[[PAGE_SUBTITLE]]", "Everything you ever wanted to know about 48HR but were afraid to ask.");
                 document.getElementById("hero-placeholder").innerHTML = html;
-               
-
-
-    <!-- MAIN CONTENT -->
+                
+            });
+    </script>
 
     <div class="content">
         <p><b>The Business Plan Problem for Borrowers</b> 
