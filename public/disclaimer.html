@@ -29,7 +29,7 @@
             .then(r => r.text())
             .then(html => {
                 html = html.replace("[[PAGE_TITLE]]", "Disclaimer");
-                html = html.replace("[[PAGE_SUBTITLE]]", "No Suprises");
+                html = html.replace("[[PAGE_SUBTITLE]]", "What You Can Expect - No Suprises");
                 document.getElementById("hero-placeholder").innerHTML = html;
                 
             });
