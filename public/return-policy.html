@@ -1,3 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    <title>48-Hour Loan Proposal&#8482</title>
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"6a9d0212a2744400205db976"})},
+document.head.appendChild(o)}initApollo();</script>
+</head>
+
+<body>
+
+    <!-- NAV BAR (top of page, no logo above it) -->
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("/components/Nav.html")
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("nav-placeholder").innerHTML = html;
+            });
+    </script>
+
+    <!-- HERO (single logo + single title) -->
+    <div id="hero-placeholder"></div>
+    <script>
+        fetch("/components/Hero.html")
+            .then(r => r.text())
+            .then(html => {
+                html = html.replace("[[PAGE_TITLE]]", "About 48-Hour Loan Proposal&#8482");
+                html = html.replace("[[PAGE_SUBTITLE]]", "The modern alternative to the traditional business plan.");
+                document.getElementById("hero-placeholder").innerHTML = html;
+                
+            });
+    </script>
 <span style="background-image: url(https://i0.wp.com/www.learnically.com/wp-content/uploads/2023/05/html-strucher.jpg resize=768%2C432&ssl=1);  font-size: 20pt; ">Learnically presents...</span>
 <span title="this is the tooltip.">Move your mouse over me!</span>
